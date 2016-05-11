@@ -2,26 +2,27 @@ package com.spring.example.core.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
- * Master data
+ * Dynamic Role list (created base on permissions)
  *
  */
 @Entity
-@Table(name = "role")
+@Table(name = "admin_roles")
 public class AdminRole extends BaseEntity {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 7409753212591523466L;
 
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	protected int id;
+	
 	@Column(name = "name", length = 100)
 	private String name;
-	
-	@Column(name = "name_display", columnDefinition = "NVARCHAR(100)")
-	private String nameDisplay;
 	
 	@Column( name = "description" , columnDefinition = "TEXT")
 	private String description;
@@ -45,13 +46,11 @@ public class AdminRole extends BaseEntity {
 		this.description = description;
 	}
 
-	public String getNameDisplay() {
-		return nameDisplay;
+	public int getId() {
+		return id;
 	}
 
-	public void setNameDisplay(String nameDisplay) {
-		this.nameDisplay = nameDisplay;
+	public void setId(int id) {
+		this.id = id;
 	}
-	
-	
 }

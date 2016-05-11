@@ -11,20 +11,20 @@ import javax.persistence.Table;
  *
  */
 @Entity
-@Table(name = "admin_account_permissions")
-public class AdminAccountPermission extends BaseEntity {
+@Table(name = "admin_account_roles")
+public class AdminAccountRole extends BaseEntity {
 
-	private static final long serialVersionUID = -1624474693065292012L;
+	private static final long serialVersionUID = -9018327487254464298L;
 
 	@Id
 	@Column(name = "login_name", unique=true ,length = 50)
 	private String loginName;
 
 	@Id
-	@Column(name = "permission_name")
-	private String permissionName;
+	@Column(name = "role_id")
+	private int roleId;
 
-	public AdminAccountPermission() {
+	public AdminAccountRole() {
 	}
 
 	public String getLoginName() {
@@ -35,11 +35,11 @@ public class AdminAccountPermission extends BaseEntity {
 		this.loginName = loginName;
 	}
 
-	public String getPermissionName() {
-		return permissionName;
+	public int getRoleId() {
+		return roleId;
 	}
 
-	public void setPermissionName(String permissionName) {
-		this.permissionName = permissionName;
+	public void setRoleId(int roleId) {
+		this.roleId = roleId;
 	}
 }

@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "admin_account")
+@Table(name = "admin_accounts")
 public class AdminAccount extends BaseEntity {
 	private static final long serialVersionUID = -61352121879032316L;
 
@@ -14,7 +14,7 @@ public class AdminAccount extends BaseEntity {
 	@Column(name = "password", length = 500)
 	private String password;
 	@Column(name = "status")
-	private int status;
+	private Integer status;
 
 	public AdminAccount() {
 	}
@@ -34,13 +34,12 @@ public class AdminAccount extends BaseEntity {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	public int getStatus() {
+
+	public Integer getStatus() {
 		return status;
 	}
 
-	public void setStatus(int status) {
+	public void setStatus(Integer status) {
 		this.status = status;
 	}
-
 }

@@ -2,13 +2,15 @@ package com.spring.example.core.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "admin_account")
+@Table(name = "admin_profiles")
 public class AdminProfile extends BaseEntity {
 	private static final long serialVersionUID = 2214068797533736005L;
 	
+	@Id
 	@Column(name = "login_name", unique=true ,length = 50)
 	private String loginName;
 	@Column(name = "full_name", columnDefinition = "NVARCHAR(100)")
