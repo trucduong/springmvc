@@ -20,6 +20,7 @@ import com.freelancer.javitranslate.model.entity.Account;
 import com.freelancer.javitranslate.model.entity.AccountPermission;
 import com.freelancer.javitranslate.model.entity.PermissionDetail;
 import com.freelancer.javitranslate.utils.ApplicationConstant;
+import com.spring.example.core.util.AccountStatus;
 
 public class UserDetailsServiceImpl implements UserDetailsService {
 	 	
@@ -62,6 +63,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 			List<GrantedAuthority> Result = new ArrayList<GrantedAuthority>(setAuths);
 	 
 			return Result;
+			
 		}
 	 
 		

@@ -2,8 +2,12 @@ package com.spring.example.core.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import com.spring.example.core.util.PermissionStatus;
 
 /**
  * System permissions
@@ -28,8 +32,9 @@ public class AdminPermission extends BaseEntity {
 	@Column( name = "description" , columnDefinition = "TEXT")
 	private String description;
 	
-	@Column(name = "status")
-	private Integer status;
+	@Enumerated(EnumType.STRING)
+	@Column(name = "status", length = 50)
+	private PermissionStatus status;
 
 	public String getName() {
 		return name;
@@ -55,11 +60,11 @@ public class AdminPermission extends BaseEntity {
 		this.description = description;
 	}
 
-	public Integer getStatus() {
+	public PermissionStatus getStatus() {
 		return status;
 	}
 
-	public void setStatus(Integer status) {
+	public void setStatus(PermissionStatus status) {
 		this.status = status;
 	}
 }

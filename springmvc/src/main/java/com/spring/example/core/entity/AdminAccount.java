@@ -2,7 +2,11 @@ package com.spring.example.core.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Table;
+
+import com.spring.example.core.util.AccountStatus;
 
 @Entity
 @Table(name = "admin_accounts")
@@ -11,10 +15,13 @@ public class AdminAccount extends BaseEntity {
 
 	@Column(name = "login_name", unique=true ,length = 50)
 	private String loginName;
+	
 	@Column(name = "password", length = 500)
 	private String password;
-	@Column(name = "status")
-	private Integer status;
+	
+	@Enumerated(EnumType.STRING)
+	@Column(name = "status", length = 50)
+	private AccountStatus status;
 
 	public AdminAccount() {
 	}
@@ -35,11 +42,11 @@ public class AdminAccount extends BaseEntity {
 		this.password = password;
 	}
 
-	public Integer getStatus() {
+	public AccountStatus getStatus() {
 		return status;
 	}
 
-	public void setStatus(Integer status) {
+	public void setStatus(AccountStatus status) {
 		this.status = status;
 	}
 }
