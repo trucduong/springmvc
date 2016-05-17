@@ -2,9 +2,12 @@ package com.spring.example.core.dao;
 
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -15,6 +18,7 @@ import org.apache.commons.lang.StringUtils;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 
+import com.spring.example.core.dto.MapDto;
 import com.spring.example.core.entity.BaseEntity;
 
 public class BaseDao<T extends BaseEntity> implements Serializable {
@@ -70,8 +74,14 @@ public class BaseDao<T extends BaseEntity> implements Serializable {
 		getEm().flush();
 	}
 
-	public void removeById(int id) {
-		String strQuery = " DELETE FROM " + getClassName() + " WHERE id = " + id;
+	public void removeBy(String column, int value) {
+		String strQuery = " DELETE FROM " + getClassName() + " WHERE " + column + " = " + value;
+		Query query = getEm().createQuery(strQuery);
+		query.executeUpdate();
+	}
+
+	public void removeBy(String column, String value) {
+		String strQuery = " DELETE FROM " + getClassName() + " WHERE " + column + " = '" + value + "'";
 		Query query = getEm().createQuery(strQuery);
 		query.executeUpdate();
 	}
@@ -190,7 +200,7 @@ public class BaseDao<T extends BaseEntity> implements Serializable {
 	 *            technical id.
 	 * @return object extends {@link BaseEntity}
 	 */
-	public T find(int id) {
+	public T find(Object id) {
 		T persistent = getEm().find(getPersistentClass(), id);
 		if (persistent == null) {
 			return null;
@@ -209,7 +219,7 @@ public class BaseDao<T extends BaseEntity> implements Serializable {
 	 * @param refresh
 	 * @return object extends {@link BaseEntity}
 	 */
-	public T find(int id, boolean refresh) {
+	public T find(Object id, boolean refresh) {
 		T persistent = getEm().find(getPersistentClass(), id);
 		if (persistent == null) {
 			return null;
@@ -471,5 +481,80 @@ public class BaseDao<T extends BaseEntity> implements Serializable {
 			}
 		}
 		return query.executeUpdate();
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<MapDto> executeQuery(String queryStr, String[] columns, Map<String, Object> params) {
+
+		List<MapDto> returnValues = new ArrayList<MapDto>();
+
+		// check columns
+		if (columns == null || columns.length == 0) {
+			return returnValues;
+		}
+
+		Query query = getEm().createQuery(queryStr);
+		if (params != null && !params.isEmpty()) {
+			Set<String> keyset = params.keySet();
+			for (String key : keyset) {
+				query.setParameter(key, params.get(key));
+			}
+		}
+
+		List<Object[]> results = query.getResultList();
+		if (results != null && !results.isEmpty()) {
+			if (columns.length > 1) {
+				for (Object[] object : results) {
+					MapDto item = new MapDto();
+					for (int i = 0; i < columns.length; i++) {
+						item.put(columns[i], object[i]);
+					}
+
+					returnValues.add(item);
+				}
+			} else {
+				for (Object object : results) {
+					MapDto item = new MapDto();
+					item.put(columns[0], object);
+
+					returnValues.add(item);
+				}
+			}
+		}
+
+		return returnValues;
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<MapDto> executeNativeQuery(String queryStr, String[] columns, Map<String, Object> params) {
+
+		List<MapDto> returnValues = new ArrayList<MapDto>();
+
+		// check columns
+		if (columns == null || columns.length == 0) {
+			return returnValues;
+		}
+
+		Query query = getEm().createNativeQuery(queryStr);
+		if (params != null && !params.isEmpty()) {
+			Set<String> keyset = params.keySet();
+			for (String key : keyset) {
+				query.setParameter(key, params.get(key));
+			}
+		}
+
+		List<Object[]> results = query.getResultList();
+		if (results != null && !results.isEmpty()) {
+			for (Object[] object : results) {
+				MapDto item = new MapDto();
+				for (int i = 0; i < columns.length; i++) {
+					item.put(columns[i], object[i]);
+				}
+
+				returnValues.add(item);
+			}
+		}
+
+		return returnValues;
 	}
 }

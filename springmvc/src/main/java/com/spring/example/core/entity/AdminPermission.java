@@ -18,6 +18,8 @@ import com.spring.example.core.util.PermissionStatus;
 public class AdminPermission extends BaseEntity {
 
 	private static final long serialVersionUID = 2243399028554666270L;
+	
+	public static final String PERMISSION_NAME = "name";
 
 	/**
 	 * mapping to spring security role

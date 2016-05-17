@@ -11,22 +11,22 @@
 		<!-- access denied page -->
 		<access-denied-handler error-page="/admin-login" />
 		<form-login 
-		    login-page="/admin-login" 
-		    default-target-url="/admin/profile"
-			authentication-failure-url="/admin-login?error" 
+			login-page="/admin/login"
+			default-target-url="/admin/profile"
+			authentication-failure-url="/admin/login?error" 
 			username-parameter="username"
 			password-parameter="password" />
-		<logout logout-success-url="/admin-login?logout" delete-cookies="JSESSIONID" invalidate-session="true"/>
+		<logout logout-success-url="/admin/login?logout" delete-cookies="JSESSIONID" invalidate-session="true"/>
 		<!-- enable csrf protection -->
 		<csrf />
 		<session-management invalid-session-url="/" session-fixation-protection="newSession">
-		   <concurrency-control max-sessions="1" error-if-maximum-exceeded="true" />
+			<concurrency-control max-sessions="1" error-if-maximum-exceeded="true" />
 		</session-management>
 	</http>
 
 	<authentication-manager>
 		<authentication-provider user-service-ref="userDetailsServiceImpl" >
-			<password-encoder ref="encoder" />    
+			<password-encoder ref="encoder" />
 		</authentication-provider>
 	</authentication-manager>
 
