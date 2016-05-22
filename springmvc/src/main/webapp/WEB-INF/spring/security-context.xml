@@ -12,7 +12,7 @@
 		<access-denied-handler error-page="/admin-login" />
 		<form-login 
 			login-page="/admin/login"
-			default-target-url="/admin/profile"
+			default-target-url="/admin/home"
 			authentication-failure-url="/admin/login?error" 
 			username-parameter="username"
 			password-parameter="password" />

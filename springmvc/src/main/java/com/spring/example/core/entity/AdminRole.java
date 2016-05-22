@@ -21,7 +21,7 @@ public class AdminRole extends BaseEntity {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	protected int id;
 	
-	@Column(name = "name", length = 100)
+	@Column(name = "role_name", length = 100)
 	private String name;
 	
 	@Column( name = "description" , columnDefinition = "TEXT")

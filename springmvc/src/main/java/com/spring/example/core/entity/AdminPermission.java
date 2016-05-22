@@ -19,13 +19,13 @@ public class AdminPermission extends BaseEntity {
 
 	private static final long serialVersionUID = 2243399028554666270L;
 	
-	public static final String PERMISSION_NAME = "name";
+	public static final String PERMISSION_NAME = "permission_name";
 
 	/**
 	 * mapping to spring security role
 	 */
 	@Id
-	@Column(name = "name", length = 100)
+	@Column(name = "permission_name", length = 100)
 	private String name;
 
 	@Column(name = "display_name", columnDefinition = "NVARCHAR(100)")
