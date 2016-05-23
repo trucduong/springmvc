@@ -1,1 +1,22 @@
 @CHARSET "UTF-8";
+header {
+	
+}
+
+footer {
+	
+}
+
+section.container {
+	width: 100%;
+}
+
+section.left {
+	width: 30%;
+	float: left;
+}
+
+section.content {
+	width: 70%;
+	float: right;
+}

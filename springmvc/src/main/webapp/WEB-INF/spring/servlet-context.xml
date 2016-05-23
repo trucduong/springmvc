@@ -15,8 +15,7 @@
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving 
 		up static resources in the ${webappRoot}/resources directory -->
-	<mvc:resources mapping="/admin/resources/**" location="/admin/resources/" />
-	<mvc:resources mapping="/resources/**" location="/user/resources/" />
+	<mvc:resources mapping="/resources/**" location="/resources/" />
 
 	<!-- Enable @Transactional annotation -->
 	<tx:annotation-driven transaction-manager="transactionManager" />
@@ -68,5 +67,14 @@
 	<bean id="encoder"
 		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
 		<constructor-arg name="strength" value="11" />
+	</bean>
+
+	<bean id="localeResolver"
+		class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
+		<property name="defaultLocale" value="en" />
+	</bean>
+	
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename" value="messages" />
 	</bean>
 </beans>
