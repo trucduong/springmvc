@@ -4,7 +4,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 import com.spring.example.core.util.AccountStatus;
@@ -14,8 +13,8 @@ import com.spring.example.core.util.AccountStatus;
 public class AdminAccount extends BaseEntity {
 
 	private static final long serialVersionUID = -61352121879032316L;
+	public static final String LOGIN_NAME = "login_name";
 
-	@Id
 	@Column(name = "login_name", unique = true, length = 50)
 	private String loginName;
 

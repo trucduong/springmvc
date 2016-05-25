@@ -17,9 +17,6 @@
 		up static resources in the ${webappRoot}/resources directory -->
 	<mvc:resources mapping="/resources/**" location="/resources/" />
 
-	<!-- Enable @Transactional annotation -->
-	<tx:annotation-driven transaction-manager="transactionManager" />
-	
 	<context:component-scan base-package="com.spring.example" />
 
 	<!-- Tiles -->
@@ -59,9 +56,11 @@
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
 	
+	<!-- Enable @Transactional annotation -->
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
 	<bean id="userDetailsServiceImpl" 
 		class="com.spring.example.core.service.impl.UserDetailsServiceImpl">
-		
 	</bean>
 
 	<bean id="encoder"

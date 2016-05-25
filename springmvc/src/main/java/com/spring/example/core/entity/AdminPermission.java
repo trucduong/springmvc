@@ -4,7 +4,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 import com.spring.example.core.util.PermissionStatus;
@@ -24,7 +23,6 @@ public class AdminPermission extends BaseEntity {
 	/**
 	 * mapping to spring security role
 	 */
-	@Id
 	@Column(name = "permission_name", length = 100)
 	private String name;
 
