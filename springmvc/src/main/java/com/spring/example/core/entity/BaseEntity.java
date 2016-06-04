@@ -20,7 +20,6 @@ import javax.persistence.Version;
 
 /**
  * Base entity
- * @author Kevin
  *
  */
 @MappedSuperclass

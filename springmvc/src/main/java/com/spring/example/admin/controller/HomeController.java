@@ -6,7 +6,6 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -29,7 +28,7 @@ public class HomeController {
 	private Environment env;
 	
 	@RequestMapping(value="home", method = RequestMethod.GET)
-	@PreAuthorize("hasRole('ROLE_ADMIN')")
+	//@PreAuthorize("hasRole('ROLE_ADMIN')")
 	public ModelAndView goToHome(HttpSession session) {
 		ModelAndView modelAndView = new ModelAndView(Views.Admin.HOME_PAGE);
 		return modelAndView;

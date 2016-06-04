@@ -7,9 +7,7 @@
 	<definition name="admin-template" template="/WEB-INF/views/admin/template/template.jsp">
 		<put-attribute name="title" value="Admin page" />
 		<put-attribute name="header" value="/WEB-INF/views/admin/template/header.jsp" />
-		<put-attribute name="left" value="/WEB-INF/views/admin/template/left.jsp" />
 		<put-attribute name="content" value="" />
-		<put-attribute name="footer" value="/WEB-INF/views/admin/template/footer.jsp" />
 	</definition>
 
 	<definition name="admin-login" template="/WEB-INF/views/admin/login.jsp"></definition>
