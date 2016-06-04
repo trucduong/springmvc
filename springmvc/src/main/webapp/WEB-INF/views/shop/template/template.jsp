@@ -14,15 +14,13 @@
 	<title><tiles:insertAttribute name="title" ignore="true"></tiles:insertAttribute></title>
 
 	<%-- Urls --%>
-	<spring:url value="/admin" var="root_path" />
+	<spring:url value="/shop" var="root_path" />
 	<spring:url value="/resources/share" var="share_resource" />
-	<spring:url value="/resources/admin" var="root_resource" />
+	<spring:url value="/resources/shop" var="root_resource" />
 
 	<%-- Libs --%>
 	<link href="${share_resource}/css/font-awesome.min.css" rel="stylesheet">
 	<link href="${share_resource}/css/bootstrap.min.css" rel="stylesheet">
-	<link href="${share_resource}/css/metisMenu.min.css" rel="stylesheet">
-	<link href="${share_resource}/css/timeline.css" rel="stylesheet">
 
 	<%-- Custom --%>
 	<link href="${root_resource}/style.css" rel="stylesheet">
@@ -35,18 +33,27 @@
 	<![endif]-->
 </head>
 <body>
-	<div id="wrapper">
-		<!-- Header -->
-		<tiles:insertAttribute name="header"></tiles:insertAttribute>
-		<!-- Content -->
-		<tiles:insertAttribute name="content"></tiles:insertAttribute>
+	<!-- Header -->
+	<tiles:insertAttribute name="header"></tiles:insertAttribute>
+
+	<!-- Page Content -->
+	<div class="container">
+		<div class="row">
+			<!-- Left -->
+			<tiles:insertAttribute name="left"></tiles:insertAttribute>
+			<!-- Content -->
+			<tiles:insertAttribute name="content"></tiles:insertAttribute>
+		</div>
 	</div>
-	<!-- /#wrapper -->
+
+	<!-- Footer -->
+	<div class="container">
+		<tiles:insertAttribute name="footer"></tiles:insertAttribute>
+	</div>
 
 	<%-- Libs --%>
 	<script src="${share_resource}/js/jquery.min.js"></script>
 	<script src="${share_resource}/js/bootstrap.min.js"></script>
-	<script src="${share_resource}/js/metisMenu.min.js"></script>
 
 	<%-- Custom --%>
 	<script src="${root_resource}/script.js"></script>

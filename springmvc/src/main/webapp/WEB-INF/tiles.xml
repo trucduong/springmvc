@@ -23,5 +23,27 @@
 	</definition>
 	
 	<!-- user ************************************************************************************************* -->
+	<definition name="user-template" template="/WEB-INF/views/user/template/template.jsp">
+		<put-attribute name="title" value="User page" />
+		<put-attribute name="header" value="/WEB-INF/views/user/template/header.jsp" />
+		<put-attribute name="content" value="" />
+		<put-attribute name="footer" value="/WEB-INF/views/user/template/footer.jsp" />
+	</definition>
+	<definition name="user-home" extends="user-template">  
+		<put-attribute name="title" value="Home"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/views/user/home.jsp" />
+	</definition>
 	
+	<!-- shop ************************************************************************************************* -->
+	<definition name="shop-template" template="/WEB-INF/views/shop/template/template.jsp">
+		<put-attribute name="title" value="Shop page" />
+		<put-attribute name="header" value="/WEB-INF/views/shop/template/header.jsp" />
+		<put-attribute name="left" value="/WEB-INF/views/shop/template/left.jsp" />
+		<put-attribute name="content" value="" />
+		<put-attribute name="footer" value="/WEB-INF/views/shop/template/footer.jsp" />
+	</definition>
+	<definition name="shop-home" extends="shop-template">  
+		<put-attribute name="title" value="Home"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/views/shop/home.jsp" />
+	</definition>
 </tiles-definitions>

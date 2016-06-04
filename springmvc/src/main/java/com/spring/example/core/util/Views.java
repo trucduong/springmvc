@@ -8,6 +8,10 @@ public class Views {
 	}
 	
 	public class User {
-		
+		public static final String HOME_PAGE = "user-home";
+	}
+	
+	public class Shop {
+		public static final String HOME_PAGE = "shop-home";
 	}
 }

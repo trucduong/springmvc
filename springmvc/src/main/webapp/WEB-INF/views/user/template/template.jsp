@@ -1,6 +1,8 @@
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %> 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%> 
+<%@ page session="false" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,11 +11,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<title>Login</title>
+	<title><tiles:insertAttribute name="title" ignore="true"></tiles:insertAttribute></title>
+
 	<%-- Urls --%>
-	<spring:url value="/admin" var="root_path" />
+	<spring:url value="/" var="root_path" />
 	<spring:url value="/resources/share" var="share_resource" />
-	<spring:url value="/resources/admin" var="root_resource" />
+	<spring:url value="/resources/user" var="root_resource" />
 
 	<%-- Libs --%>
 	<link href="${share_resource}/css/font-awesome.min.css" rel="stylesheet">
@@ -32,42 +35,19 @@
 	<![endif]-->
 </head>
 <body>
+	<!-- Header -->
+	<tiles:insertAttribute name="header"></tiles:insertAttribute>
+	<!-- Page Content -->
 	<div class="container">
-		<div class="row">
-			<div class="col-md-4 col-md-offset-4">
-				<div class="login-panel panel panel-default">
-					<div class="panel-heading">
-						<h3 class="panel-title"><spring:message code="admin.login.title"/></h3>
-					</div>
-					<div class="panel-body">
-						<form name="loginForm" role="form" action="<c:url value='/admin/login/j_spring_security_check' />" method='POST'>
-							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-							<fieldset>
-								<div class="form-group">
-									<input class="form-control" placeholder="<spring:message code="admin.login.login_name"/>" name="username"
-										type="text" autofocus>
-								</div>
-								<div class="form-group">
-									<input class="form-control" placeholder="<spring:message code="admin.login.password"/>" name="password" type="password" value="">
-								</div>
-								<div class="checkbox">
-									<label> <input name="remember" type="checkbox"
-										value="Remember Me">Remember Me
-									</label>
-								</div>
-								<input type="submit" class="btn btn-lg btn-success btn-block" value="<spring:message code="admin.login.login"/>" />
-							</fieldset>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
+		<!-- Content -->
+		<tiles:insertAttribute name="content"></tiles:insertAttribute>
+	
+		<!-- Footer -->
+		<tiles:insertAttribute name="footer"></tiles:insertAttribute>
 	</div>
-
 	<%-- Libs --%>
 	<script src="${share_resource}/js/jquery.min.js"></script>
 	<script src="${share_resource}/js/bootstrap.min.js"></script>
-	<script src="${share_resource}/js/metisMenu.min.js"></script>
 
 	<%-- Custom --%>
 	<script src="${root_resource}/script.js"></script>

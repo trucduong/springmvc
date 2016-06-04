@@ -22,7 +22,7 @@ import com.spring.example.core.util.Views;
  */
 @Controller
 @RequestMapping(value="/admin")
-public class HomeController {
+public class AdminHomeController {
 	
 	@Autowired
 	private Environment env;
