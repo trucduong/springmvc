@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.spring.example.core.util.Views;
+import com.spring.example.core.util.View;
 
 /**
  * Handles requests for the application home page.
@@ -24,7 +24,7 @@ public class ShopHomeController {
 	@RequestMapping(method = RequestMethod.GET)
 	//@PreAuthorize("hasRole('ROLE_ADMIN')")
 	public ModelAndView goToHome(HttpSession session) {
-		ModelAndView modelAndView = new ModelAndView(Views.Shop.HOME_PAGE);
+		ModelAndView modelAndView = new ModelAndView(View.Shop.HOME_PAGE);
 		return modelAndView;
 	}
 }

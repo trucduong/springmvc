@@ -13,9 +13,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.example.core.dto.AccountDto;
+import com.spring.example.core.navigation.NavigationUtils;
 import com.spring.example.core.util.ApplicationConstant;
 import com.spring.example.core.util.ApplicationUtils;
-import com.spring.example.core.util.Views;
+import com.spring.example.core.util.MessageUtils;
+import com.spring.example.core.util.View;
 
 /**
  * Handles requests for the application home page.
@@ -30,7 +32,7 @@ public class AdminHomeController {
 	@RequestMapping(value="home", method = RequestMethod.GET)
 	//@PreAuthorize("hasRole('ROLE_ADMIN')")
 	public ModelAndView goToHome(HttpSession session) {
-		ModelAndView modelAndView = new ModelAndView(Views.Admin.HOME_PAGE);
+		ModelAndView modelAndView = NavigationUtils.create(View.Admin.HOME_PAGE);
 		return modelAndView;
 	}
 
@@ -38,15 +40,15 @@ public class AdminHomeController {
 	public ModelAndView goToLogin(@RequestParam(value = "error", required = false) String error,
             @RequestParam(value = "logout", required = false) String logout, 
             HttpServletRequest request, HttpServletResponse response) {
-		ModelAndView mv = new ModelAndView(Views.Admin.LOGIN_PAGE);
+		ModelAndView mv = NavigationUtils.create(View.Admin.LOGIN_PAGE);
 		mv.addObject("account", new AccountDto());
 		
 		if (error != null) {
-			mv.addObject("error", env.getProperty("admin.login.error"));
+			mv.addObject(MessageUtils.ERROR_MSG, env.getProperty("admin.login.error"));
 		}
 
 		if (logout != null) {
-			mv.addObject("msg", env.getProperty("admin.login.logout"));
+			mv.addObject(MessageUtils.INFO_MSG, env.getProperty("admin.login.logout"));
 		}
 
 		// set locate vi

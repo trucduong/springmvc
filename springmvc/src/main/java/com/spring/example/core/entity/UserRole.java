@@ -9,8 +9,8 @@ import javax.persistence.Table;
  *
  */
 @Entity
-@Table(name = "admin_roles")
-public class AdminRole extends BaseEntity {
+@Table(name = "user_roles")
+public class UserRole extends BaseEntity {
 
 	private static final long serialVersionUID = 7409753212591523466L;
 	
@@ -20,7 +20,7 @@ public class AdminRole extends BaseEntity {
 	@Column( name = "description" , columnDefinition = "TEXT")
 	private String description;
 	
-	public AdminRole() {
+	public UserRole() {
 	}
 
 	public String getName() {

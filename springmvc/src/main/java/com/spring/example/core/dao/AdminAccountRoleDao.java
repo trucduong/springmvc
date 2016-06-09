@@ -2,10 +2,10 @@ package com.spring.example.core.dao;
 
 import org.springframework.stereotype.Repository;
 
-import com.spring.example.core.entity.AdminAccountRole;
+import com.spring.example.core.entity.UserAccountRole;
 
 @Repository
-public class AdminAccountRoleDao extends BaseDao<AdminAccountRole>{
+public class AdminAccountRoleDao extends BaseDao<UserAccountRole>{
 
 	/**
 	 * 

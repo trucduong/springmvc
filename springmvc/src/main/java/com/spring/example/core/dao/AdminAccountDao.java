@@ -8,11 +8,11 @@ import java.util.Map;
 import org.springframework.stereotype.Repository;
 
 import com.spring.example.core.dto.MapDto;
-import com.spring.example.core.entity.AdminAccount;
-import com.spring.example.core.entity.AdminPermission;
+import com.spring.example.core.entity.UserAccount;
+import com.spring.example.core.entity.UserPermission;
 
 @Repository
-public class AdminAccountDao extends BaseDao<AdminAccount>{
+public class AdminAccountDao extends BaseDao<UserAccount>{
 
 	/**
 	 * 
@@ -27,7 +27,7 @@ public class AdminAccountDao extends BaseDao<AdminAccount>{
 		query.append("and r.login_name = :loginName ");
 
 		// Selected columns
-		String[] columns = {AdminPermission.PERMISSION_NAME};
+		String[] columns = {UserPermission.PERMISSION_NAME};
 
 		// Parameters
 		Map<String, Object> params = new HashMap<>();
@@ -37,7 +37,7 @@ public class AdminAccountDao extends BaseDao<AdminAccount>{
 		List<String> permissions = new ArrayList<>();
 		List<MapDto> dtos = executeNativeQuery(query.toString(), columns, params);
 		for (MapDto dto : dtos) {
-			permissions.add(dto.getString(AdminPermission.PERMISSION_NAME));
+			permissions.add(dto.getString(UserPermission.PERMISSION_NAME));
 		}
 		return permissions;
  	}

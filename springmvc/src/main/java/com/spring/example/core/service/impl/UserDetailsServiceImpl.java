@@ -14,7 +14,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import com.spring.example.core.dao.AdminAccountDao;
-import com.spring.example.core.entity.AdminAccount;
+import com.spring.example.core.entity.UserAccount;
 import com.spring.example.core.util.AccountStatus;
 
 public class UserDetailsServiceImpl implements UserDetailsService {
@@ -24,7 +24,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
 	@Override
 	public UserDetails loadUserByUsername(final String username) throws UsernameNotFoundException {
-		AdminAccount account = accountDao.find("loginName", username);
+		UserAccount account = accountDao.find("loginName", username);
 		if (account == null) {
 			throw new UsernameNotFoundException(username);
 		}
@@ -35,7 +35,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 		return buildUserForAuthentication(account, authorities);
 	}
 
-	private User buildUserForAuthentication(AdminAccount account, List<GrantedAuthority> authorities) {
+	private User buildUserForAuthentication(UserAccount account, List<GrantedAuthority> authorities) {
 		return new User(account.getLoginName(), account.getPassword(),
 				AccountStatus.ACTIVE.equals(account.getStatus()), true, true, true, authorities);
 	}

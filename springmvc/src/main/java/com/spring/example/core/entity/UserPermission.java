@@ -13,8 +13,8 @@ import com.spring.example.core.util.PermissionStatus;
  *
  */
 @Entity
-@Table(name = "admin_permissions")
-public class AdminPermission extends BaseEntity {
+@Table(name = "user_permissions")
+public class UserPermission extends BaseEntity {
 
 	private static final long serialVersionUID = 2243399028554666270L;
 	

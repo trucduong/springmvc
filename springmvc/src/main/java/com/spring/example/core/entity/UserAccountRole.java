@@ -10,8 +10,8 @@ import javax.persistence.Table;
  *
  */
 @Entity
-@Table(name = "admin_account_roles")
-public class AdminAccountRole extends BaseEntity {
+@Table(name = "user_account_roles")
+public class UserAccountRole extends BaseEntity {
 
 	private static final long serialVersionUID = -9018327487254464298L;
 	
@@ -24,7 +24,7 @@ public class AdminAccountRole extends BaseEntity {
 	@Column(name = "role_id")
 	private int roleId;
 
-	public AdminAccountRole() {
+	public UserAccountRole() {
 	}
 
 	public String getLoginName() {
