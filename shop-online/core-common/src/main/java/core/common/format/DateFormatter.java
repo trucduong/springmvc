@@ -8,10 +8,22 @@ public class DateFormatter implements Formatter<Date> {
 
 	public static final char HYPHEN = '-';
 	public static final char SLASH = '/';
+	public static final char COLON = ':';
 	
 	
 	private static final String ddMMyyyy = "dd/MM/yyyy";
-
+	private static final String MMyyyy = "MM/yyyy";
+	private static final String Mdyyyy = "M/d/yyyy";
+	private static final String Mdyyyyhmm = "M/d/yyyy h:mm";
+	private static final String dMMMyyyy = "d-MMM-yyyy";
+	private static final String dMMMyy = "d-MMM-yy";
+	private static final String dMMM = "d-MMM";
+	private static final String MMMyy = "MMM-yy";
+	private static final String hmmAMPM = "h:mm a";
+	private static final String hmmssAMPM = "h:mm:ss a";
+	private static final String hmm = "h:mm";
+	private static final String hmmss = "h:mm:ss";
+	
 	private SimpleDateFormat formatter;
 	private DateFormatter(String pattern, Locale locale) {
 		formatter = new SimpleDateFormat(pattern, locale);
@@ -52,5 +64,106 @@ public class DateFormatter implements Formatter<Date> {
 		return new DateFormatter(pattern, locale);
 	}
 	
-	//TODO: add more format here
+	public static DateFormatter MMyyyy(Locale locale, char... separators) {
+		String pattern = MMyyyy;
+		if (separators != null && separators.length > 0) {
+			pattern = MMyyyy.replace(SLASH, separators[0]);
+		}
+		
+		return new DateFormatter(pattern, locale);
+	}
+	
+	public static DateFormatter Mdyyyy(Locale locale, char... separators) {
+		String pattern = Mdyyyy;
+		if (separators != null && separators.length > 0) {
+			pattern = Mdyyyy.replace(SLASH, separators[0]);
+		}
+		
+		return new DateFormatter(pattern, locale);
+	}
+	
+	public static DateFormatter Mdyyyyhmm(Locale locale, char... separators) {
+		String pattern = Mdyyyyhmm;
+		if (separators != null && separators.length > 0) {
+			pattern = Mdyyyyhmm.replace(SLASH, separators[0]);
+		}
+		
+		return new DateFormatter(pattern, locale);
+	}
+	
+	public static DateFormatter dMMMyyyy(Locale locale, char... separators) {
+		String pattern = dMMMyyyy;
+		if (separators != null && separators.length > 0) {
+			pattern = dMMMyyyy.replace(HYPHEN, separators[0]);
+		}
+		
+		return new DateFormatter(pattern, locale);
+	}
+	
+	public static DateFormatter dMMMyy(Locale locale, char... separators) {
+		String pattern = dMMMyy;
+		if (separators != null && separators.length > 0) {
+			pattern = dMMMyy.replace(HYPHEN, separators[0]);
+		}
+		
+		return new DateFormatter(pattern, locale);
+	}
+	
+	public static DateFormatter dMMM(Locale locale, char... separators) {
+		String pattern = dMMM;
+		if (separators != null && separators.length > 0) {
+			pattern = dMMM.replace(HYPHEN, separators[0]);
+		}
+		
+		return new DateFormatter(pattern, locale);
+	}
+	
+	public static DateFormatter MMMyy(Locale locale, char... separators) {
+		String pattern = MMMyy;
+		if (separators != null && separators.length > 0) {
+			pattern = MMMyy.replace(HYPHEN, separators[0]);
+		}
+		
+		return new DateFormatter(pattern, locale);
+	}
+	
+	public static DateFormatter hmmAMPM(Locale locale, char... separators) {
+		String pattern = hmmAMPM;
+		if (separators != null && separators.length > 0) {
+			pattern = hmmAMPM.replace(COLON, separators[0]);
+		}
+		
+		return new DateFormatter(pattern, locale);
+	}
+	
+	public static DateFormatter hmmssAMPM(Locale locale, char... separators) {
+		String pattern = hmmssAMPM;
+		if (separators != null && separators.length > 0) {
+			pattern = hmmssAMPM.replace(COLON, separators[0]);
+		}
+		
+		return new DateFormatter(pattern, locale);
+	}
+	
+	public static DateFormatter hmm(Locale locale, char... separators) {
+		String pattern = hmm;
+		if (separators != null && separators.length > 0) {
+			pattern = hmm.replace(COLON, separators[0]);
+		}
+		
+		return new DateFormatter(pattern, locale);
+	}
+	
+	public static DateFormatter hmmss(Locale locale, char... separators) {
+		String pattern = hmmss;
+		if (separators != null && separators.length > 0) {
+			pattern = hmmss.replace(COLON, separators[0]);
+		}
+		
+		return new DateFormatter(pattern, locale);
+	}
+	
+	
+
+	//TODO: add more format here...
 }
