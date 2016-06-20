@@ -1,7 +1,6 @@
 package core.web.cache;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.web.context.request.RequestContextHolder;
@@ -18,12 +17,12 @@ public class WebContext {
 		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
 		return attr.getRequest();
 	}
-	
-	public static HttpServletResponse getResponse() {
-		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
-		return attr.getResponse();
-	}
-	
+//	
+//	public static HttpServletResponse getResponse() {
+//		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+//		return attr.getResponse();
+//	}
+//	
 	public static String getServletPath() {
 		HttpServletRequest request = getRequest();
 		return request.getServletPath();
