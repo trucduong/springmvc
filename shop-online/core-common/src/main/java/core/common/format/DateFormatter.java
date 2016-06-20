@@ -27,6 +27,7 @@ public class DateFormatter implements Formatter<Date> {
 	private SimpleDateFormat formatter;
 	private DateFormatter(String pattern, Locale locale) {
 		formatter = new SimpleDateFormat(pattern, locale);
+		formatter.setLenient(true);
 	}
 
 	@Override
@@ -162,8 +163,4 @@ public class DateFormatter implements Formatter<Date> {
 		
 		return new DateFormatter(pattern, locale);
 	}
-	
-	
-
-	//TODO: add more format here...
 }
