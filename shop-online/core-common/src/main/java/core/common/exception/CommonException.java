@@ -1,6 +1,6 @@
 package core.common.exception;
 
-import org.apache.commons.lang.StringUtils;
+import org.springframework.util.StringUtils;
 
 public class CommonException extends Throwable {
 	private static final long serialVersionUID = 7629325848588989727L;

@@ -20,7 +20,7 @@ public class UserAccountRole extends BaseEntity {
 	public static final String ROLE_ID = "role_id";
 	public static final String LOGIN_NAME = "login_name";
 
-	@Column(name = "login_name", unique=true ,length = 50)
+	@Column(name = "login_name", unique=true ,length = SHORT)
 	private String loginName;
 
 	@Column(name = "role_id")

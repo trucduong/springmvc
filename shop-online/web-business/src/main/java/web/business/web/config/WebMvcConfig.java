@@ -1,38 +1,49 @@
 package web.business.web.config;
 
+import java.util.Locale;
 import java.util.Properties;
+
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
-import org.springframework.web.servlet.ViewResolver;
+import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
+import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.handler.SimpleMappingExceptionResolver;
-import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.web.servlet.i18n.CookieLocaleResolver;
+import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
+import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
+import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 
 @Configuration
 @ComponentScan(basePackages = { "web.business.web" })
 @EnableWebMvc
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
-	@Override
-	public void addViewControllers(ViewControllerRegistry registry) {
-		super.addViewControllers(registry);
-		registry.addViewController("login/form").setViewName("login");
-		registry.addViewController("welcome").setViewName("welcome");
-		registry.addViewController("admin").setViewName("admin");
+	/**
+	 * Configure TilesConfigurer.
+	 */
+	@Bean
+	public TilesConfigurer tilesConfigurer() {
+		TilesConfigurer tilesConfigurer = new TilesConfigurer();
+		tilesConfigurer.setDefinitions(new String[] { "/WEB-INF/views/tiles/tiles.xml" });
+		tilesConfigurer.setCheckRefresh(true);
+		return tilesConfigurer;
 	}
 
-	@Bean
-	public ViewResolver resolver() {
-		InternalResourceViewResolver url = new InternalResourceViewResolver();
-		url.setPrefix("/WEB-INF/views/");
-		url.setSuffix(".jsp");
-		return url;
+	/**
+	 * Configure ViewResolvers to deliver preferred views.
+	 */
+	@Override
+	public void configureViewResolvers(ViewResolverRegistry registry) {
+		TilesViewResolver viewResolver = new TilesViewResolver();
+		registry.viewResolver(viewResolver);
 	}
 
 	@Override
@@ -45,13 +56,29 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 		configurer.enable();
 	}
 
-	@Bean(name = "messageSource")
-	public MessageSource configureMessageSource() {
+	@Bean
+	public MessageSource messageSource() {
 		ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
-		messageSource.setBasename("classpath:messages");
+		messageSource.setBasename("/i18n/message");
 		messageSource.setCacheSeconds(5);
 		messageSource.setDefaultEncoding("UTF-8");
 		return messageSource;
+	}
+
+	@Bean
+	public LocaleResolver localeResolver() {
+		CookieLocaleResolver resolver = new CookieLocaleResolver();
+		resolver.setDefaultLocale(new Locale("en"));
+		resolver.setCookieName("userLanguage");
+		resolver.setCookieMaxAge(4800);
+		return resolver;
+	}
+
+	@Override
+	public void addInterceptors(InterceptorRegistry registry) {
+		LocaleChangeInterceptor interceptor = new LocaleChangeInterceptor();
+		interceptor.setParamName("language");
+		registry.addInterceptor(interceptor);
 	}
 
 	@Bean

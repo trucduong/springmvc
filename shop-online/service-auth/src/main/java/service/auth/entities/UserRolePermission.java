@@ -19,7 +19,7 @@ public class UserRolePermission extends BaseEntity {
 	@Column(name = "role_id")
 	private int roleId;
 
-	@Column(name = "permission_name", length = 100)
+	@Column(name = "permission_name", length = MEDIUM)
 	private String permissionNme;
 	
 	public UserRolePermission() {

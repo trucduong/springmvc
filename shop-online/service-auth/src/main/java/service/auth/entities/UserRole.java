@@ -16,10 +16,10 @@ public class UserRole extends BaseEntity {
 
 	private static final long serialVersionUID = 7409753212591523466L;
 	
-	@Column(name = "role_name", length = 100)
+	@Column(name = "role_name", length = MEDIUM)
 	private String name;
 	
-	@Column( name = "description" , columnDefinition = "TEXT")
+	@Column( name = "description", columnDefinition = "NVARCHAR(500)")
 	private String description;
 	
 	public UserRole() {

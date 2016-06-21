@@ -7,6 +7,8 @@ import javax.persistence.Enumerated;
 import javax.persistence.Table;
 
 import core.dao.entities.BaseEntity;
+import core.service.auth.AccountStatus;
+import core.service.auth.AccountType;
 
 @Entity
 @Table(name = "user_accounts")
@@ -15,18 +17,18 @@ public class UserAccount extends BaseEntity {
 	private static final long serialVersionUID = -61352121879032316L;
 	public static final String LOGIN_NAME = "login_name";
 
-	@Column(name = "login_name", unique = true, length = 50)
+	@Column(name = "login_name", unique = true, length = SHORT)
 	private String loginName;
 
-	@Column(name = "password", length = 500)
+	@Column(name = "password", length = MEDIUM)
 	private String password;
 
 	@Enumerated(EnumType.STRING)
-	@Column(name = "status", length = 50)
+	@Column(name = "status", length = SHORT)
 	private AccountStatus status;
 	
 	@Enumerated(EnumType.STRING)
-	@Column(name = "account_type", length = 50)
+	@Column(name = "account_type", length = SHORT)
 	private AccountType accountType;
 
 	public UserAccount() {

@@ -7,6 +7,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.Table;
 
 import core.dao.entities.BaseEntity;
+import core.service.auth.PermissionStatus;
 
 /**
  * System permissions
@@ -23,17 +24,17 @@ public class UserPermission extends BaseEntity {
 	/**
 	 * mapping to spring security role
 	 */
-	@Column(name = "permission_name", length = 100)
+	@Column(name = "permission_name", length = MEDIUM)
 	private String name;
 
 	@Column(name = "display_name", columnDefinition = "NVARCHAR(100)")
 	private String displayName;
 	
-	@Column( name = "description" , columnDefinition = "TEXT")
+	@Column( name = "description" , columnDefinition = "NVARCHAR(500)")
 	private String description;
 	
 	@Enumerated(EnumType.STRING)
-	@Column(name = "status", length = 50)
+	@Column(name = "status", length = SHORT)
 	private PermissionStatus status;
 
 	public String getName() {

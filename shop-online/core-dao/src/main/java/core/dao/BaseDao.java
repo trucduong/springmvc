@@ -14,11 +14,11 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
-import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.util.StringUtils;
 
 import core.dao.dto.ResultDto;
 import core.dao.entities.BaseEntity;
@@ -122,7 +122,7 @@ public class BaseDao <T extends BaseEntity> implements Serializable {
 	 * @param entity
 	 */
 	public void persistWithoutFlush(T entity) {
-		if (StringUtils.isBlank(entity.getCreateBy())) {
+		if (StringUtils.isEmpty(entity.getCreateBy())) {
 			entity.setCreateBy(getPrincipalName());
 		}
 		
@@ -139,7 +139,7 @@ public class BaseDao <T extends BaseEntity> implements Serializable {
 	 */
 	public void persistMultipleRows(List<T> entities) {		
 		for (T entity : entities) {
-			if (StringUtils.isBlank(entity.getCreateBy())) {
+			if (StringUtils.isEmpty(entity.getCreateBy())) {
 				entity.setCreateBy(getPrincipalName());
 			}
 			
@@ -264,7 +264,7 @@ public class BaseDao <T extends BaseEntity> implements Serializable {
     	String className = getClassName();
 		String strQuery = " SELECT  e " + " FROM " + className + " e ";
 		if (orderColumns != null && orderColumns.size() > 0) {
-			strQuery += " ORDER BY e." + StringUtils.join(orderColumns, ", e.");
+			strQuery += " ORDER BY e." + StringUtils.collectionToDelimitedString(orderColumns, ", e.");
 			
 		}
 		Query query = getEm().createQuery(strQuery);
@@ -378,7 +378,7 @@ public class BaseDao <T extends BaseEntity> implements Serializable {
     	strQuery = strQuery.substring(0, endIndex);
 
 		if (orderColumns != null && orderColumns.length > 0) {
-			strQuery += " ORDER BY e." + StringUtils.join(orderColumns, ", e.");
+			strQuery += " ORDER BY e." + StringUtils.arrayToDelimitedString(orderColumns, ", e.");
 		}
     	TypedQuery<T> query = getEm().createQuery(strQuery, entityClass);
     	int j = 0;

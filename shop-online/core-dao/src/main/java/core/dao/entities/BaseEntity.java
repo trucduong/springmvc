@@ -26,7 +26,11 @@ import javax.persistence.Version;
 public class BaseEntity implements Serializable {
 
 	private static final long serialVersionUID = 2585798868579628721L;
-
+	public static final int SHORT = 50;
+	public static final int MEDIUM = 100;
+	public static final int LONG = 500;
+	public static final String TEXT = "TEXT";
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	protected int id;
