@@ -1,9 +1,8 @@
-package com.spring.example.core.navigation;
+package core.web.navigation;
 
 import org.springframework.web.servlet.ModelAndView;
 
-public class NavigationUtils {
-
+public abstract class Navigator {
 	public static ModelAndView create(String viewName) {
 
 		return new ModelAndView(viewName);

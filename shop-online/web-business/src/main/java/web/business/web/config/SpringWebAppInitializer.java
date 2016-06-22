@@ -1,9 +1,5 @@
 package web.business.web.config;
 
-import javax.servlet.Filter;
-
-import org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter;
-import org.springframework.web.filter.DelegatingFilterProxy;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 import web.business.config.AppConfig;
@@ -30,9 +26,9 @@ public class SpringWebAppInitializer extends AbstractAnnotationConfigDispatcherS
 		return new String[] { "/" };
 	}
 
-	@Override
-	protected Filter[] getServletFilters() {
-		return new Filter[] { new DelegatingFilterProxy("springSecurityFilterChain"),
-				new OpenEntityManagerInViewFilter() };
-	}
+//	@Override
+//	protected Filter[] getServletFilters() {
+//		return new Filter[] { new DelegatingFilterProxy("springSecurityFilterChain"),
+//				new OpenEntityManagerInViewFilter() };
+//	}
 }
