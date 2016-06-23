@@ -8,12 +8,6 @@ public class SpringWebAppInitializer extends AbstractAnnotationConfigDispatcherS
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
 		return new Class<?>[] { AppConfig.class };
-		// As we have SecurityConfig.java in same package as AppConfig.java and
-		// enabled ComponentScan to scan "com.sivalabs.springapp.config" we
-		// don't need to explicitely configure it.
-		// otherwise we should add SecurityConfig.class to
-		// getRootConfigClasses()
-		// return new Class<?>[] { AppConfig.class, SecurityConfig.class};
 	}
 
 	@Override
@@ -25,10 +19,4 @@ public class SpringWebAppInitializer extends AbstractAnnotationConfigDispatcherS
 	protected String[] getServletMappings() {
 		return new String[] { "/" };
 	}
-
-//	@Override
-//	protected Filter[] getServletFilters() {
-//		return new Filter[] { new DelegatingFilterProxy("springSecurityFilterChain"),
-//				new OpenEntityManagerInViewFilter() };
-//	}
 }

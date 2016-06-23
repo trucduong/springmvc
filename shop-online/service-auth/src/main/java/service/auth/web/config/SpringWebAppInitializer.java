@@ -17,6 +17,6 @@ public class SpringWebAppInitializer extends AbstractAnnotationConfigDispatcherS
 
 	@Override
 	protected String[] getServletMappings() {
-		return new String[] { "/service-auth" };
+		return new String[] { "/" };
 	}
 }
