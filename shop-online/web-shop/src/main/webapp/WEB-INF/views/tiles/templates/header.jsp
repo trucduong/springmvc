@@ -155,9 +155,14 @@
 					<li>
 						<div class="search">
 							<a href="#">
-								<input class="inputsearch" type="text" name="">
-								<img class="imgsearch" src="img/search.ico">
-								<div class="btsearch">Search</div>
+								<div>
+									<input class="inputsearch" type="text" name="">
+									
+								<div>
+								<div class="btsearch">
+									<span class="textsearch">Search</span>
+									<img class="imgsearch" src="img/search.ico">
+								</div>
 							</a>
 						</div>	
 					</li>
@@ -187,6 +192,7 @@
 	            <li><a href="#">Quần cho nữ</a></li>
 	          </ul>
 	        </div>
+			
 
 			<div class="navmenu sidenav">
 				<img class="line line1" src="img/line.png">
@@ -202,3 +208,30 @@
 		</div>
 		<div class="banner"></div>
 	</nav>
+	
+	<div class="mobi navbar navbar-inverse">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span> 
+	      </button>
+	      <span class="mn">Menu</span>
+	    </div>
+	    <div class="collapse navbar-collapse" id="myNavbar">
+	      <ul class="nav navbar-nav">
+	      	<img class="line line1" src="img/line.png">
+	        <li class="active"><a href="#"><div class="navigation news">Tin tức</div></a></li>
+	        <img class="line line2" src="img/line.png">
+	        <li><a href="#"><div class="navigation aboutus">Giới thiệu</div></a></li>
+	        <img class="line line3" src="img/line.png">
+	        <li><a href="#"><div class="navigation payment">Thanh Toán</div></a></li> 
+	        <img class="line line4" src="img/line.png">
+	        <li><a href="#"><div class="navigation contact">Liên hệ</div></a></li> 
+	        <img class="line line5" src="img/line.png">
+	      </ul>
+	     
+	    </div>
+	  </div>
+	</div>

@@ -5,6 +5,7 @@ body {
 	color: black;
 	}
 
+
 /*---------------------General-----------------*/
 ul li {
 	display: inline;
@@ -144,7 +145,8 @@ header {
 	float: right;
 	color: white;
 	font-size: 18px;
-	padding: 10px 0px 0px 15px;
+	text-align: center;
+	margin-top: -30px;
 }
 
 
@@ -221,7 +223,7 @@ header {
 	.btsearch{ 
 		width: 90px;
 		font-size: 16px;
-		margin-top: 0px;
+		margin-top: -30px;
 	}
 
 	.bill {
@@ -233,6 +235,7 @@ header {
 @media (max-width: 992px) { 
 	.logo {
 		margin-left: -120px; 
+	
 
 	}
 
@@ -251,8 +254,9 @@ header {
 
 	.btsearch{ 
 		width: 70px;
-		font-size: 13px;
-		margin-top: -37px;
+		font-size: 15px;
+		margin-top: -30px;
+		text-align: center;
 	}
 
 	.bill {
@@ -264,8 +268,11 @@ header {
 
 @media (max-width: 768px) { 
 	.logo {
-		color: red;
-
+		width: 32px;
+		height: 32px;
+		position: absolute;
+		left: 120px;
+		top: 40px;
 	}
 
 	.language {
@@ -278,56 +285,64 @@ header {
 
 	.mainhead {
 		height: 150px;
-		width: 95%;
+		width: 100%;
 	}
 
 	.contenthead {
 		height: 150px;
 		width: 100%;
+		margin: 0 auto;
+		position: relative;
 	}
 
-	.contenthead ul li div{
-		display: block;	
-	}
 
 	.search {
-		width: 120%;
-		height: 44px;
+		width: 90%;
+		margin:0 auto;
+		height: 50px;
+		position: absolute;
+		top: 60px;
+		right: 10px;
+		padding-top:3px;
+	}
+
+
+	.inputsearch{
+		width: 84%;
+	}
+
+	.btsearch {
+		width: 16%;
 		margin: 0 auto;
-		color: red;
-		margin-left: -40px;
-		margin-top: 45px;
-		}
-
-	.inputsearch {
-		width: 85%;
 	}
-
-	.btsearch{ 
-		display: none;
-		font-size: 0px;
-
-	}
-
+	
 	.imgsearch {
-
+		display: block;
 		width: 32px;
 		height: 32px;
-		display: block;
-		position: relative;
-		margin-top: 6px;
-		margin-right: 10px;
-		float: right;
+		margin-left: 16%;
+		margin-top: -35px;
+
 	}
 
-	.logo {
-		float: left;
-		margin-left: -110px;
+	.textsearch {
+		display: none;
 	}
+
+
+
+
 
 	.bill {
-		margin-left: -300px;
+		width: 200px;
+		height: 50px;
+		position: absolute;
+		top: 0px;
+		right: 5%;
 	}
+
+
+
 
 
 
@@ -461,6 +476,11 @@ div.content {
     height: 1000px;
 }
 
+.mobi {
+	display: none;
+}
+
+
 
 @media (max-width: 1200px) { 
 	.menu {
@@ -498,8 +518,8 @@ div.content {
 		width: 700px;
 	}
 	.menuproduct { 
-		width: 100px;
-		margin-left: -20px;
+		width: 120px;
+		margin-left: -40px;
 		font-size: 12px;
 	}
 	
@@ -525,8 +545,45 @@ div.content {
 
 @media (max-width: 768px) { 
 	
+	.menuproduct {
+		margin-left: 0px;
+	}
+	
+	.mobi {
+		display: block;
+		margin-top: -400px;
+	}
 
+	.navbar-header {
+		background-color: none;
+	}
 
+	.container-fluid {
+		background-color: none;
+	}
 
+	.active {
+		background-image: none;
+		background-repeat: no-repeat;
+	}
+
+	#myNavbar {
+	height: 300px;
+	width: 100%;
+	}
+
+	#myNavbar span {
+		float: left;
+	}
+
+	.mn {
+		font-size: 25px;
+		color: white;
+		margin-top: 10px;
+		margin-left: 20px;
+	}
 
 }
+
+
+
