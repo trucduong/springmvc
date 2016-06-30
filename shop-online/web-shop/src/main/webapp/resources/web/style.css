@@ -3,6 +3,7 @@
 body {
 	padding: 0px 0px 0px 0px;
 	color: black;
+	height: 2000px;
 	}
 
 
@@ -329,10 +330,6 @@ header {
 		display: none;
 	}
 
-
-
-
-
 	.bill {
 		width: 200px;
 		height: 50px;
@@ -340,11 +337,6 @@ header {
 		top: 0px;
 		right: 5%;
 	}
-
-
-
-
-
 
 }
 
@@ -436,7 +428,7 @@ header {
 .banner {
 	width: 100%;
 	height: 400px;
-	background-image: url(../img/banner.jpg);
+	background-image: url("../web/images/banner.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
 }
@@ -586,4 +578,154 @@ div.content {
 }
 
 
+/*---------------------------section-------------------------------- */
 
+section {
+
+	width: 1200px;
+	height: 100%;
+	margin: 0 auto;
+	background-color: grey;
+	position: relative;
+}
+
+
+
+/*----------------------------------------aside----------------------------------------------------*/
+
+.leftside {
+	width: 300px;
+	height: 100%;
+	border: 1px solid red;
+	float: left;
+}
+
+
+.adv1 {
+	width: 300px;
+	height: 250px;
+	background-image:url(../images/adv1.gif);
+}
+
+
+.featuredproducts {
+	width: 300px;
+	height: 660px;
+	background-color: grey;
+	}
+
+.product {
+	width: 100%;
+	height: 100px;
+}
+
+.adv2 {
+	width: 300px;
+	height: 600px;
+	background-image:url(../images/adv2.jpg);
+}
+
+
+@media (max-width: 1200px) { 
+	.leftside {
+	width: 250px;
+	}
+
+	.adv1 {
+		width: 250px;
+		height: 250px;
+		background-image:url(../images/adv3.jpg);
+		background-size: cover;
+	}
+
+
+	.featuredproducts {
+		width: 250px;
+		height: 550px;
+		background-color: grey;
+	}
+	
+	.adv2 {
+		width: 240px;
+		height: 400px;
+		background-image:url(../images/adv4.jpg);
+		background-size: cover;
+	}
+}
+
+@media (max-width: 992px) { 
+	.leftside {
+	width: 180px;
+	}
+
+	.adv1 {
+		width: 180px;
+		height: 150px;
+		background-image:url(../images/adv5.gif);
+		background-size: cover;
+	}
+
+
+	.featuredproducts {
+		width: 180px;
+		height: 390px;
+		background-color: grey;
+	}
+	
+	.adv2 {
+		width: 160px;
+		height: 600px;
+		background-image:url(../images/adv6.jpg);
+		background-size: cover;
+	}
+}
+
+@media (max-width: 768px) { 
+		.leftside {
+			display: none;
+		}
+
+		.adv1 {
+			display: none;
+		}
+
+		.featuredproducts{
+			display: none;
+		}
+
+		.adv2 {
+			display: none;
+		}
+	}
+
+
+
+/*-------------------------------------main------------------------------------*/
+.main {
+	width: 75%;
+	height: 100%;
+	float: left;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+}
+
+
+.product tr td {
+	height: 325px;
+	width: 225px;
+	margin-top: 2px;
+	margin-left: 2px;
+}
+
+
+/*--------------------------------------footer------------------------------------------------------ */
+
+footer {
+	height: 200px;
+	width: 100%;
+	background-color: #183546;
+	color: white;
+	margin-bottom: 0px;
+
+	}

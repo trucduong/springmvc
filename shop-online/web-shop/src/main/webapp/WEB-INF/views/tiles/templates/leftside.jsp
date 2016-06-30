@@ -4,31 +4,18 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ page session="false"%>
+<spring:url value="/resources/web/images" var="images" />
 
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="">
-	<meta name="author" content="">
-	<title><tiles:insertAttribute name="title" ignore="true"></tiles:insertAttribute></title>
-
-	<%-- Urls --%>
-	<spring:url value="/" var="root_path" />
-	<spring:url value="/resources/lib" var="lib_resource" />
-	<spring:url value="/resources/web" var="web_resource" />
-
-	<%-- Libs --%>
-	<link href="${lib_resource}/css/font-awesome.min.css" rel="stylesheet">
-	<link href="${lib_resource}/css/bootstrap.min.css" rel="stylesheet">
-	<link href="${lib_resource}/css/metisMenu.min.css" rel="stylesheet">
-	<link href="${lib_resource}/css/timeline.css" rel="stylesheet">
-
-	<%-- Custom --%>
-	<link href="${web_resource}/style.css" rel="stylesheet">
-
-	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-	<!--[if lt IE 9]>
-	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-	<![endif]-->
+<div class="leftside">
+	<div class="adv1"></div>
+	<div class="featuredproducts">
+		<div class="">Những sản phẩm bán chạy nhất</div>
+		<div>Sản phẩm 1</div>
+		<div>Sản phẩm 2</div>
+		<div>Sản phẩm 3</div>
+		<div>Sản phẩm 4</div>
+		<div>Sản phẩm 5</div>
+		<div>Sản phẩm 6</div>
+	</div>
+	<div class="adv2"></div>
+</div>	

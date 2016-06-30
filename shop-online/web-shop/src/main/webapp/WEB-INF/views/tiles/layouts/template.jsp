@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%> 
 <%@ page session="false" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,6 +18,8 @@
 	<spring:url value="/" var="root_path" />
 	<spring:url value="/resources/lib" var="lib_resource" />
 	<spring:url value="/resources/web" var="web_resource" />
+	<mvc:resources mapping="/resources/**" location="/resources/" />
+		
 
 	<%-- Libs --%>
 	<link href="${lib_resource}/css/font-awesome.min.css" rel="stylesheet">
@@ -38,6 +41,8 @@
 	<div id="wrapper">
 		<!-- Header -->
 		<tiles:insertAttribute name="header"></tiles:insertAttribute>
+		<!-- Leftside -->
+		<tiles:insertAttribute name="leftside"></tiles:insertAttribute>
 		<!-- Content -->
 		<tiles:insertAttribute name="content"></tiles:insertAttribute>
 	</div>
@@ -50,7 +55,5 @@
 
 	<%-- Custom --%>
 	<script src="${web_resource}/script.js"></script>
-	
-	
 </body>
 </html>
