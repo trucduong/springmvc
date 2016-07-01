@@ -7,7 +7,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.Table;
 
 import core.dao.entities.BaseEntity;
-import core.service.auth.PermissionStatus;
+import service.auth.shared.PermissionStatus;
 
 /**
  * System permissions

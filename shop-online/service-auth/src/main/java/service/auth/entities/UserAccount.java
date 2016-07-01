@@ -7,8 +7,8 @@ import javax.persistence.Enumerated;
 import javax.persistence.Table;
 
 import core.dao.entities.BaseEntity;
-import core.service.auth.AccountStatus;
-import core.service.auth.AccountType;
+import service.auth.shared.AccountStatus;
+import service.auth.shared.AccountType;
 
 @Entity
 @Table(name = "user_accounts")

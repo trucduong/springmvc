@@ -1,4 +1,4 @@
-package core.service.auth;
+package service.auth.shared;
 
 public enum AccountType {
 	ACTIVE, LOCKED
