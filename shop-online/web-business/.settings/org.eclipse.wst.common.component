@@ -16,6 +16,9 @@
         <dependent-module archiveName="core-web-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/core-web/core-web">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="service-auth-shared-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/service-auth-shared/service-auth-shared">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="context-root" value="web-business"/>
         <property name="java-output-path" value="/web-business/target/classes"/>
     </wb-module>

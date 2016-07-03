@@ -7,15 +7,9 @@
 package core.dao.entities;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.persistence.Version;
 
 /**
@@ -23,98 +17,24 @@ import javax.persistence.Version;
  *
  */
 @MappedSuperclass
-public class BaseEntity implements Serializable {
+public abstract class BaseEntity implements Serializable {
+	private static final long serialVersionUID = -4238716080849547677L;
+	public static final String SHORT = "nvarchar(50)";
+	public static final String MEDIUM = "nvarchar(100)";
+	public static final String LONG = "nvarchar(500)";
+	public static final String LONG_1 = "nvarchar(1000)";
+	public static final String LONG_2 = "nvarchar(2000)";
+	public static final String LONG_3 = "nvarchar(3000)";
+	public static final String LONG_4 = "nvarchar(4000)";
+	public static final String LONG_5 = "nvarchar(5000)";
 
-	private static final long serialVersionUID = 2585798868579628721L;
-	public static final int SHORT = 50;
-	public static final int MEDIUM = 100;
-	public static final int LONG = 500;
-	public static final String TEXT = "TEXT";
-	
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	protected int id;
-	
-	@Column(name="create_date")
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date createDate;
-	
-	@Column(name="create_by", length = 100)
-	private String createBy;	
-
-	@Column(name="update_date")
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date updateDate;
-	
-	@Column(name="update_by", length = 100)
-	private String updateBy;
+	// @Id
+	// @GeneratedValue(strategy=GenerationType.IDENTITY)
+	// protected int id;
 
 	@Version
-	@Column(name="version")
+	@Column(name = "version")
 	private int version;
-	
-	/**
-	 * @return the createDate
-	 */
-	public Date getCreateDate() {
-		return createDate;
-	}
-
-	/**
-	 * @param createDate the createDate to set
-	 */
-	public void setCreateDate(Date createDate) {
-		this.createDate = createDate;
-	}
-
-	/**
-	 * @return the createBy
-	 */
-	public String getCreateBy() {
-		return createBy;
-	}
-
-	/**
-	 * @param createBy the createBy to set
-	 */
-	public void setCreateBy(String createBy) {
-		this.createBy = createBy;
-	}
-
-	/**
-	 * @return the updateDate
-	 */
-	public Date getUpdateDate() {
-		return updateDate;
-	}
-
-	/**
-	 * @param updateDate the updateDate to set
-	 */
-	public void setUpdateDate(Date updateDate) {
-		this.updateDate = updateDate;
-	}
-
-	/**
-	 * @return the updateBy
-	 */
-	public String getUpdateBy() {
-		return updateBy;
-	}
-
-	/**
-	 * @param updateBy the updateBy to set
-	 */
-	public void setUpdateBy(String updateBy) {
-		this.updateBy = updateBy;
-	}
-
-	/**
-	 * @param version the version to set
-	 */
-	public void setVersion(int version) {
-		this.version = version;
-	}
 
 	/**
 	 * @return the version
@@ -123,12 +43,6 @@ public class BaseEntity implements Serializable {
 		return version;
 	}
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
+	public abstract Object getColIdValue();
+	public abstract String getColIdName();
 }

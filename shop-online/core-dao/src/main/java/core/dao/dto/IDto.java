@@ -1,6 +1,6 @@
 package core.dao.dto;
 
-public interface Dto <E> {
+public interface IDto <E> {
 	void bind(E entity, String action);
 	void unbind(E entity, String action);
 }

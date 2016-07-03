@@ -3,7 +3,7 @@ package core.dao.dto;
 import java.util.Date;
 import java.util.HashMap;
 
-public class ResultDto extends HashMap<String, Object>{
+public class ResultMap extends HashMap<String, Object>{
 	private static final long serialVersionUID = 5182827722811871488L;
 	public static final int DEFAULT_INT = 0;
 	public static final String DEFAULT_STRING = null;

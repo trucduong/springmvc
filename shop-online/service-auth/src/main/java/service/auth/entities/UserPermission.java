@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 import core.dao.entities.BaseEntity;
@@ -18,23 +19,24 @@ import service.auth.shared.PermissionStatus;
 public class UserPermission extends BaseEntity {
 
 	private static final long serialVersionUID = 2243399028554666270L;
-	
-	public static final String PERMISSION_NAME = "permission_name";
-
 	/**
 	 * mapping to spring security role
 	 */
-	@Column(name = "permission_name", length = MEDIUM)
+	@Id
+	@Column(name = "permission_name", columnDefinition = MEDIUM)
 	private String name;
+
+	@Column(name = "group_name", columnDefinition = SHORT)
+	private String groupName;
 
 	@Column(name = "display_name", columnDefinition = "NVARCHAR(100)")
 	private String displayName;
-	
-	@Column( name = "description" , columnDefinition = "NVARCHAR(500)")
+
+	@Column(name = "description", columnDefinition = "NVARCHAR(500)")
 	private String description;
-	
+
 	@Enumerated(EnumType.STRING)
-	@Column(name = "status", length = SHORT)
+	@Column(name = "status", columnDefinition = SHORT)
 	private PermissionStatus status;
 
 	public String getName() {
@@ -67,5 +69,23 @@ public class UserPermission extends BaseEntity {
 
 	public void setStatus(PermissionStatus status) {
 		this.status = status;
+	}
+
+	public String getGroupName() {
+		return groupName;
+	}
+
+	public void setGroupName(String groupName) {
+		this.groupName = groupName;
+	}
+
+	@Override
+	public String getColIdName() {
+		return "permission_name";
+	}
+
+	@Override
+	public Object getColIdValue() {
+		return getName();
 	}
 }
