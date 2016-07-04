@@ -3,7 +3,7 @@
 <%@taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ page session="false"%>
+
 <div id="page-wrapper">
 	<div class="row">
 		<div class="col-lg-12">
