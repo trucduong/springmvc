@@ -6,8 +6,8 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<modules>
-		<module>core</module>
-		<module>security-service</module>
+		
+		
 		<module>web-shop</module>
 		<module>service-auth</module>
 		<module>web-shop-admin</module>
@@ -17,13 +17,18 @@
 		<module>core-web</module>
 		<module>core-dao</module>
 		<module>service-auth-shared</module>
-		<module>service-warehouse</module>
+		
 		<module>service-catalogue</module>
 		<module>service-partner</module>
-		<module>service-business</module>
-		<module>service-business-shared</module>
+		
+		
 		<module>service-catalogue-shared</module>
 		<module>service-partner_shared</module>
+		<module>web-business</module>
+		<module>service-common</module>
+		<module>service-common-shared</module>
+		<module>service-shop</module>
+		<module>service-shop-shared</module>
 	</modules>
 	<properties>
 		<java.version>1.7</java.version>

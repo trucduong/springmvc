@@ -23,20 +23,20 @@ public class UserPermission extends BaseEntity {
 	 * mapping to spring security role
 	 */
 	@Id
-	@Column(name = "permission_name", columnDefinition = MEDIUM)
+	@Column(name = "permission_name", columnDefinition = MEDIUM_1)
 	private String name;
 
-	@Column(name = "group_name", columnDefinition = SHORT)
+	@Column(name = "group_name", columnDefinition = SHORT_5)
 	private String groupName;
 
-	@Column(name = "display_name", columnDefinition = "NVARCHAR(100)")
+	@Column(name = "display_name", columnDefinition = MEDIUM_1)
 	private String displayName;
 
-	@Column(name = "description", columnDefinition = "NVARCHAR(500)")
+	@Column(name = "description", columnDefinition = MEDIUM_5)
 	private String description;
 
 	@Enumerated(EnumType.STRING)
-	@Column(name = "status", columnDefinition = SHORT)
+	@Column(name = "status", columnDefinition = SHORT_1)
 	private PermissionStatus status;
 
 	public String getName() {

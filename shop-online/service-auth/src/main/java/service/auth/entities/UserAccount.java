@@ -18,25 +18,25 @@ public class UserAccount extends BaseEntity {
 	private static final long serialVersionUID = -61352121879032316L;
 
 	@Id
-	@Column(name = "login_name", unique = true, columnDefinition = SHORT)
+	@Column(name = "login_name", unique = true, columnDefinition = SHORT_5)
 	private String loginName;
 
-	@Column(name = "password", columnDefinition = MEDIUM)
+	@Column(name = "password", columnDefinition = MEDIUM_1)
 	private String password;
 
 	@Enumerated(EnumType.STRING)
-	@Column(name = "status", columnDefinition = SHORT)
+	@Column(name = "status", columnDefinition = SHORT_1)
 	private AccountStatus status;
 
 	@Enumerated(EnumType.STRING)
-	@Column(name = "account_type", columnDefinition = SHORT)
+	@Column(name = "account_type", columnDefinition = SHORT_1)
 	private AccountType accountType;
 
-	@Column(name = "shop_id", columnDefinition = SHORT)
+	@Column(name = "shop_id", columnDefinition = SHORT_2)
 	private String shopId;
 
 	// permission id array (Json format)
-	@Column(name = "permissions", columnDefinition = LONG)
+	@Column(name = "permissions", columnDefinition = LONG_1)
 	private String permissions;
 
 	public UserAccount() {
