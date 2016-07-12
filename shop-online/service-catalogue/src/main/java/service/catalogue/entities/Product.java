@@ -3,10 +3,14 @@ package service.catalogue.entities;
 import java.math.BigDecimal;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import core.dao.entities.BaseEntity;
 
+@Entity
+@Table(name="products")
 public class Product extends BaseEntity {
 
 	private static final long serialVersionUID = -1261723538239931214L;

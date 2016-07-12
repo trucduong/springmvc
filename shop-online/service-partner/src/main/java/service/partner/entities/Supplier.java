@@ -3,9 +3,13 @@ package service.partner.entities;
 import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 import core.dao.entities.BaseEntity;
 
+@Entity
+@Table(name="suppliers")
 public class Supplier extends BaseEntity {
 	private static final long serialVersionUID = 7977594443915836167L;
 

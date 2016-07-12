@@ -1,9 +1,13 @@
 package service.partner.entities;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 import core.dao.entities.BaseEntity;
 
+@Entity
+@Table(name="supplier_groups")
 public class SupplierGroup extends BaseEntity {
 	private static final long serialVersionUID = -5055615445402333571L;
 

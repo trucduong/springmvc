@@ -1,6 +1,4 @@
-package service.partner.entities;
-
-import java.util.Date;
+package service.shop.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,46 +8,63 @@ import javax.persistence.Table;
 import core.dao.entities.BaseEntity;
 
 @Entity
-@Table(name="customers")
-public class Customer extends BaseEntity {
-	private static final long serialVersionUID = 6487120504006748908L;
+@Table(name="shop_branches")
+public class ShopBranch extends BaseEntity {
+
+	private static final long serialVersionUID = -6285334178537511775L;
+
+	@Id
+	@Column(name = "id", columnDefinition = INT)
+	private String id;
+
+	@Column(name = "shop", columnDefinition = SHORT_2)
+	private String shop;
 
 	@Column(name = "name", columnDefinition = SHORT_5)
 	private String name;
-	
-	@Id
-	@Column(name = "phone", columnDefinition = SHORT_2)
-	private String phone;
-	
-	@Column(name = "birth_day", columnDefinition = DATE)
-	private Date birthDay;
-	
-	@Column(name = "sex", columnDefinition = SHORT_2)
-	private String sex;
-	
+
 	@Column(name = "address_detail", columnDefinition = SHORT_5)
 	private String addressDetail;
-	
+
 	@Column(name = "address_1", columnDefinition = SHORT_5)
 	private String address1;
-	
+
 	@Column(name = "address_2", columnDefinition = SHORT_5)
 	private String address2;
-	
+
 	@Column(name = "address_3", columnDefinition = SHORT_5)
 	private String address3;
-	
-	@Column(name = "properties", columnDefinition = LONG_1)
-	private String properties;
+
+	@Column(name = "manager", columnDefinition = SHORT_5)
+	private String manager;
+
+	@Column(name = "phone", columnDefinition = SHORT_2)
+	private String phone;
 
 	@Override
 	public Object getColIdValue() {
-		return phone;
+		return id;
 	}
 
 	@Override
 	public String getColIdName() {
-		return "phone";
+		return "id";
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getShop() {
+		return shop;
+	}
+
+	public void setShop(String shop) {
+		this.shop = shop;
 	}
 
 	public String getName() {
@@ -58,30 +73,6 @@ public class Customer extends BaseEntity {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public String getPhone() {
-		return phone;
-	}
-
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-
-	public Date getBirthDay() {
-		return birthDay;
-	}
-
-	public void setBirthDay(Date birthDay) {
-		this.birthDay = birthDay;
-	}
-
-	public String getSex() {
-		return sex;
-	}
-
-	public void setSex(String sex) {
-		this.sex = sex;
 	}
 
 	public String getAddressDetail() {
@@ -116,11 +107,19 @@ public class Customer extends BaseEntity {
 		this.address3 = address3;
 	}
 
-	public String getProperties() {
-		return properties;
+	public String getManager() {
+		return manager;
 	}
 
-	public void setProperties(String properties) {
-		this.properties = properties;
+	public void setManager(String manager) {
+		this.manager = manager;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 }
