@@ -4,10 +4,10 @@ import {WrapperCmp} from '../wrapper/wrapper';
 
 @Component({
   selector: 'blank',
-  templateUrl: 'app/components/typography/blank.html',
-  styleUrls: ['app/components/typography/blank.css'],
+  templateUrl: 'app/components/blank/blank.html',
+  styleUrls: ['app/components/blank/blank.css'],
   directives: [WrapperCmp, CORE_DIRECTIVES]
 })
+
 export class BlankPage {
-  
 }

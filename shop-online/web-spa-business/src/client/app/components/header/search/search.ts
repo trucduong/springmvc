@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from 'angular2/core';
 
 @Component({
   selector: 'header-search',
@@ -7,5 +7,4 @@ import { Component } from '@angular/core';
 })
 
 export class HeaderSearch {
-
 }
