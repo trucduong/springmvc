@@ -1,7 +1,5 @@
 package core.common.exception;
 
-import org.springframework.util.StringUtils;
-
 public class CommonException extends Throwable {
 	private static final long serialVersionUID = 7629325848588989727L;
 	private String errCode;
@@ -9,21 +7,21 @@ public class CommonException extends Throwable {
 	public String getErrCode() {
 		return errCode;
 	}
-	
-	@Override
-	public String getMessage() {
-		String message = super.getMessage();
-		if (StringUtils.isEmpty(message)) {
-			message = getLocalizedMessage();
-		}
-		return message;
-	}
-	
-	@Override
-	public String getLocalizedMessage() {
-		// TODO get localized message here
-		return super.getLocalizedMessage();
-	}
+//	
+//	@Override
+//	public String getMessage() {
+//		String message = super.getMessage();
+//		if (StringUtils.isEmpty(message)) {
+//			message = getLocalizedMessage();
+//		}
+//		return message;
+//	}
+//	
+//	@Override
+//	public String getLocalizedMessage() {
+//		// TODO get localized message here
+//		return super.getLocalizedMessage();
+//	}
 
 	public CommonException(String errCode) {
 		super();

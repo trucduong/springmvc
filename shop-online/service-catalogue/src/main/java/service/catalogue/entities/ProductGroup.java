@@ -2,7 +2,6 @@ package service.catalogue.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 import core.dao.entities.BaseEntity;
@@ -12,9 +11,8 @@ import core.dao.entities.BaseEntity;
 public class ProductGroup extends BaseEntity {
 	private static final long serialVersionUID = 225993716844123067L;
 
-	@Id
-	@Column(name = "id", columnDefinition = INT)
-	private Integer id;
+//	@Column(name = "id", columnDefinition = INT)
+//	private Integer id;
 
 	@Column(name = "name", columnDefinition = SHORT_5)
 	private String name;
@@ -24,24 +22,29 @@ public class ProductGroup extends BaseEntity {
 
 	@Column(name = "status", columnDefinition = MEDIUM_1)
 	private String status;
+//
+//	@Override
+//	public Object getColIdValue() {
+//		return id;
+//	}
+//
+//	@Override
+//	public String getColIdName() {
+//		return "id";
+//	}
+//	
+//	@Override
+//	public Object convertToId(String value) {
+//		return Integer.valueOf(value);
+//	}
 
-	@Override
-	public Object getColIdValue() {
-		return id;
-	}
-
-	@Override
-	public String getColIdName() {
-		return "id";
-	}
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
+//	public Integer getId() {
+//		return id;
+//	}
+//
+//	public void setId(Integer id) {
+//		this.id = id;
+//	}
 
 	public String getName() {
 		return name;

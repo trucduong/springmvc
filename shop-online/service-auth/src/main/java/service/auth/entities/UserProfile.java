@@ -4,7 +4,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 import core.dao.entities.BaseEntity;
@@ -15,7 +14,6 @@ import service.auth.shared.AccountType;
 public class UserProfile extends BaseEntity {
 	private static final long serialVersionUID = -3110764643153799067L;
 
-	@Id
 	@Column(name = "login_name", unique = true, columnDefinition = SHORT_5)
 	private String loginName;
 
@@ -60,14 +58,19 @@ public class UserProfile extends BaseEntity {
 	public void setShopId(String shopId) {
 		this.shopId = shopId;
 	}
-
-	@Override
-	public String getColIdName() {
-		return "loginName";
-	}
-
-	@Override
-	public Object getColIdValue() {
-		return getLoginName();
-	}
+//
+//	@Override
+//	public String getColIdName() {
+//		return "loginName";
+//	}
+//
+//	@Override
+//	public Object getColIdValue() {
+//		return getLoginName();
+//	}
+//	
+//	@Override
+//	public Object convertToId(String value) {
+//		return value;
+//	}
 }

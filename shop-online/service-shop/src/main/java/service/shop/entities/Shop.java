@@ -2,7 +2,6 @@ package service.shop.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 import core.dao.entities.BaseEntity;
@@ -13,9 +12,8 @@ public class Shop extends BaseEntity {
 
 	private static final long serialVersionUID = 4974317956527909486L;
 
-	@Id
-	@Column(name = "id", columnDefinition = SHORT_2)
-	private String id;
+//	@Column(name = "id", columnDefinition = SHORT_2)
+//	private String id;
 
 	@Column(name = "full_name", columnDefinition = MEDIUM_1)
 	private String fullName;
@@ -37,24 +35,29 @@ public class Shop extends BaseEntity {
 
 	@Column(name = "properties", columnDefinition = MEDIUM_5)
 	private String properties;
+//
+//	@Override
+//	public Object getColIdValue() {
+//		return id;
+//	}
+//
+//	@Override
+//	public String getColIdName() {
+//		return "id";
+//	}
+//	
+//	@Override
+//	public Object convertToId(String value) {
+//		return value;
+//	}
 
-	@Override
-	public Object getColIdValue() {
-		return id;
-	}
-
-	@Override
-	public String getColIdName() {
-		return "id";
-	}
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
+//	public String getId() {
+//		return id;
+//	}
+//
+//	public void setId(String id) {
+//		this.id = id;
+//	}
 
 	public String getFullName() {
 		return fullName;

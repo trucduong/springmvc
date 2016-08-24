@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import core.common.exception.CommonException;
-import core.service.ServiceProvider;
-import core.service.ServiceResult;
+import core.service.utils.ServiceProvider;
+import core.service.utils.ServiceResult;
 import core.web.navigation.Navigator;
 import service.auth.shared.ServiceAuthAction;
 import service.auth.shared.dto.AccountDto;

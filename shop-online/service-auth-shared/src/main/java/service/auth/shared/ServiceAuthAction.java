@@ -5,7 +5,7 @@ import java.util.Map;
 
 import org.springframework.core.env.Environment;
 
-import core.service.IServiceAction;
+import core.service.utils.IServiceAction;
 
 public class ServiceAuthAction implements IServiceAction {
 	private static final String SERVER_NAME = "service.auth.server.name";
@@ -31,6 +31,16 @@ public class ServiceAuthAction implements IServiceAction {
 	@Override
 	public Object getData() {
 		return data;
+	}
+	
+	@Override
+	public String getServerName() {
+		return SERVER_NAME;
+	}
+
+	@Override
+	public String getServerUrl() {
+		return SERVER_URL;
 	}
 	
 	public static IServiceAction getAccountByName(Environment env, String name) {

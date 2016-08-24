@@ -22,31 +22,31 @@
 			<groupId>com.abc</groupId>
 			<artifactId>core-common</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
-			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.abc</groupId>
 			<artifactId>core-dao</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
-			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.abc</groupId>
 			<artifactId>core-service</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
-			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.abc</groupId>
 			<artifactId>service-common-shared</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
-			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.abc</groupId>
 			<artifactId>core-web</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
-			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.abc</groupId>
+			<artifactId>service-partner_shared</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 </project>

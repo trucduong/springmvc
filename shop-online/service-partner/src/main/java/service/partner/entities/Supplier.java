@@ -13,8 +13,8 @@ import core.dao.entities.BaseEntity;
 public class Supplier extends BaseEntity {
 	private static final long serialVersionUID = 7977594443915836167L;
 
-	@Column(name = "id", columnDefinition = INT)
-	private Integer id;
+//	@Column(name = "id", columnDefinition = INT)
+//	private Integer id;
 
 	@Column(name = "name", columnDefinition = SHORT_5)
 	private String name;
@@ -48,24 +48,24 @@ public class Supplier extends BaseEntity {
 
 	@Column(name = "note", columnDefinition = MEDIUM_5)
 	private String note;
+//
+//	@Override
+//	public Object getColIdValue() {
+//		return id;
+//	}
+//
+//	@Override
+//	public String getColIdName() {
+//		return "id";
+//	}
 
-	@Override
-	public Object getColIdValue() {
-		return id;
-	}
-
-	@Override
-	public String getColIdName() {
-		return "id";
-	}
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
+//	public Integer getId() {
+//		return id;
+//	}
+//
+//	public void setId(Integer id) {
+//		this.id = id;
+//	}
 
 	public String getName() {
 		return name;
@@ -154,4 +154,9 @@ public class Supplier extends BaseEntity {
 	public void setNote(String note) {
 		this.note = note;
 	}
+//	
+//	@Override
+//	public Object convertToId(String value) {
+//		return Integer.valueOf(value);
+//	}
 }

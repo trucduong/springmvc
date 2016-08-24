@@ -2,7 +2,7 @@ package service.auth.dao;
 
 import org.springframework.stereotype.Component;
 
-import core.dao.BaseDao;
+import core.dao.utils.BaseDao;
 import service.auth.entities.UserAccount;
 
 @Component

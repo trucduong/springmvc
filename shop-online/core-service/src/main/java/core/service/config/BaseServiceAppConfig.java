@@ -34,9 +34,9 @@ public abstract class BaseServiceAppConfig {
 	}
 
 	@Bean
-	public PlatformTransactionManager transactionManager() {
-		EntityManagerFactory factory = entityManagerFactory().getObject();
-		return new JpaTransactionManager(factory);
+	public PlatformTransactionManager transactionManager(EntityManagerFactory entityManagerFactory) {
+		//EntityManagerFactory factory = entityManagerFactory().getObject();
+		return new JpaTransactionManager(entityManagerFactory);
 	}
 
 	@Bean

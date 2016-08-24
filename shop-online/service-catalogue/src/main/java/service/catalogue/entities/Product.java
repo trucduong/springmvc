@@ -4,7 +4,6 @@ import java.math.BigDecimal;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 import core.dao.entities.BaseEntity;
@@ -15,7 +14,6 @@ public class Product extends BaseEntity {
 
 	private static final long serialVersionUID = -1261723538239931214L;
 
-	@Id
 	@Column(name = "code", columnDefinition = SHORT_2)
 	private String code;
 
@@ -54,16 +52,21 @@ public class Product extends BaseEntity {
 
 	@Column(name = "note", columnDefinition = MEDIUM_5)
 	private String note;
-
-	@Override
-	public Object getColIdValue() {
-		return code;
-	}
-
-	@Override
-	public String getColIdName() {
-		return "code";
-	}
+//
+//	@Override
+//	public Object getColIdValue() {
+//		return code;
+//	}
+//
+//	@Override
+//	public String getColIdName() {
+//		return "code";
+//	}
+//	
+//	@Override
+//	public Object convertToId(String value) {
+//		return value;
+//	}
 
 	public String getCode() {
 		return code;

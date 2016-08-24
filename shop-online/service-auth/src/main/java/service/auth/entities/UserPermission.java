@@ -4,7 +4,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 import core.dao.entities.BaseEntity;
@@ -22,7 +21,6 @@ public class UserPermission extends BaseEntity {
 	/**
 	 * mapping to spring security role
 	 */
-	@Id
 	@Column(name = "permission_name", columnDefinition = MEDIUM_1)
 	private String name;
 
@@ -78,14 +76,19 @@ public class UserPermission extends BaseEntity {
 	public void setGroupName(String groupName) {
 		this.groupName = groupName;
 	}
-
-	@Override
-	public String getColIdName() {
-		return "permission_name";
-	}
-
-	@Override
-	public Object getColIdValue() {
-		return getName();
-	}
+//
+//	@Override
+//	public String getColIdName() {
+//		return "permission_name";
+//	}
+//
+//	@Override
+//	public Object getColIdValue() {
+//		return getName();
+//	}
+//	
+//	@Override
+//	public Object convertToId(String value) {
+//		return value;
+//	}
 }

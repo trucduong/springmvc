@@ -17,7 +17,6 @@ public class Customer extends BaseEntity {
 	@Column(name = "name", columnDefinition = SHORT_5)
 	private String name;
 	
-	@Id
 	@Column(name = "phone", columnDefinition = SHORT_2)
 	private String phone;
 	
@@ -41,16 +40,16 @@ public class Customer extends BaseEntity {
 	
 	@Column(name = "properties", columnDefinition = LONG_1)
 	private String properties;
-
-	@Override
-	public Object getColIdValue() {
-		return phone;
-	}
-
-	@Override
-	public String getColIdName() {
-		return "phone";
-	}
+//
+//	@Override
+//	public Object getColIdValue() {
+//		return phone;
+//	}
+//
+//	@Override
+//	public String getColIdName() {
+//		return "phone";
+//	}
 
 	public String getName() {
 		return name;
@@ -123,4 +122,9 @@ public class Customer extends BaseEntity {
 	public void setProperties(String properties) {
 		this.properties = properties;
 	}
+	
+//	@Override
+//	public Object convertToId(String value) {
+//		return value;
+//	}
 }

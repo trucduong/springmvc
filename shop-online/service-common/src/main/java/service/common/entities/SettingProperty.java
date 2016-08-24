@@ -2,7 +2,6 @@ package service.common.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 import core.dao.entities.BaseEntity;
@@ -17,22 +16,26 @@ public class SettingProperty extends BaseEntity {
 //	private String locale;
 	
 	// include locale
-	@Id
 	@Column(name = "pro_key", columnDefinition = MEDIUM_1)
 	private String key;
 	
 	@Column(name = "pro_value", columnDefinition = MEDIUM_2)
 	private String value;
-
-	@Override
-	public Object getColIdValue() {
-		return key;
-	}
-
-	@Override
-	public String getColIdName() {
-		return "pro_key";
-	}
+//
+//	@Override
+//	public Object getColIdValue() {
+//		return key;
+//	}
+//
+//	@Override
+//	public String getColIdName() {
+//		return "pro_key";
+//	}
+//	
+//	@Override
+//	public Object convertToId(String value) {
+//		return value;
+//	}
 
 	public String getKey() {
 		return key;
