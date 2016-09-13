@@ -1,41 +1,31 @@
-# angular2-seed & ng2-bootstrap & SB Admin 2.0
+# WebSpaBusiness
 
-# How to start
+This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.11-webpack.8.
 
-**Note** that this seed project requires node v4.x.x or higher and npm 3.x.x.
+## Development server
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-```bash
-git clone https://github.com/AngularShowcase/ng2-bootstrap-sbadmin.git
-cd ng2-bootstrap-sbadmin
-npm install   # clean npm cache & delete node_modules folder if you get an error
-npm start     # start with --env dev
-npm run docs      # api document for app
-```
-_Does not rely on any global dependencies._
+## Code scaffolding
 
-# Configuration
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class`.
 
-Default application server configuration
+## Build
 
-```javascript
-var PORT             = 5555;
-var LIVE_RELOAD_PORT = 4002;
-var DOCS_PORT        = 4003;
-var APP_BASE         = '/';
-```
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
-Configure at runtime
+## Running unit tests
 
-```bash
-npm start -- --port 8080 --reload-port 4000 --base /my-app/
-```
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-# Now to extend?
+## Running end-to-end tests
 
-If you want to use your custom libraries:
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/). 
+Before running the tests make sure you are serving the app via `ng serve`.
 
-```bash
-npm install my-library --save
-vim tools/config.js
-```
-Add reference to the installed library in `PATH.src.jslib` (or whatever you like).
+## Deploying to Github Pages
+
+Run `ng github-pages:deploy` to deploy to Github Pages.
+
+## Further help
+
+To get more help on the `angular-cli` use `ng --help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
