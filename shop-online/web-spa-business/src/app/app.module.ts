@@ -9,6 +9,7 @@ import { appRouting } from './app.routing';
 
 import { AuthModule } from './auth/index';
 import { BlankModule } from './blank/index';
+import { CustomerModule } from './customer/index';
 
 @NgModule({
   imports: [
@@ -18,7 +19,8 @@ import { BlankModule } from './blank/index';
     HttpModule,
     appRouting,
     AuthModule,
-    BlankModule
+    BlankModule,
+    CustomerModule
   ],
   declarations: [ AppComponent ],
   bootstrap: [ AppComponent ]

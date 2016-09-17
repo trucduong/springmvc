@@ -19,7 +19,7 @@ export class HeaderSidebar implements OnInit {
 
   ngOnInit() {
     this.sidebars = this.sidebarService.getSidebar();
-    this.onSelect(this.sidebars[0]);
+    //this.onSelect(this.sidebars[0]);
   }
 
   gotoPage(url: String): void {
