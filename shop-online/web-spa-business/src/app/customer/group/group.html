@@ -48,7 +48,7 @@
                             </table>
                         </div>
                         <div class="row">
-                            <pagination-cmp></pagination-cmp>
+                            <pagination-cmp [info]="paginationInfo" (onPaging)="onPaging($event)"></pagination-cmp>
                         </div>
                     </div>
                 </div>

@@ -18,8 +18,10 @@ export class CustomerGroupDetailCmp implements OnInit {
   model: CustomerGroup;
   isEditing: Boolean;
   message: AlertInfo;
+  showLoading: Boolean;
 
   ngOnInit() {
+    this.showLoading = true;
     this.route.params.forEach((params: Params) => {
         let id = params['id'] + '';
         if (id == null || id == '' || id == '-1') {
@@ -30,10 +32,14 @@ export class CustomerGroupDetailCmp implements OnInit {
             this.isEditing = true;
         }
     });
+
+    this.showLoading = false;
   }
 
   onSave() {
+      this.showLoading = true;
       // validate
+
 
       // save
       let result = this.customerService.saveCustomerGroup(this.model, this.isEditing);
@@ -44,6 +50,8 @@ export class CustomerGroupDetailCmp implements OnInit {
       } else {
           this.message = new AlertInfo("danger", "Can not save");
       }
+
+      this.showLoading = false;
   }
 
   onBack() {

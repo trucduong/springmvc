@@ -142,3 +142,30 @@ body {
 .active > a > .fa.plus-minus::before {
   content: "\f068";
 }
+
+
+.loading-image {
+  display:block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -50px 0px 0px -50px;
+}
+
+#overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background: #000;
+    opacity: 0.1;
+    filter: alpha(opacity=10);
+    z-index: 1000;
+}
+#loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -50px 0 0 -50px;
+}

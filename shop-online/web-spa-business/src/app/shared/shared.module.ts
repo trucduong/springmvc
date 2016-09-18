@@ -7,6 +7,7 @@ import { FilterCmp }  from './filter/filter';
 import { PaginationCmp }  from './pagination/pagination';
 import { WrapperCmp }  from './wrapper/wrapper';
 import { AlertCmp } from './alert/alert';
+import { LoadingCmp } from './loading/loading';
 
 @NgModule({
   imports:      [ 
@@ -17,7 +18,8 @@ import { AlertCmp } from './alert/alert';
     FilterCmp,
     PaginationCmp,
     WrapperCmp,
-    AlertCmp
+    AlertCmp,
+    LoadingCmp
   ],
   exports: [ 
     CommonModule,
@@ -26,7 +28,8 @@ import { AlertCmp } from './alert/alert';
     FilterCmp,
     PaginationCmp,
     WrapperCmp,
-    AlertCmp
+    AlertCmp,
+    LoadingCmp
   ],
 })
 export class SharedModule { }
