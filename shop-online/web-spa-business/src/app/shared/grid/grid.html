@@ -1,0 +1,27 @@
+<div class="col-xs-12">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-xs-12 col-sm-8">
+                    <ng-content select="grid-action-cmp"></ng-content>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                    <filter-cmp (onFilter)="onFilterChanged($event)"></filter-cmp>
+                </div>
+            </div>
+        </div>
+        <!-- /.panel-heading -->
+        <div class="panel-body">
+            <div class="col-xs-12">
+                <div class="row">
+                    <ng-content select="grid-content-cmp"></ng-content>
+                </div>
+                <div class="row">
+                    <pagination-cmp [info]="paginationInfo" (onPaging)="onPaging($event)"></pagination-cmp>
+                </div>
+            </div>
+        </div>
+        <!-- /.panel-body -->
+    </div>
+    <!-- /.panel -->
+</div>

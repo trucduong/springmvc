@@ -8,10 +8,14 @@ import { PaginationCmp }  from './pagination/pagination';
 import { WrapperCmp }  from './wrapper/wrapper';
 import { AlertCmp } from './alert/alert';
 import { LoadingCmp } from './loading/loading';
+import { GridCmp } from './grid/grid';
+import { GridActionCmp } from './grid/action/action';
+import { GridContentCmp } from './grid/content/content';
 
 @NgModule({
   imports:      [ 
     CommonModule,
+    FormsModule,
     HeaderModule
   ],
   declarations: [
@@ -19,7 +23,10 @@ import { LoadingCmp } from './loading/loading';
     PaginationCmp,
     WrapperCmp,
     AlertCmp,
-    LoadingCmp
+    LoadingCmp,
+    GridCmp,
+    GridActionCmp,
+    GridContentCmp
   ],
   exports: [ 
     CommonModule,
@@ -29,7 +36,10 @@ import { LoadingCmp } from './loading/loading';
     PaginationCmp,
     WrapperCmp,
     AlertCmp,
-    LoadingCmp
+    LoadingCmp,
+    GridCmp,
+    GridActionCmp,
+    GridContentCmp
   ],
 })
 export class SharedModule { }

@@ -1,4 +1,4 @@
-const MAX_ROW = 20;
+const MAX_ROW = 5;
 
 export class PaginationInfo {
     current: number;
@@ -17,7 +17,11 @@ export class PaginationInfo {
         }
 
         this.current = 1;
-        this.total = totalPage;
+        this.total = parseInt(totalPage.toString(), 10);
+    }
+
+    setCurrent(current: number) {
+        this.current = current;
     }
 
     update(current:number, totalRow: number) {
@@ -32,7 +36,7 @@ export class PaginationInfo {
             current = totalPage;
         }
 
-        this.current = current;
-        this.total = totalPage;
+        this.current = this.total = parseInt(current.toString(), 10);
+        this.total = this.total = parseInt(totalPage.toString(), 10);
     }
 }

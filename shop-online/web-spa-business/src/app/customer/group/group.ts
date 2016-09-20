@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 
 import { CustomerService, CustomerGroup } from '../shared/index';
-import { PaginationInfo } from '../../shared/index';
 
 @Component({
   selector: 'customer-group',
@@ -14,12 +13,11 @@ export class CustomerGroupCmp implements OnInit {
     private router: Router,
     private customerService: CustomerService) { }
 
-  customerGroups: CustomerGroup[];
-  paginationInfo: PaginationInfo;
+  allItems: CustomerGroup[];
+  items: CustomerGroup[];
 
   ngOnInit() {
-    this.customerGroups = this.customerService.getCustomerGroups();
-    this.paginationInfo = new PaginationInfo(46);
+    this.onLoad();
   }
 
   onEdit(item: CustomerGroup) {
@@ -35,11 +33,19 @@ export class CustomerGroupCmp implements OnInit {
     // check result
 
     // reload
-    this.ngOnInit();
+    this.onLoad();
   }
 
-  onPaging(index: number) {
-    this.paginationInfo.update(index, 46);
+  onShow(items: any[]) {
+    this.items = items;
+  }
+
+  onLoad() {
+    this.allItems = this.customerService.getCustomerGroups();
+  }
+
+  onFilter(value: string) {
+    this.allItems = this.customerService.getCustomerGroupsByName(value);
   }
 
 }
