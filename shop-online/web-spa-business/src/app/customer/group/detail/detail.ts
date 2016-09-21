@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import { CustomerService, CustomerGroup } from '../../shared/index';
+import { AlertInfo } from '../../../shared/index';
 
 @Component({
   selector: 'customer-group-detail',
@@ -16,12 +17,11 @@ export class CustomerGroupDetailCmp implements OnInit {
 
   model: CustomerGroup;
   isEditing: Boolean;
-  error: String;
+  message: AlertInfo;
+  showLoading: Boolean;
 
   ngOnInit() {
-    // Set default variables
-    this.error = null;
-
+    this.showLoading = true;
     this.route.params.forEach((params: Params) => {
         let id = params['id'] + '';
         if (id == null || id == '' || id == '-1') {
@@ -32,19 +32,26 @@ export class CustomerGroupDetailCmp implements OnInit {
             this.isEditing = true;
         }
     });
+
+    this.showLoading = false;
   }
 
   onSave() {
+      this.showLoading = true;
       // validate
       
+
       // save
       let result = this.customerService.saveCustomerGroup(this.model, this.isEditing);
 
       if (result) {
-          this.onBack();
+          this.message = new AlertInfo("success", "Save success");
+          //this.onBack();
       } else {
-          this.error = "Can not save!";
+          this.message = new AlertInfo("danger", "Can not save");
       }
+
+      this.showLoading = false;
   }
 
   onBack() {

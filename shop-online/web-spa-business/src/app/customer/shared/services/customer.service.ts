@@ -13,7 +13,23 @@ export class CustomerService {
 
     // Group
     getCustomerGroups(): any {
-        return CUSTOMER_GROUPS;
+        let list: CustomerGroup[] = [];
+        CUSTOMER_GROUPS.forEach(element => {
+            list.push(element);
+        });
+
+        return list;
+    }
+
+    getCustomerGroupsByName(name: string): any {
+        let list: CustomerGroup[] = [];
+        CUSTOMER_GROUPS.forEach(element => {
+            if (element.name.indexOf(name) != -1) {
+                list.push(element);
+            }
+        });
+
+        return list;
     }
 
     getCustomerGroup(id: String): any {
@@ -38,7 +54,7 @@ export class CustomerService {
                 }
             });
         } else {
-            let customerGroup = CUSTOMER_GROUPS.push(item);
+            CUSTOMER_GROUPS.push(item);
         }
 
         return true;
