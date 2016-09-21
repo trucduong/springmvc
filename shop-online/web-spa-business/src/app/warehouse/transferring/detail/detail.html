@@ -1,0 +1,72 @@
+<wrapper>
+    <!-- page header -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Input group detail</h1>
+        </div>
+    </div>
+
+    <!-- page content -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Them moi
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <!--<form #InputForm="ngForm" role="form">-->
+                                <div class="form-group">
+                                    <label>id</label>
+                                    <input class="form-control" required [(ngModel)]="model.id" name="id" >
+                                </div>
+                                <div class="form-group">
+                                    <label>name</label>
+                                    <input class="form-control" required [(ngModel)]="model.name" name="name">
+                                </div>
+                                   <div class="form-group">
+                                    <label>unit</label>
+                                    <input class="form-control" required [(ngModel)]="model.unit" name="unit">
+                                </div>
+                                 <div class="form-group">
+                                    <label>inventories</label>
+                                    <textarea class="form-control" rows="3" [(ngModel)]="model.inventories" name="inventories"></textarea>
+                                </div>
+                                 <div class="form-group">
+                                    <label>quantity_for_tranfer</label>
+                                    <textarea class="form-control" rows="3" [(ngModel)]="model.quantity_for_tranfer" name="quantity_for_tranfer"></textarea>
+                                </div>
+                                  <div class="form-group">
+                                    <label>input_price</label>
+                                    <textarea class="form-control" rows="3" [(ngModel)]="model.input_price" name="input_price"></textarea>
+                                </div>
+                                 <div class="form-group">
+                                    <label>total</label>
+                                    <textarea class="form-control" rows="3" [(ngModel)]="model.total" name="total"></textarea>
+                                </div>
+                                 <div class="form-group">
+                                    <label>note</label>
+                                    <textarea class="form-control" rows="3" [(ngModel)]="model.note" name="note"></textarea>
+                                </div>
+                                 <div class="form-group">
+                                    <label>action</label>
+                                    <textarea class="form-control" rows="3" [(ngModel)]="model.action" name="action"></textarea>
+                                </div>
+                                <div *ngIf="error" class="alert alert-danger" >{{error}}</div>
+                                <button (click)="onSave()" class="btn btn-primary"><i class="glyphicon glyphicon-floppy-disk"></i></button>
+                            <!--</form>-->
+                        </div>
+                    </div>
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <div class="row">
+        <button class="btn btn-default" (click)="onBack()" ><i class="glyphicon glyphicon-arrow-left"></i></button>
+    </div>
+</wrapper>
