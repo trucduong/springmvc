@@ -3,5 +3,6 @@
     "customer.group.title": "Customer Group",
     "customer.group.list.code": "Code",
     "customer.group.list.name": "Name",
-    "customer.group.list.note": "Note"
+    "customer.group.list.note": "Note",
+    "customer.group.detail.title": "Customer Group Detail"
 }
