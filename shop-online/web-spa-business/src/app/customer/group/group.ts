@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import {TranslateService} from 'ng2-translate/ng2-translate';
 
+import { ListController } from '../../shared/index';
 import { CustomerService, CustomerGroup } from '../shared/index';
 
 @Component({
@@ -9,49 +10,33 @@ import { CustomerService, CustomerGroup } from '../shared/index';
   templateUrl: 'src/app/customer/group/group.html'
 })
 
-export class CustomerGroupCmp implements OnInit {
+export class CustomerGroupCmp extends ListController<CustomerGroup> implements OnInit {
   constructor(
-    private router: Router,
+    route: ActivatedRoute,
+    router: Router,
     translate: TranslateService,
-    private customerService: CustomerService) { 
-      translate.setDefaultLang('en');
-      translate.use('vi');
-      
+    private customerService: CustomerService) {
+
+      super(route, translate, router);
     }
 
-  allItems: CustomerGroup[];
-  items: CustomerGroup[];
-
-  ngOnInit() {
-    this.onLoad();
+  load(): CustomerGroup[] {
+    return this.customerService.getCustomerGroups();
   }
 
-  onEdit(item: CustomerGroup) {
-    this.router.navigate(['/customer-group-detail', item.id]);
+  filter(value: string): CustomerGroup[] {
+    return this.customerService.getCustomerGroupsByName(value);
   }
 
-  onAdd() {
-    this.router.navigate(['/customer-group-detail', -1]);
+  getCurrentUrl(): string {
+    return '/customer-group';
   }
 
-  onDelete(item: CustomerGroup) {
-    let result = this.customerService.deleteCustomerGroup(item.id);
-    // check result
-
-    // reload
-    this.onLoad();
+  getDetailUrl(): string {
+    return '/customer-group-detail';
   }
 
-  onShow(items: any[]) {
-    this.items = items;
+  delete(item: CustomerGroup): boolean {
+    return this.customerService.deleteCustomerGroup(item.id);
   }
-
-  onLoad() {
-    this.allItems = this.customerService.getCustomerGroups();
-  }
-
-  onFilter(value: string) {
-    this.allItems = this.customerService.getCustomerGroupsByName(value);
-  }
-
 }

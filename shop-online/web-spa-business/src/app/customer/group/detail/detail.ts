@@ -1,60 +1,44 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import {TranslateService} from 'ng2-translate/ng2-translate';
 
 import { CustomerService, CustomerGroup } from '../../shared/index';
-import { AlertInfo } from '../../../shared/index';
+import { AlertType } from '../../../shared/index';
+import { EditController } from '../../../shared/index';
 
 @Component({
-  selector: 'customer-group-detail',
-  templateUrl: 'src/app/customer/group/detail/detail.html'
+    selector: 'customer-group-detail',
+    templateUrl: 'src/app/customer/group/detail/detail.html'
 })
 
-export class CustomerGroupDetailCmp implements OnInit {
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private customerService: CustomerService) { }
+export class CustomerGroupDetailCmp extends EditController<CustomerGroup> implements OnInit {
+    constructor(
+        route: ActivatedRoute,
+        router: Router,
+        translate: TranslateService,
+        private customerService: CustomerService) {
+        super(route, router, translate);
+    }
 
-  model: CustomerGroup;
-  isEditing: Boolean;
-  message: AlertInfo;
-  showLoading: Boolean;
+    getCurrentUrl(): string {
+        return '/customer-group-detail';
+    }
 
-  ngOnInit() {
-    this.showLoading = true;
-    this.route.params.forEach((params: Params) => {
-        let id = params['id'] + '';
-        if (id == null || id == '' || id == '-1') {
-            this.model = new CustomerGroup('-1', '', '');
-            this.isEditing = false;
-        } else {
-            this.model = this.customerService.getCustomerGroup(id);
-            this.isEditing = true;
-        }
-    });
+    createModel(): CustomerGroup {
+        return new CustomerGroup();
+    }
 
-    this.showLoading = false;
-  }
+    load(id: any): CustomerGroup {
+        return this.customerService.getCustomerGroup(id);;
+    }
 
-  onSave() {
-      this.showLoading = true;
-      // validate
-      
+    validate(model: CustomerGroup): boolean {
+        // TODO: validate customer group here
+        // call this.addError(field, message) if has any error
+        return true;
+    }
 
-      // save
-      let result = this.customerService.saveCustomerGroup(this.model, this.isEditing);
-
-      if (result) {
-          this.message = new AlertInfo("success", "Save success");
-          //this.onBack();
-      } else {
-          this.message = new AlertInfo("danger", "Can not save");
-      }
-
-      this.showLoading = false;
-  }
-
-  onBack() {
-      this.router.navigate(['customer-group']);
-  }
+    save(model: CustomerGroup): boolean {
+        return this.customerService.saveCustomerGroup(model, this.isEditing);
+    }
 }

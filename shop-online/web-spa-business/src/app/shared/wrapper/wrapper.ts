@@ -1,4 +1,5 @@
-import {Component} from '@angular/core';
+import { Component, Input} from '@angular/core';
+import { WrapperInfo } from './wraper.info';
 
 @Component({
   selector: 'wrapper',
@@ -6,4 +7,5 @@ import {Component} from '@angular/core';
 })
 
 export class WrapperCmp {
+  @Input('info') info: WrapperInfo;
 }
