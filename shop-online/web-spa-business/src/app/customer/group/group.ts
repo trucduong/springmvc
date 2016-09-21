@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
+import {TranslateService} from 'ng2-translate/ng2-translate';
 
 import { CustomerService, CustomerGroup } from '../shared/index';
 
@@ -11,7 +12,12 @@ import { CustomerService, CustomerGroup } from '../shared/index';
 export class CustomerGroupCmp implements OnInit {
   constructor(
     private router: Router,
-    private customerService: CustomerService) { }
+    translate: TranslateService,
+    private customerService: CustomerService) { 
+      translate.setDefaultLang('en');
+      translate.use('vi');
+      
+    }
 
   allItems: CustomerGroup[];
   items: CustomerGroup[];
