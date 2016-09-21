@@ -1,34 +1,35 @@
 import {Component, OnInit} from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
-import { CustomerService, CustomerGroup } from '../../shared/index';
+import { Customer } from '../shared/index';
+import { CustomerService} from '../shared/index';
 
 @Component({
-  selector: 'customer-group-detail',
-  templateUrl: 'src/app/customer/group/detail/detail.html'
+  selector: 'customer-detail',
+  templateUrl: 'src/app/customer/detail/detail.html'
 })
 
-export class CustomerGroupDetailCmp implements OnInit {
+export class CustomerDetailCmp implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private customerService: CustomerService) { }
 
-  model: CustomerGroup;
+  model: Customer;
   isEditing: Boolean;
   error: String;
 
-  ngOnInit() {
+   ngOnInit() {
     // Set default variables
     this.error = null;
 
     this.route.params.forEach((params: Params) => {
-        let id = params['id'] + '';
-        if (id == null || id == '' || id == '-1') {
-            this.model = new CustomerGroup('-1', '', '');
+        let phone = params['phone'] + '';
+        if (phone == null || phone == '' || phone == '-1') {
+            this.model = new Customer('', '-1', '','','','','','','');
             this.isEditing = false;
         } else {
-            this.model = this.customerService.getCustomerGroup(id);
+            this.model = this.customerService.getCustomer(phone);
             this.isEditing = true;
         }
     });
@@ -38,7 +39,7 @@ export class CustomerGroupDetailCmp implements OnInit {
       // validate
       
       // save
-      let result = this.customerService.saveCustomerGroup(this.model, this.isEditing);
+      let result = this.customerService.saveCustomer(this.model, this.isEditing);
 
       if (result) {
           this.onBack();
@@ -48,6 +49,8 @@ export class CustomerGroupDetailCmp implements OnInit {
   }
 
   onBack() {
-      this.router.navigate(['customer-group']);
+      this.router.navigate(['customer']);
   }
+
+
 }

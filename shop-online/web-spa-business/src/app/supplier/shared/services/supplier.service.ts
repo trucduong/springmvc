@@ -1,35 +1,37 @@
 import { Injectable } from '@angular/core';
 
-import { CustomerGroup } from '../models/customer.group'
-import {CUSTOMER_GROUPS} from './customer.data';
+import {SupplierGroup} from '../models/supplier.group';
+import {SUPPLIER_GROUPS} from './supplier.data';
 
-import {Customer} from '../models/customer'
-import {CUSTOMER} from  './customer.data';
+import {Supplier} from '../models/supplier'
+import {SUPPLIER} from  './supplier.data';
 
 
 @Injectable()
-export class CustomerService {
+export class SupplierService {
+
     constructor() { }
 
     // Group
-    getCustomerGroups(): any {
-        return CUSTOMER_GROUPS;
+    getSupplierGroups(): any {
+        return SUPPLIER_GROUPS;
     }
 
-    getCustomerGroup(id: String): any {
-        let customer: CustomerGroup;
-        CUSTOMER_GROUPS.forEach(element => {
+       getSupplierGroup(id: String): any {
+        let supplier: SupplierGroup;
+        SUPPLIER_GROUPS.forEach(element => {
             if (element.id == id) {
-                customer = element;
+                supplier = element;
                 return;
             }
         });
-        return customer;
+        return supplier;
     }
 
-    saveCustomerGroup(item: CustomerGroup, isEditing: Boolean): Boolean {
+
+    saveSupplierGroup(item: SupplierGroup, isEditing: Boolean): Boolean {
         if (isEditing) {
-            CUSTOMER_GROUPS.forEach(element => {
+            SUPPLIER_GROUPS.forEach(element => {
                 if (element.id == item.id) {
                     element.name = item.name;
                     element.note = item.note;
@@ -38,17 +40,17 @@ export class CustomerService {
                 }
             });
         } else {
-            let customerGroup = CUSTOMER_GROUPS.push(item);
+            let supplierGroup = SUPPLIER_GROUPS.push(item);
         }
 
         return true;
     }
 
-    deleteCustomerGroup(id: String): Boolean {
-        let customerGroup: CustomerGroup;
-        CUSTOMER_GROUPS.forEach(function(element, index) {
+    deleteSupplierGroup(id: String): Boolean {
+        let supplierGroup: SupplierGroup;
+        SUPPLIER_GROUPS.forEach(function(element, index) {
             if (element.id == id) {
-                CUSTOMER_GROUPS.splice(index, 1);
+                SUPPLIER_GROUPS.splice(index, 1);
                 
                 return;
             }
@@ -57,26 +59,25 @@ export class CustomerService {
         return true;
     }
 
-
-    // Customer
-    getCustomers(): any {
-        return CUSTOMER;
+      // supplier
+    getSuppliers(): any {
+        return SUPPLIER;
     }
 
-    getCustomer(phone: String): any {
-        let customer: Customer;
-        CUSTOMER.forEach(element => {
+    getSupplier(phone: String): any {
+        let supplier: Supplier;
+        SUPPLIER.forEach(element => {
             if (element.phone == phone) {
-                customer = element;
+                supplier = element;
                 return;
             }
         });
-        return customer;
+        return supplier;
     }
 
-    saveCustomer(item: Customer, isEditing: Boolean): Boolean {
+    saveSupplier(item: Supplier, isEditing: Boolean): Boolean {
         if (isEditing) {
-            CUSTOMER.forEach(element => {
+            SUPPLIER.forEach(element => {
                 if (element.phone == item.phone) {
                     element.name = item.name;
                     element.birth_day = item.birth_day;
@@ -90,17 +91,17 @@ export class CustomerService {
                 }
             });
         } else {
-            let customer = CUSTOMER.push(item);
+            let supplier = SUPPLIER.push(item);
         }
 
         return true;
     }
 
-    deleteCustomer(phone: String): Boolean {
-        let customer: Customer;
-        CUSTOMER.forEach(function(element, index) {
+    deleteSupplier(phone: String): Boolean {
+        let supplier: Supplier;
+        SUPPLIER.forEach(function(element, index) {
             if (element.phone == phone) {
-                CUSTOMER.splice(index, 1);
+                SUPPLIER.splice(index, 1);
                 
                 return;
             }
@@ -108,5 +109,6 @@ export class CustomerService {
 
         return true;
     }
+
 
 }

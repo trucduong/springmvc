@@ -1,20 +1,20 @@
 import {Component, OnInit} from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
-import { CustomerService, CustomerGroup } from '../../shared/index';
+import { WarehouseService, Input } from '../../shared/index';
 
 @Component({
-  selector: 'customer-group-detail',
-  templateUrl: 'src/app/customer/group/detail/detail.html'
+  selector: 'warehouse-input-detail',
+  templateUrl: 'src/app/warehouse/input/detail/detail.html'
 })
 
-export class CustomerGroupDetailCmp implements OnInit {
+export class WarehouseInputDetailCmp implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private customerService: CustomerService) { }
+    private warehouseService: WarehouseService) { }
 
-  model: CustomerGroup;
+  model: Input;
   isEditing: Boolean;
   error: String;
 
@@ -25,10 +25,10 @@ export class CustomerGroupDetailCmp implements OnInit {
     this.route.params.forEach((params: Params) => {
         let id = params['id'] + '';
         if (id == null || id == '' || id == '-1') {
-            this.model = new CustomerGroup('-1', '', '');
+            this.model = new Input('-1', '', '','','','','','','');
             this.isEditing = false;
         } else {
-            this.model = this.customerService.getCustomerGroup(id);
+            this.model = this.warehouseService.getInput(id);
             this.isEditing = true;
         }
     });
@@ -38,7 +38,7 @@ export class CustomerGroupDetailCmp implements OnInit {
       // validate
       
       // save
-      let result = this.customerService.saveCustomerGroup(this.model, this.isEditing);
+      let result = this.warehouseService.saveInput(this.model, this.isEditing);
 
       if (result) {
           this.onBack();
@@ -48,6 +48,6 @@ export class CustomerGroupDetailCmp implements OnInit {
   }
 
   onBack() {
-      this.router.navigate(['customer-group']);
+      this.router.navigate(['warehouse-input']);
   }
 }
