@@ -28,7 +28,7 @@ export class CustomerService {
         return list;
     }
 
-    getCustomerGroup(id: String): any {
+    getCustomerGroup(id: string): any {
         let customer: CustomerGroup;
         CUSTOMER_GROUPS.forEach(element => {
             if (element.id == id) {
@@ -39,7 +39,7 @@ export class CustomerService {
         return customer;
     }
 
-    saveCustomerGroup(item: CustomerGroup, isEditing: Boolean): Boolean {
+    saveCustomerGroup(item: CustomerGroup, isEditing: boolean): boolean {
         if (isEditing) {
             CUSTOMER_GROUPS.forEach(element => {
                 if (element.id == item.id) {
@@ -56,7 +56,7 @@ export class CustomerService {
         return true;
     }
 
-    deleteCustomerGroup(id: String): Boolean {
+    deleteCustomerGroup(id: string): boolean {
         let customerGroup: CustomerGroup;
         CUSTOMER_GROUPS.forEach(function(element, index) {
             if (element.id == id) {

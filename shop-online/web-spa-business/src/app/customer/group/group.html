@@ -1,4 +1,4 @@
-<wrapper>
+<wrapper [info]="pageInfo">
     <!-- page header -->
     <div class="row">
         <div class="col-lg-12">
@@ -37,6 +37,6 @@
         </grid-cmp>
     </div>
     <div class="row">
-        <a class="btn btn-default" [routerLink]="['/customer']"><i class="glyphicon glyphicon-arrow-left"></i></a>
+        <a class="btn btn-default" (click)="onBack()"><i class="glyphicon glyphicon-arrow-left"></i></a>
     </div>
 </wrapper>

@@ -1,10 +1,14 @@
 export class CustomerGroup {
-  id: String;
-  name: String;
-  note: String;
+  id: string;
+  name: string;
+  note: string;
 
-  constructor(id: String, name: String, note: String) {
-    this.id = id;
+  constructor(id?: string, name?: string, note?: string) {
+    if (id) {
+      this.id = id;
+    } else {
+      this.id = '-1';
+    }
     this.name = name;
     this.note = note;
   }
