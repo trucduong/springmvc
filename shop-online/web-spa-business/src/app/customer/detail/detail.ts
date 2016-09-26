@@ -1,56 +1,45 @@
 import {Component, OnInit} from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import {TranslateService} from 'ng2-translate/ng2-translate';
 
 import { Customer } from '../shared/index';
 import { CustomerService} from '../shared/index';
+import { EditController } from './../../shared/index';
 
 @Component({
   selector: 'customer-detail',
   templateUrl: 'src/app/customer/detail/detail.html'
 })
 
-export class CustomerDetailCmp implements OnInit {
+export class CustomerDetailCmp extends EditController<Customer> implements OnInit {
   constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private customerService: CustomerService) { }
+    route: ActivatedRoute,
+    router: Router,
+    translate: TranslateService,
+    private customerService: CustomerService) { 
+        super(route, router, translate);
+    }
 
-  model: Customer;
-  isEditing: Boolean;
-  error: String;
+   getCurrentUrl(): string {
+        return '/customer-detail';
+    }
 
-   ngOnInit() {
-    // Set default variables
-    this.error = null;
+    createModel(): Customer {
+        return new Customer();
+    }
 
-    this.route.params.forEach((params: Params) => {
-        let phone = params['phone'] + '';
-        if (phone == null || phone == '' || phone == '-1') {
-            this.model = new Customer('', '-1', '','','','','','','');
-            this.isEditing = false;
-        } else {
-            this.model = this.customerService.getCustomer(phone);
-            this.isEditing = true;
-        }
-    });
-  }
+    load(phone: any): Customer {
+        return this.customerService.getCustomer(phone);;
+    }
 
-  onSave() {
-      // validate
-      
-      // save
-      let result = this.customerService.saveCustomer(this.model, this.isEditing);
+    validate(model: Customer): boolean {
+        // TODO: validate customer group here
+        // call this.addError(field, message) if has any error
+        return true;
+    }
 
-      if (result) {
-          this.onBack();
-      } else {
-          this.error = "Can not save!";
-      }
-  }
-
-  onBack() {
-      this.router.navigate(['customer']);
-  }
-
+    save(model: Customer): boolean {
+        return this.customerService.saveCustomer(model, this.isEditing);
+    }
 
 }

@@ -1,7 +1,21 @@
 {
-    "common.list.action": "Action",
-    "customer.group.title": "Customer Group",
-    "customer.group.list.code": "Code",
-    "customer.group.list.name": "Name",
-    "customer.group.list.note": "Note"
+    "common.list.action":"Tác vụ",
+"common.list.note":"Ghi chú",
+"common.list.address":"Địa chỉ",
+"common.list.email":"Email",
+"common.list.phone":"SDT",
+"common.list.add":"Thêm ",
+"common.list.sex":"Giới tính",
+"common.list.birthDay":"Ngày sinh",
+"customer.group.title":"Danh sách nhóm khách hàng",
+"customer.group.list.code":"Mã số",
+"customer.group.list.name":"Tên",
+"customer.group.detail.title":"Chi tiết nhóm khách hàng",
+"customer.title":"Danh sách khách hàng",
+"customer.list.name":"Tên khách hàng",
+"customer.list.customerGroup":"Nhóm khách hàng",
+"customer.list.revenune":"Doanh số",
+"customer.list.times":"Số lần lấy",
+"customer.list.balanceDue":"Dư nợ",
+"customer.detail.title":"Chi tiết khách hàng"
 }

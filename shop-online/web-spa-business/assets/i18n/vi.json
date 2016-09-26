@@ -1,7 +1,21 @@
 {
-    "common.list.action": "Tac vu",
-    "customer.group.title": "Danh sach khach hang",
-    "customer.group.list.code": "Ma so",
-    "customer.group.list.name": "Ten",
-    "customer.group.list.note": "Ghi Chu"
+    "common.list.action":"Action",
+"common.list.note":"Note",
+"common.list.address":"Address",
+"common.list.email":"Email",
+"common.list.phone":"Phone",
+"common.list.add":"Add",
+"common.list.sex":"Sex",
+"common.list.birthDay":"Birth day",
+"customer.group.title":"Customer Groups",
+"customer.group.list.code":"Code",
+"customer.group.list.name":"Name",
+"customer.group.detail.title":"Customer Group Detail",
+"customer.title":"Customers",
+"customer.list.name":"Name",
+"customer.list.customerGroup":"Customer group",
+"customer.list.revenune":"Revenune",
+"customer.list.times":"Times",
+"customer.list.balanceDue":"Balance Due",
+"customer.detail.title":"Customer Detail"
 }

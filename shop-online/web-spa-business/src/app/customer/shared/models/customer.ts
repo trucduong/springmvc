@@ -1,23 +1,31 @@
 export class Customer {
-  name: String;
-  phone: String;
-  birth_day: String;
-  sex: String;
-  address_detail: String;
-  address_1: String;
-  address_2: String;
-  address_3: String;
-  properties: String;
+  name: string;
+  phone: string;
+  customerGroup: string;
+  address: string;
+  email: string;
+  sex: string;
+  birth_day: string;
+  note: string;
+  revenure: string;
+  times: string;
+  balance_due: string;
 
-  constructor(name: String, phone: String, birth_day: String, sex: String, address_detail: String, address_1: String, address_2:String, address_3: String, properties: String) {
+  constructor(  name?: string,phone?: string,customerGroup?: string,address?: string,email?: string,sex?: string,birth_day?: string,note?: string,revenure?: string,times?: string,balance_due?: string) {
     this.name = name;
-    this.phone = phone;
-    this.birth_day = birth_day;
+     if (phone) {
+      this.phone = phone;
+    } else {
+      this.phone = '-1';
+    }
+    this.customerGroup = customerGroup;
+    this.address = address;
+    this.email = email;
     this.sex = sex;
-    this.address_detail = address_detail;
-    this.address_1 = address_1;
-    this.address_2 = address_2;
-    this.address_3 = address_3;
-    this.properties = properties;
+    this.birth_day = birth_day;
+    this.note = note;
+    this.revenure = revenure;
+    this.times = times;
+    this.balance_due = balance_due;
   }
 }

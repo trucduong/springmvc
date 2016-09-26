@@ -34,6 +34,7 @@ export class CustomerGroupDetailCmp extends EditController<CustomerGroup> implem
 
     validate(model: CustomerGroup): boolean {
         // TODO: validate customer group here
+
         // call this.addError(field, message) if has any error
         return true;
     }

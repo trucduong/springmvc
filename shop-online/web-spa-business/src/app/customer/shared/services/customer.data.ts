@@ -34,8 +34,8 @@ export const CUSTOMER_GROUPS: CustomerGroup[] = [
     { id: '30', name: 'group 30', note: 'note for customer 30' },
 ];
 
-export const CUSTOMER: Customer[] = [
-    {name: 'lan', phone:'0989', birth_day:'1990-1-3', sex:'nam', address_detail:'qqq', address_1:'hihu', address_2:'hu', address_3: 'lo', properties:'1'},
-     {name: 'diep', phone:'0900', birth_day:'1990-1-3', sex:'nu', address_detail:'qqq', address_1:'hihu', address_2:'hu', address_3: 'lo', properties:'2'},
-     {name: 'linh', phone:'090011', birth_day:'1992-1-3', sex:'nu', address_detail:'ppp', address_1:'hiha', address_2:'ou', address_3: 'l', properties:'3'}
+export const CUSTOMERS: Customer[] = [
+    {name: 'hoang',phone: '0989',customerGroup: 'si',address: '123 LTK',email: 'lan@gmail.com',sex: 'nu',birth_day: '17/08/1990',note: 'tot',revenure: '10000000',times: '20',balance_due: '0'},
+    {name: 'lan',phone: '0903',customerGroup: 'si',address: '123 LTK',email: 'khue@gmail.com',sex: 'nam',birth_day: '17/08/1990',note: 'tot',revenure: '10000000',times: '20',balance_due: '0'},
+    {name: 'tuan',phone: '0987',customerGroup: 'si',address: '123 LTK',email: 'nhu@gmail.com',sex: 'nam',birth_day: '17/08/1990',note: 'tot',revenure: '10000000',times: '20',balance_due: '0'}
 ]

@@ -4,7 +4,7 @@ import { CustomerGroup } from '../models/customer.group'
 import {CUSTOMER_GROUPS} from './customer.data';
 
 import {Customer} from '../models/customer'
-import {CUSTOMER} from  './customer.data';
+import {CUSTOMERS} from  './customer.data';
 
 
 @Injectable()
@@ -75,13 +75,30 @@ export class CustomerService {
 
 
     // Customer
+       
     getCustomers(): any {
-        return CUSTOMER;
+        let list: Customer[] = [];
+        CUSTOMERS.forEach(element => {
+            list.push(element);
+        });
+
+        return list;
     }
 
-    getCustomer(phone: String): any {
+    getCustomersByName(name: string): any {
+        let list: Customer[] = [];
+        CUSTOMERS.forEach(element => {
+            if (element.name.indexOf(name) != -1) {
+                list.push(element);
+            }
+        });
+
+        return list;
+    }
+
+    getCustomer(phone: string): any {
         let customer: Customer;
-        CUSTOMER.forEach(element => {
+        CUSTOMERS.forEach(element => {
             if (element.phone == phone) {
                 customer = element;
                 return;
@@ -90,33 +107,36 @@ export class CustomerService {
         return customer;
     }
 
-    saveCustomer(item: Customer, isEditing: Boolean): Boolean {
+    saveCustomer(item: Customer, isEditing: boolean): boolean {
         if (isEditing) {
-            CUSTOMER.forEach(element => {
+            CUSTOMERS.forEach(element => {
                 if (element.phone == item.phone) {
                     element.name = item.name;
+                    element.customerGroup = item.customerGroup;
+                    element.address = item.address;
+                    element.email = item.email;
+                    element.sex = item.sex;
                     element.birth_day = item.birth_day;
-                     element.sex = item.sex;
-                    element.address_detail = item.address_detail;
-                     element.address_1 = item.address_1;
-                    element.address_2 = item.address_2;
-                     element.address_3 = item.address_3;
-                    element.properties = item.properties;
+                    element.note = item.note;
+                    element.revenure = item.revenure;
+                    element.times = item.times;
+                    element.balance_due = item.balance_due;
+                    
                     return;
                 }
             });
         } else {
-            let customer = CUSTOMER.push(item);
+            CUSTOMERS.push(item);
         }
 
         return true;
     }
 
-    deleteCustomer(phone: String): Boolean {
+    deleteCustomer(phone: string): boolean {
         let customer: Customer;
-        CUSTOMER.forEach(function(element, index) {
+        CUSTOMERS.forEach(function(element, index) {
             if (element.phone == phone) {
-                CUSTOMER.splice(index, 1);
+                CUSTOMERS.splice(index, 1);
                 
                 return;
             }

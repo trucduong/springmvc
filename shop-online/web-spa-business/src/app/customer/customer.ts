@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+
+import {TranslateService} from 'ng2-translate/ng2-translate';
+import { ListController } from './../shared/index';
 
 import { Customer } from './shared/index';
 import { CustomerService} from './shared/index';
@@ -10,33 +13,35 @@ import { CustomerService} from './shared/index';
   templateUrl: 'src/app/customer/customer.html'
 })
 
-export class CustomerCmp implements OnInit  {
-  constructor(
-    private router: Router,
-    private customerService: CustomerService) { }
+export class CustomerCmp extends ListController<Customer> implements OnInit  {
+    constructor(
+    route: ActivatedRoute,
+    router: Router,
+    translate: TranslateService,
+    private customerService: CustomerService) {
 
-  customers: Customer[];
+      super(route, translate, router);
+    }
 
 
-  ngOnInit() {
-    this.customers = this.customerService.getCustomers();
+    load(): Customer[] {
+    return this.customerService.getCustomers();
   }
 
-   onEdit(item: Customer) {
-    this.router.navigate(['/customer-detail', item.phone]);
+  filter(value: string): Customer[] {
+    return this.customerService.getCustomersByName(value);
   }
 
-   onAdd() {
-    this.router.navigate(['/customer-detail', -1]);
+  getCurrentUrl(): string {
+    return '/customer';
   }
 
-  onDelete(item: Customer) {
-    let result = this.customerService.deleteCustomer(item.phone);
-    // check result
+  getDetailUrl(): string {
+    return '/customer-detail';
+  }
 
-    // reload
-    this.ngOnInit();
-    
-}
+  delete(item: Customer): boolean {
+    return this.customerService.deleteCustomer(item.phone);
+  }
 
 }

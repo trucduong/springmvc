@@ -27,12 +27,12 @@ export abstract class EditController<T> extends BaseController {
         this.errors = {};
 
         this.route.params.forEach((params: any) => {
-            let id = params['id'] + '';
-            if (id == null || id == '' || id == '-1') {
+            let phone = params['phone'] + '';
+            if (phone == null || phone == '' || phone == '-1') {
                 this.model = this.createModel();
                 this.isEditing = false;
             } else {
-                this.model = this.load(id);
+                this.model = this.load(phone);
                 this.isEditing = true;
             }
         });
