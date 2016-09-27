@@ -10,6 +10,13 @@ import { appRouting } from './app.routing';
 import { AuthModule } from './auth/index';
 import { BlankModule } from './blank/index';
 import { CustomerModule } from './customer/index';
+import { SupplierModule } from './supplier/index';
+import { ProductModule } from './product/index';
+import { UnitModule } from './unit/index';
+import { WarehouseModule } from './warehouse/index';
+
+
+
 
 @NgModule({
   imports: [
@@ -20,7 +27,11 @@ import { CustomerModule } from './customer/index';
     appRouting,
     AuthModule,
     BlankModule,
-    CustomerModule
+    CustomerModule,
+    SupplierModule,
+    ProductModule,
+    UnitModule, 
+    WarehouseModule
   ],
   declarations: [ AppComponent ],
   bootstrap: [ AppComponent ]

@@ -6,8 +6,14 @@ import { SharedModule } from '../shared/index';
 
 import { CustomerGroupCmp } from './group/group';
 import { routing } from './customer.routing';
-import { CustomerService } from './shared/index';
 import { CustomerGroupDetailCmp } from './group/detail/detail';
+
+import { CustomerCmp } from './customer';
+import { CustomerDetailCmp } from './detail/detail';
+
+
+
+import {CustomerService} from './shared/index';
 
 @NgModule({
   imports: [
@@ -16,7 +22,9 @@ import { CustomerGroupDetailCmp } from './group/detail/detail';
   ],
   declarations: [
     CustomerGroupCmp,
-    CustomerGroupDetailCmp
+    CustomerGroupDetailCmp,
+    CustomerCmp,
+    CustomerDetailCmp
   ],
   providers: [
       CustomerService

@@ -2,7 +2,7 @@
   <!-- page header -->
   <div class="row">
     <div class="col-lg-12">
-      <h1 class="page-header">Customer</h1>
+      <h1 class="page-header">Supplier</h1>
     </div>
   </div>
 
@@ -40,7 +40,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let item of customers" class="gradeX" [class.odd]="odd" [class.even]="even">
+                                    <tr *ngFor="let item of suppliers" class="gradeX" [class.odd]="odd" [class.even]="even">
                                         <td>{{item.name}}</td>
                                         <td>{{item.phone}}</td>
                                         <td>{{item.birth_day}}</td>
@@ -70,6 +70,6 @@
         <!-- /.col-lg-12 -->
     </div>
     <div class="row">
-        <a class="btn btn-default" [routerLink]="['/customer']"><i class="glyphicon glyphicon-arrow-left"></i></a>
+        <a class="btn btn-default" [routerLink]="['/supplier']"><i class="glyphicon glyphicon-arrow-left"></i></a>
     </div>
 </wrapper>
