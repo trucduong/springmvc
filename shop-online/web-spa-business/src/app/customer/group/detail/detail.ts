@@ -29,13 +29,14 @@ export class CustomerGroupDetailCmp extends EditController<CustomerGroup> implem
     }
 
     load(id: any): CustomerGroup {
-        return this.customerService.getCustomerGroup(id);;
+        return this.customerService.getCustomerGroup(id);
     }
 
     validate(model: CustomerGroup): boolean {
         // TODO: validate customer group here
 
         // call this.addError(field, message) if has any error
+
         return true;
     }
 

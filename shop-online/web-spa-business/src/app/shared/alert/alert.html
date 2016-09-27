@@ -1,1 +1,1 @@
-<div *ngIf="info" [class]="'alert alert-' + info.type">{{info.message}}</div>
+<div *ngIf="info" *ngFor="let item of info" [class]="'alert alert-' + item.type">{{item.message}}</div>

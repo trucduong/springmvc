@@ -2,7 +2,7 @@
  * WrapperInfo
  */
 export class WrapperInfo {
-    isLoading: boolean
+    isLoading: boolean;
 
     constructor(isLoading?: boolean) {
         this.isLoading = isLoading;

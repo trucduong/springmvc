@@ -31,7 +31,6 @@
                                     <label>{{ 'common.list.note' | translate}}</label>
                                     <textarea class="form-control" rows="3" [(ngModel)]="model.note" name="note"></textarea>
                                 </div>
-                                <div *ngIf="error" class="alert alert-danger" >{{error}}</div>
                                 <alert-cmp [info]="alertInfo"></alert-cmp>
                                 <button (click)="onSave()" class="btn btn-primary"><i class="glyphicon glyphicon-floppy-disk"></i></button>
                             <!--</form>-->

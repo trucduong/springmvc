@@ -1,0 +1,87 @@
+import { PaginationInfo } from '../pagination/pagination.info';
+
+export class SortInfo {
+    column: string;
+    order: string;
+    constructor(col?: string, ord?: string) {
+        this.column = col;
+        this.order = ord;
+    }
+
+    isEmpty() {
+        if (this.column) {
+            return false;
+        }
+
+        return true;
+    }
+
+    clear() {
+        this.column = null;
+        this.order = null;
+    }
+}
+
+export class FilterInfo {
+    columns: string[];
+    value: string;
+    constructor(columns: string[]) {
+        this.columns = columns;
+    }
+
+    isEmpty() {
+        if (!this.columns || this.columns.length == 0
+            || !this.value || this.value.length == 0) {
+            
+            return true;
+        }
+
+        return false;
+    }
+
+    clear() {
+        this.value = null;
+    }
+}
+
+export class GridHeader {
+    name: string;
+    labelKey: string;
+    sortable: boolean;
+    width: number;
+
+    constructor(name: string, labelKey: string, sortable?: boolean, width?: number) {
+        this.name = name;
+        this.labelKey = labelKey;
+        this.sortable = sortable;
+        this.width = width;
+    }
+}
+
+// export class GridBean<T> {
+//     id: string;
+//     bean: T;
+//     constructor(id?: string, bean?: T) {
+//         this.id = id;
+//         this.bean = bean;
+//     }
+// }
+
+export class GridInfo {
+    headers: GridHeader[];
+    filterInfo: FilterInfo;
+    sortInfo: SortInfo;
+
+    constructor(headers: GridHeader[],
+        sortInfo?: SortInfo,
+        filterInfo?: FilterInfo) {
+        
+        this.headers = headers;
+        this.filterInfo = filterInfo;
+        this.sortInfo = sortInfo;
+    }
+
+    hasFilterInfo() {
+        return this.filterInfo && !this.filterInfo.isEmpty();
+    }
+}
