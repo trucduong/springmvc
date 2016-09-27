@@ -12,9 +12,7 @@ import { AlertInfo } from './alert.info';
     templateUrl: 'src/app/shared/alert/alert.html'
 })
 export class AlertCmp implements OnInit {
-    @Input('info') info: AlertInfo;
-
-    alertClass: String;
+    @Input('info') info: AlertInfo[];
 
     constructor() { }
     ngOnInit() {

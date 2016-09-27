@@ -10,12 +10,13 @@ import { NAVIGATOR_INFO } from '../../shared/index';
  */
 export abstract class BaseController {
     private pageInfo: WrapperInfo
-    private alertInfo: AlertInfo;
+    private alertInfo: AlertInfo[];
 
     constructor(private router: Router, private translate: TranslateService) {
         translate.setDefaultLang('en');
         translate.use('vi');
         this.pageInfo = new WrapperInfo(false);
+        this.alertInfo = [];
     }
 
     abstract getCurrentUrl(): string;
@@ -43,7 +44,11 @@ export abstract class BaseController {
     }
 
     alert(alertType: AlertType, message: string) {
-        this.alertInfo = new AlertInfo(AlertType[alertType], message);
+        this.alertInfo.push(new AlertInfo(AlertType[alertType], message));
+    }
+
+    clearAlert() {
+        this.alertInfo = [];
     }
 
     onBack() {

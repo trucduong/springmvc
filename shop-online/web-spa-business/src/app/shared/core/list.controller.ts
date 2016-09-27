@@ -2,6 +2,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { OnInit } from '@angular/core';
 import {TranslateService} from 'ng2-translate/ng2-translate';
 
+import { GridHeader, GridInfo, SortInfo, FilterInfo } from '../../shared/index';
 import { BaseController } from '../../shared/index';
 import { AlertType } from '../../shared/index';
 
@@ -17,30 +18,49 @@ export abstract class ListController<T> extends BaseController {
         super(router, translate);
     }
 
-    private allItems: T[];
-    private items: T[];
-    private errors: { [key: string]: string; } = {};;
+    idColumnName='id';
+    private gridInfo: GridInfo;
+    private dataSource: T[]; 
+    private errors: { [key: string]: string; } = {};
 
     abstract load(): T[];
-    abstract filter(value: string): T[];
     abstract getDetailUrl(): string;
-    abstract delete(item: T): boolean;
+    abstract delete(id: T): boolean;
+    abstract getHeaders(): GridHeader[];
+
+    getDefaultSort(): SortInfo {
+        return null;
+    }
+    
+    getDefaultFilter(): FilterInfo {
+        return null;
+    }
+
 
     ngOnInit() {
         this.showLoading();
 
         this.errors = {};
+
+        this.gridInfo = new GridInfo(this.getHeaders(), this.getDefaultSort(), this.getDefaultFilter())
         this.onLoad();
 
         this.hideLoading();
     }
 
+    onLoad() {
+        this.dataSource = this.load();
+        if (!this.dataSource) {
+            this.dataSource = [];
+        }
+    }
+
     onEdit(item: T) {
-        this.navigateTo([this.getDetailUrl(), item['id']] );
+        this.navigateTo([this.getDetailUrl(), item[this.idColumnName]]);
     }
 
     onAdd() {
-        this.navigateTo([this.getDetailUrl(), -1]);
+        this.navigateTo([this.getDetailUrl(), '-1']);
     }
 
     onDelete(item: T) {
@@ -55,22 +75,6 @@ export abstract class ListController<T> extends BaseController {
             this.onLoad();
         } else {
             this.alert(AlertType.danger, 'Delete failure!');
-        }
-    }
-
-    onShow(items: any[]) {
-        this.items = items;
-    }
-
-    onLoad() {
-        this.allItems = this.load();
-    }
-
-    onFilter(value: string) {
-        if (value) {
-            this.allItems = this.filter(value);
-        } else {
-            this.onLoad();
         }
     }
 }
