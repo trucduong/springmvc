@@ -9,8 +9,6 @@ package core.dao.entities;
 import java.io.Serializable;
 
 import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Version;
@@ -47,8 +45,8 @@ public abstract class BaseEntity implements Serializable {
 	public static final String DATE = "DATE";
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	protected int id;
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)
+	protected long id;
 
 	@Version
 	@Column(name = "version")
@@ -61,19 +59,11 @@ public abstract class BaseEntity implements Serializable {
 		return version;
 	}
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
-
-	public void setId(int id) {
+	
+	public void setId(long id) {
 		this.id = id;
 	}
-
-//	public abstract Object getColIdValue();
-//
-//	public abstract String getColIdName();
-//
-//	public abstract Object convertToId(String value);
-	
-	
 }
