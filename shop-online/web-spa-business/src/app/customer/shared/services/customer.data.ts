@@ -35,7 +35,7 @@ export const CUSTOMER_GROUPS: CustomerGroup[] = [
 ];
 
 export const CUSTOMERS: Customer[] = [
-    {name: 'hoang',phone: '0989',customerGroup: 'si',address: '123 LTK',email: 'lan@gmail.com',sex: 'nu',birth_day: '17/08/1990',note: 'tot',revenure: '10000000',times: '20',balance_due: '0'},
-    {name: 'lan',phone: '0903',customerGroup: 'si',address: '123 LTK',email: 'khue@gmail.com',sex: 'nam',birth_day: '17/08/1990',note: 'tot',revenure: '10000000',times: '20',balance_due: '0'},
-    {name: 'tuan',phone: '0987',customerGroup: 'si',address: '123 LTK',email: 'nhu@gmail.com',sex: 'nam',birth_day: '17/08/1990',note: 'tot',revenure: '10000000',times: '20',balance_due: '0'}
+    {id: '1', name: 'hoang',phone: '0989',customerGroup: 'si',address: '123 LTK',email: 'lan@gmail.com',sex: 'nu',birthDay: '17/08/1990',note: 'tot',revenure: '10000000',times: '20',balanceDue: '0'},
+    {id: '2', name: 'lan',phone: '0903',customerGroup: 'si',address: '123 LTK',email: 'khue@gmail.com',sex: 'nam',birthDay: '17/08/1990',note: 'tot',revenure: '10000000',times: '20',balanceDue: '0'},
+    {id: '3', name: 'tuan',phone: '0987',customerGroup: 'si',address: '123 LTK',email: 'nhu@gmail.com',sex: 'nam',birthDay: '17/08/1990',note: 'tot',revenure: '10000000',times: '20',balanceDue: '0'}
 ]

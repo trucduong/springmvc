@@ -1,8 +1,8 @@
+import { OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import {TranslateService} from 'ng2-translate/ng2-translate';
-import { OnInit } from '@angular/core';
-import { BaseController } from '../../shared/index';
-import { AlertType } from '../../shared/index';
+import { BaseController } from './base.controller';
+import { AlertType } from '../alert/alert.type';
 
 /**
  * EditController
@@ -12,9 +12,10 @@ export abstract class EditController<T> extends BaseController {
         super(router, translate);
     }
 
+    idColumnName='id';
     private model: T;
     isEditing: boolean;
-    private errors: { [key:string]:string; } = {};;
+    private errors: { [key:string]:string; } = {};
 
     abstract createModel(): T;
     abstract load(id: any): T;
@@ -27,12 +28,12 @@ export abstract class EditController<T> extends BaseController {
         this.errors = {};
 
         this.route.params.forEach((params: any) => {
-            let phone = params['phone'] + '';
-            if (phone == null || phone == '' || phone == '-1') {
+            let id = params[this.idColumnName] + '';
+            if (id == null || id == '' || id == '-1') {
                 this.model = this.createModel();
                 this.isEditing = false;
             } else {
-                this.model = this.load(phone);
+                this.model = this.load(id);
                 this.isEditing = true;
             }
         });

@@ -1,9 +1,9 @@
 import { Router, NavigationExtras } from '@angular/router';
 import {TranslateService} from 'ng2-translate/ng2-translate';
-import { AlertInfo } from '../../shared/index';
-import { WrapperInfo } from '../../shared/index';
-import { AlertType } from '../../shared/index';
-import { NAVIGATOR_INFO } from '../../shared/index';
+
+import { AlertInfo } from '../alert/alert.info';
+import { AlertType } from '../alert/alert.type';
+import { WrapperInfo, NAVIGATOR_INFO } from '../../shared/index';
 
 /**
  * BaseController
@@ -53,5 +53,9 @@ export abstract class BaseController {
 
     onBack() {
         this.navigateBack();
+    }
+
+    onNavigate(url: string) {
+        this.navigateTo([url]);
     }
 }
