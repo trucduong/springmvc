@@ -8,7 +8,7 @@ import { CustomerService, CustomerGroup } from '../shared/index';
 const headers: GridHeader[] = [
   { name: 'id', labelKey: 'customer.group.list.code', sortable: true, width: 20 },
   { name: 'name', labelKey: 'customer.group.list.name', sortable: true, width: 30 },
-  { name: 'note', labelKey: 'customer.group.list.note', sortable: true, width: 50 }
+  { name: 'note', labelKey: 'common.list.note', sortable: true, width: 50 }
 ];
 
 @Component({

@@ -17,7 +17,7 @@ export const SIDEBARS: SidebarItem[] = [
       {href: '/blank', name:'Dieu chinh tien trong ket', isActive: false, icon: null, childs: null}
   ]},
   {href: '/blank', name:'Doi tac', isActive: false, icon: 'fa fa-dashboard fa-fw', childs: [
-      {href: '/customer-group', name:'Khach hang', isActive: false, icon: null, childs: null},
+      {href: '/customer', name:'Khach hang', isActive: false, icon: null, childs: null},
       {href: '/blank', name:'Nha cung cap', isActive: false, icon: null, childs: null}
   ]},
   {href: '/blank', name:'Bao cao', isActive: false, icon: 'fa fa-dashboard fa-fw', childs: null},

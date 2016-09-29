@@ -2,11 +2,19 @@ import {Component, OnInit} from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import {TranslateService} from 'ng2-translate/ng2-translate';
-import { ListController } from './../shared/index';
 
+import { ListController, GridHeader, SortInfo, FilterInfo } from './../shared/index';
 import { Customer } from './shared/index';
 import { CustomerService} from './shared/index';
 
+const headers: GridHeader[] = [
+  { name: 'name', labelKey: 'customer.list.name', sortable: true, width: 30 },
+  { name: 'phone', labelKey: 'common.list.phone', sortable: true, width: 20 },
+  { name: 'birthDay', labelKey: 'common.list.birthDay', sortable: true, width: 20 },
+  { name: 'revenune', labelKey: 'customer.list.revenune', sortable: true, width: 10 },
+  { name: 'times', labelKey: 'customer.list.times', sortable: true, width: 10 },
+  { name: 'balanceDue', labelKey: 'customer.list.balanceDue', sortable: true, width: 10 }
+];
 
 @Component({
   selector: 'customer',
@@ -23,13 +31,20 @@ export class CustomerCmp extends ListController<Customer> implements OnInit  {
       super(route, translate, router);
     }
 
-
-    load(): Customer[] {
-    return this.customerService.getCustomers();
+  getHeaders(): GridHeader[] {
+    return headers;
   }
 
-  filter(value: string): Customer[] {
-    return this.customerService.getCustomersByName(value);
+  getDefaultSort(): SortInfo {
+    return new SortInfo('name', 'asc');
+  }
+
+  getDefaultFilter(): FilterInfo {
+    return new FilterInfo(['name', 'note']);
+  }
+
+  load(): Customer[] {
+    return this.customerService.getCustomers();
   }
 
   getCurrentUrl(): string {
@@ -41,7 +56,7 @@ export class CustomerCmp extends ListController<Customer> implements OnInit  {
   }
 
   delete(item: Customer): boolean {
-    return this.customerService.deleteCustomer(item.phone);
+    return this.customerService.deleteCustomer(item.id);
   }
 
 }

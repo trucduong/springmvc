@@ -116,11 +116,11 @@ export class CustomerService {
                     element.address = item.address;
                     element.email = item.email;
                     element.sex = item.sex;
-                    element.birth_day = item.birth_day;
+                    element.birthDay = item.birthDay;
                     element.note = item.note;
                     element.revenure = item.revenure;
                     element.times = item.times;
-                    element.balance_due = item.balance_due;
+                    element.balanceDue = item.balanceDue;
                     
                     return;
                 }
@@ -132,10 +132,10 @@ export class CustomerService {
         return true;
     }
 
-    deleteCustomer(phone: string): boolean {
+    deleteCustomer(id: string): boolean {
         let customer: Customer;
         CUSTOMERS.forEach(function(element, index) {
-            if (element.phone == phone) {
+            if (element.id == id) {
                 CUSTOMERS.splice(index, 1);
                 
                 return;

@@ -1,63 +1,22 @@
 <wrapper [info]="pageInfo">
-  <!-- page header -->
-  <div class="row">
-    <div class="col-lg-12">
-      <h1 class="page-header">{{ 'customer.title' | translate}}</h1>
+    <!-- page header -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">{{ 'customer.title' | translate}}</h1>
+        </div>
     </div>
-  </div>
 
-  
+
     <!-- page content -->
     <div class="row">
-        <div class="col-lg-12">               
-                <!-- /.panel-heading -->
-                <div class="panel-body">
-                    <div class="col-lg-12">
-                        <div class="row">
-                            <grid-cmp [data-list]="allItems" (onReload)="onLoad()" (onShow)="onShow($event)" (onFilter)="onFilter($event)">
-                                <grid-action-cmp>
-                                    <button (click)="onAdd()" type="button" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i></button>
-                                </grid-action-cmp>
-                                <grid-content-cmp>
-                                    <thead>
-                                        <tr>
-                                            <th>{{ 'customer.list.name' | translate}}</th>
-                                            <th>{{ 'common.list.phone' | translate}}</th>
-                                            <th>{{ 'common.list.birthDay' | translate}}</th>
-                                            <th>{{ 'customer.list.revenune' | translate}}</th>
-                                            <th>{{ 'customer.list.times' | translate}}</th>
-                                            <th>{{ 'customer.list.balanceDue' | translate}}</th>
-                                            <th>{{ 'common.list.action' | translate}}</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr *ngFor="let item of items" class="gradeX" [class.odd]="odd" [class.even]="even">
-                                            <td>{{item.name}}</td>
-                                            <td>{{item.phone}}</td>
-                                            <td>{{item.birth_day}}</td>
-                                            <td>{{item.revenure}}</td>
-                                            <td>{{item.times}}</td>
-                                            <td>{{item.balance_due}}</td>
-                                            <td>
-                                                <button (click)="onEdit(item)" type="button" class="btn btn-warning btn-circle"><i class="fa fa-pencil"></i></button>
-                                                <button (click)="onDelete(item)" type="button" class="btn btn-danger btn-circle"><i class="fa fa-times"></i></button>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </grid-content-cmp>
-                            </grid-cmp>
-                        </div>
-                        <div class="row">
-                            <pagination-cmp></pagination-cmp>
-                        </div>
-                    </div>
-                </div>
-                <!-- /.panel-body -->
-            <!-- /.panel -->
-        </div>
-        <!-- /.col-lg-12 -->
+        <grid-cmp [info]="gridInfo" [data-source]="dataSource" (onLoad)="onLoad($event)" (onEdit)="onEdit($event)" (onDelete)="onDelete($event)">
+            <grid-action-cmp>
+                <button (click)="onAdd()" type="button" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i></button>
+                <button (click)="onNavigate('\customer-group')" type="button" class="btn btn-default">{{'customer.list.customerGroup' | translate}}</button>
+            </grid-action-cmp>
+        </grid-cmp>
     </div>
     <div class="row">
-        <a class="btn btn-default" [routerLink]="['/customer']"><i class="glyphicon glyphicon-arrow-left"></i></a>
+        <a class="btn btn-default" (click)="onBack()"><i class="glyphicon glyphicon-arrow-left"></i></a>
     </div>
 </wrapper>
