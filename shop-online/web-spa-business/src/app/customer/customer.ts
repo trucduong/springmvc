@@ -8,11 +8,12 @@ import { Customer } from './shared/index';
 import { CustomerService} from './shared/index';
 
 const headers: GridHeader[] = [
+  { name: 'id', labelKey: 'customer.list.id', sortable: true, width: 10 },
   { name: 'name', labelKey: 'customer.list.name', sortable: true, width: 30 },
   { name: 'phone', labelKey: 'common.list.phone', sortable: true, width: 20 },
   { name: 'birthDay', labelKey: 'common.list.birthDay', sortable: true, width: 20 },
   { name: 'revenune', labelKey: 'customer.list.revenune', sortable: true, width: 10 },
-  { name: 'times', labelKey: 'customer.list.times', sortable: true, width: 10 },
+  { name: 'times', labelKey: 'customer.list.timesBought', sortable: true, width: 10 },
   { name: 'balanceDue', labelKey: 'customer.list.balanceDue', sortable: true, width: 10 }
 ];
 

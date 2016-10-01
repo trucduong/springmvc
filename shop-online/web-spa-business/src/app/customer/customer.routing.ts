@@ -12,5 +12,5 @@ export const routing: ModuleWithProviders = RouterModule.forChild([
   { path: 'customer-group', component: CustomerGroupCmp },
   { path: 'customer-group-detail/:id', component: CustomerGroupDetailCmp},
   { path: 'customer', component: CustomerCmp },
-  {path: 'customer-detail/:phone', component: CustomerDetailCmp }
+  {path: 'customer-detail/:id', component: CustomerDetailCmp }
 ]);

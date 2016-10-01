@@ -37,5 +37,11 @@ export const CUSTOMER_GROUPS: CustomerGroup[] = [
 export const CUSTOMERS: Customer[] = [
     {id: '1', name: 'hoang',phone: '0989',customerGroup: 'si',address: '123 LTK',email: 'lan@gmail.com',sex: 'nu',birthDay: '17/08/1990',note: 'tot',revenure: '10000000',times: '20',balanceDue: '0'},
     {id: '2', name: 'lan',phone: '0903',customerGroup: 'si',address: '123 LTK',email: 'khue@gmail.com',sex: 'nam',birthDay: '17/08/1990',note: 'tot',revenure: '10000000',times: '20',balanceDue: '0'},
-    {id: '3', name: 'tuan',phone: '0987',customerGroup: 'si',address: '123 LTK',email: 'nhu@gmail.com',sex: 'nam',birthDay: '17/08/1990',note: 'tot',revenure: '10000000',times: '20',balanceDue: '0'}
+    {id: '3', name: 'tuan',phone: '0987',customerGroup: 'si',address: '123 LTK',email: 'nhu@gmail.com',sex: 'nam',birthDay: '17/08/1990',note: 'tot',revenure: '10000000',times: '20',balanceDue: '0'},
+    {id: '4', name: 'hoang',phone: '0989',customerGroup: 'si',address: '123 LTK',email: 'lan@gmail.com',sex: 'nu',birthDay: '17/08/1990',note: 'tot',revenure: '10000000',times: '20',balanceDue: '0'},
+    {id: '5', name: 'lan',phone: '0903',customerGroup: 'si',address: '123 LTK',email: 'khue@gmail.com',sex: 'nam',birthDay: '17/08/1990',note: 'tot',revenure: '10000000',times: '20',balanceDue: '0'},
+    {id: '6', name: 'tuan',phone: '0987',customerGroup: 'si',address: '123 LTK',email: 'nhu@gmail.com',sex: 'nam',birthDay: '17/08/1990',note: 'tot',revenure: '10000000',times: '20',balanceDue: '0'},
+    {id: '7', name: 'hoang',phone: '0989',customerGroup: 'si',address: '123 LTK',email: 'lan@gmail.com',sex: 'nu',birthDay: '17/08/1990',note: 'tot',revenure: '10000000',times: '20',balanceDue: '0'},
+    {id: '8', name: 'lan',phone: '0903',customerGroup: 'si',address: '123 LTK',email: 'khue@gmail.com',sex: 'nam',birthDay: '17/08/1990',note: 'tot',revenure: '10000000',times: '20',balanceDue: '0'},
+    {id: '9', name: 'tuan',phone: '0987',customerGroup: 'si',address: '123 LTK',email: 'nhu@gmail.com',sex: 'nam',birthDay: '17/08/1990',note: 'tot',revenure: '10000000',times: '20',balanceDue: '0'}
 ]

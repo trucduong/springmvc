@@ -96,10 +96,10 @@ export class CustomerService {
         return list;
     }
 
-    getCustomer(phone: string): any {
+    getCustomer(id: string): any {
         let customer: Customer;
         CUSTOMERS.forEach(element => {
-            if (element.phone == phone) {
+            if (element.id == id) {
                 customer = element;
                 return;
             }
@@ -110,7 +110,8 @@ export class CustomerService {
     saveCustomer(item: Customer, isEditing: boolean): boolean {
         if (isEditing) {
             CUSTOMERS.forEach(element => {
-                if (element.phone == item.phone) {
+                if (element.id == item.id) {
+                    element.phone == item.phone;
                     element.name = item.name;
                     element.customerGroup = item.customerGroup;
                     element.address = item.address;

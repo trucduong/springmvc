@@ -6,7 +6,7 @@ import { ListController, GridHeader, SortInfo, FilterInfo } from '../../shared/i
 import { CustomerService, CustomerGroup } from '../shared/index';
 
 const headers: GridHeader[] = [
-  { name: 'id', labelKey: 'customer.group.list.code', sortable: true, width: 20 },
+  { name: 'id', labelKey: 'customer.group.list.id', sortable: true, width: 10 },
   { name: 'name', labelKey: 'customer.group.list.name', sortable: true, width: 30 },
   { name: 'note', labelKey: 'common.list.note', sortable: true, width: 50 }
 ];

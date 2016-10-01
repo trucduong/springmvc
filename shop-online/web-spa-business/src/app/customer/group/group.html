@@ -12,6 +12,7 @@
         <grid-cmp [info]="gridInfo" [data-source]="dataSource" (onLoad)="onLoad($event)" (onEdit)="onEdit($event)" (onDelete)="onDelete($event)" >
             <grid-action-cmp>
                 <button (click)="onAdd()" type="button" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i></button>
+                <button (click)="onNavigate('\customer')" type="button" class="btn btn-default">{{'customer.title.customer' | translate}}</button>
             </grid-action-cmp>
         </grid-cmp>
     </div>

@@ -1,21 +1,44 @@
 {
-    "common.list.action":"Action",
-"common.list.note":"Note",
-"common.list.address":"Address",
+"common.alertDanger.name":"Yêu cầu phải có tên",
+"common.alertDanger.maxLength100":"Tên không được dài quá 100 kí tự",
+"common.alertDanger.maxLength500":"Tên không được dài quá 500 kí tự",
+"common.alertDanger.phone":"Yêu cầu phải có số điện thoại",
+"common.alertDanger.customerGroup":"Yêu cầu phải lựa chọn nhóm khách hàng",
+"common.to":"đến",
+
+
+"common.list.action":"Tác vụ",
+"common.list.note":"Ghi chú",
+"common.list.address":"Địa chỉ",
 "common.list.email":"Email",
-"common.list.phone":"Phone",
-"common.list.add":"Add",
-"common.list.sex":"Sex",
-"common.list.birthDay":"Birth day",
-"customer.group.title":"Customer Groups",
-"customer.group.list.code":"Code",
-"customer.group.list.name":"Name",
-"customer.group.detail.title":"Customer Group Detail",
-"customer.title":"Customers",
-"customer.list.name":"Name",
-"customer.list.customerGroup":"Customer group",
-"customer.list.revenune":"Revenune",
-"customer.list.times":"Times",
-"customer.list.balanceDue":"Balance Due",
-"customer.detail.title":"Customer Detail"
+"common.list.phone":"SDT",
+"common.list.add":"Thêm ",
+"common.list.sex":"Giới tính",
+"common.list.birthDay":"Ngày sinh",
+"common.list.purchaseDate":"Ngày mua hàng",
+"common.list.search":"Tìm kiếm",
+"common.list.importFromExcel":"Nhập từ excel",
+"common.list.exportToExcel":"Xuất ra excel",
+
+
+
+
+"customer.group.title":"Danh sách nhóm khách hàng",
+"customer.group.list.id":"Mã số",
+"customer.group.list.name":"Tên",
+"customer.group.detail.title":"Chi tiết nhóm khách hàng",
+
+
+"customer.title.customer":"Danh sách khách hàng",
+"customer.list.id":"Mã số ",
+"customer.list.name":"Tên khách hàng",
+"customer.list.customerGroup":"Nhóm khách hàng",
+"customer.list.revenune":"Doanh số",
+"customer.list.timesBought":"Số lần mua",
+"customer.list.balanceDue":"Dư nợ",
+"customer.detail.title":"Chi tiết khách hàng",
+"customer.list.revenuneFrom":"Doanh số từ",
+"customer.list.balanceDueFrom":"Dư nợ từ",
+"customer.list.timesBoughtFrom":"Số lần mua từ",
+"customer.list.purchaseDateFrom":"Ngày mua hàng từ"
 }

@@ -18,14 +18,23 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <!--<form #customerGroupForm="ngForm" role="form">-->
-
                                 <div class="form-group">
-                                    <label>{{ 'customer.group.list.code' | translate}}</label>
+                                    <label>{{ 'customer.group.list.id' | translate}}</label>
                                     <input class="form-control" required [(ngModel)]="model.id" name="id" >
                                 </div>
                                 <div class="form-group">
                                     <label>{{ 'customer.group.list.name' | translate}}</label>
-                                    <input class="form-control" required [(ngModel)]="model.name" id="name" name="name">
+                                    <input id="name" class="form-control" required maxlength="100" [(ngModel)]="model.name" name="name" #name="ngModel">
+
+                                    <div *ngIf="name.errors && (name.dirty || name.touched)"
+                                        class="alert alert-danger">
+                                        <div [hidden]="!name.errors.required">
+                                            {{ 'common.alertDanger.name' | translate}}
+                                        </div>
+                                        <div [hidden]="!name.errors.maxlength">
+                                            {{ 'common.alertDanger.maxLength100' | translate}}
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label>{{ 'common.list.note' | translate}}</label>
