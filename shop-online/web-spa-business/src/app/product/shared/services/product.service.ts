@@ -4,8 +4,10 @@ import { ProductGroup } from '../models/product.group'
 import {PRODUCT_GROUPS} from './product.data';
 
 import {Product} from '../models/product'
-import {PRODUCT} from  './product.data';
+import {PRODUCTS} from  './product.data';
 
+import {Unit} from '../models/unit'
+import {UNITS} from  './product.data';
 
 @Injectable()
 export class ProductService {
@@ -13,10 +15,26 @@ export class ProductService {
 
     // Group
     getProductGroups(): any {
-        return PRODUCT_GROUPS;
+        let list: ProductGroup[] = [];
+        PRODUCT_GROUPS.forEach(element => {
+            list.push(element);
+        });
+
+        return list;
     }
 
-    getProductGroup(id: String): any {
+    getProductGroupsByName(name: string): any {
+        let list: ProductGroup[] = [];
+        PRODUCT_GROUPS.forEach(element => {
+            if (element.name.indexOf(name) != -1) {
+                list.push(element);
+            }
+        });
+
+        return list;
+    }
+
+    getProductGroup(id: string): any {
         let product: ProductGroup;
         PRODUCT_GROUPS.forEach(element => {
             if (element.id == id) {
@@ -27,25 +45,25 @@ export class ProductService {
         return product;
     }
 
-    saveProductGroup(item: ProductGroup, isEditing: Boolean): Boolean {
+    saveProductGroup(item: ProductGroup, isEditing: boolean): boolean {
         if (isEditing) {
             PRODUCT_GROUPS.forEach(element => {
                 if (element.id == item.id) {
                     element.name = item.name;
-                    element.code = item.code;
+                    element.note = item.note;
                     element.status = item.status;
                     
                     return;
                 }
             });
         } else {
-            let productGroup = PRODUCT_GROUPS.push(item);
+            PRODUCT_GROUPS.push(item);
         }
 
         return true;
     }
 
-    deleteProductGroup(id: String): Boolean {
+    deleteProductGroup(id: string): boolean {
         let productGroup: ProductGroup;
         PRODUCT_GROUPS.forEach(function(element, index) {
             if (element.id == id) {
@@ -59,15 +77,32 @@ export class ProductService {
     }
 
 
-    // Product
+    // product
+       
     getProducts(): any {
-        return PRODUCT;
+        let list: Product[] = [];
+        PRODUCTS.forEach(element => {
+            list.push(element);
+        });
+
+        return list;
     }
 
-    getProduct(code: String): any {
+    getProductsByName(name: string): any {
+        let list: Product[] = [];
+        PRODUCTS.forEach(element => {
+            if (element.name.indexOf(name) != -1) {
+                list.push(element);
+            }
+        });
+
+        return list;
+    }
+
+    getProduct(id: string): any {
         let product: Product;
-        PRODUCT.forEach(element => {
-            if (element.code == code) {
+        PRODUCTS.forEach(element => {
+            if (element.id == id) {
                 product = element;
                 return;
             }
@@ -75,37 +110,98 @@ export class ProductService {
         return product;
     }
 
-    saveProduct(item: Product, isEditing: Boolean): Boolean {
+    saveProduct(item: Product, isEditing: boolean): boolean {
         if (isEditing) {
-            PRODUCT.forEach(element => {
-                if (element.code == item.code) {
-                    element.name = item.name;
+            PRODUCTS.forEach(element => {
+                if (element.id == item.id) {
+                    element.name == item.name;
                     element.image = item.image;
                     element.unit = item.unit;
-                    element.group = item.group;
-                     element.input_price = item.input_price;
-                    element.retail_price = item.retail_price;
-                     element.wholesale_price = item.wholesale_price;
-                    element.saleof_per = item.saleof_per;
-                    element.saleof_price = item.saleof_price;
-                    element.warning_number = item.warning_number;
-                     element.status = item.status;
+                    element.inputPrice = item.inputPrice;
+                    element.wholesalePrice = item.wholesalePrice;
+                    element.productGroup = item.productGroup;
+                    element.alarmInventory = item.alarmInventory;
+                    element.status = item.status;
                     element.note = item.note;
+                    
                     return;
                 }
             });
         } else {
-            let product = PRODUCT.push(item);
+            PRODUCTS.push(item);
         }
 
         return true;
     }
 
-    deleteProduct(code: String): Boolean {
+    deleteProduct(id: string): boolean {
         let product: Product;
-        PRODUCT.forEach(function(element, index) {
-            if (element.code == code) {
-                PRODUCT.splice(index, 1);
+        PRODUCTS.forEach(function(element, index) {
+            if (element.id == id) {
+                PRODUCTS.splice(index, 1);
+                
+                return;
+            }
+        });
+
+        return true;
+    }
+
+
+    //unit
+      getUnits(): any {
+        let list: Unit[] = [];
+        UNITS.forEach(element => {
+            list.push(element);
+        });
+
+        return list;
+    }
+
+    getUnitsByName(name: string): any {
+        let list: Unit[] = [];
+        UNITS.forEach(element => {
+            if (element.name.indexOf(name) != -1) {
+                list.push(element);
+            }
+        });
+
+        return list;
+    }
+
+    getUnit(id: string): any {
+        let unit: Unit;
+       UNITS.forEach(element => {
+            if (element.id == id) {
+                unit = element;
+                return;
+            }
+        });
+        return unit;
+    }
+
+    saveUnit(item: Unit, isEditing: boolean): boolean {
+        if (isEditing) {
+            UNITS.forEach(element => {
+                if (element.id == item.id) {
+                    element.name = item.name;
+                    element.note = item.note;
+                    
+                    return;
+                }
+            });
+        } else {
+            UNITS.push(item);
+        }
+
+        return true;
+    }
+
+    deleteUnit(id: string): boolean {
+        let unit: Unit;
+        UNITS.forEach(function(element, index) {
+            if (element.id == id) {
+                UNITS.splice(index, 1);
                 
                 return;
             }

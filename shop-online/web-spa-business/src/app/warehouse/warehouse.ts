@@ -1,42 +1,65 @@
 import {Component, OnInit} from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
+import {TranslateService} from 'ng2-translate/ng2-translate';
+
+import { ListController, GridHeader, SortInfo, FilterInfo } from './../shared/index';
 import { Warehouse } from './shared/index';
 import { WarehouseService} from './shared/index';
 
+const headers: GridHeader[] = [
+  { name: 'id', labelKey: 'warehouse.list.id', sortable: true, width: 10 },
+  { name: 'name', labelKey: 'warehouse.list.name', sortable: true, width: 10 },
+  { name: 'address', labelKey: 'common.list.address', sortable: true, width: 10 },
+  { name: 'phone', labelKey: 'common.list.phone', sortable: true, width: 10 },
+  { name: 'status', labelKey: 'common.list.status', sortable: true, width: 10 },
+  { name: 'use', labelKey: 'warehouse.list.use', sortable: true, width: 10 },
+  { name: 'branch', labelKey: 'warehouse.list.branch', sortable: true, width: 10 },
+  { name: 'note', labelKey: 'common.list.note', sortable: true, width: 10 },
+
+];
 
 @Component({
   selector: 'warehouse',
   templateUrl: 'src/app/warehouse/warehouse.html'
 })
 
-export class WarehouseCmp implements OnInit  {
-  constructor(
-    private router: Router,
-    private warehouseService: WarehouseService) { }
+export class WarehouseCmp extends ListController<Warehouse> implements OnInit  {
+    constructor(
+    route: ActivatedRoute,
+    router: Router,
+    translate: TranslateService,
+    private warehouseService: WarehouseService) {
 
-  warehouses: Warehouse[];
+      super(route, translate, router);
+    }
 
-
-  ngOnInit() {
-    this.warehouses = this.warehouseService.getWarehouses();
+  getHeaders(): GridHeader[] {
+    return headers;
   }
 
-   onEdit(item: Warehouse) {
-    this.router.navigate(['/warehouse-detail', item.id]);
+  getDefaultSort(): SortInfo {
+    return new SortInfo('name', 'asc');
   }
 
-   onAdd() {
-    this.router.navigate(['/warehouse-detail', -1]);
+  getDefaultFilter(): FilterInfo {
+    return new FilterInfo(['name', 'note']);
   }
 
-  onDelete(item: Warehouse) {
-    let result = this.warehouseService.deleteWarehouse(item.id);
-    // check result
+  load(): Warehouse[] {
+    return this.warehouseService.getWarehouses();
+  }
 
-    // reload
-    this.ngOnInit();
-    
-}
+  getCurrentUrl(): string {
+    return '/warehouse';
+  }
+
+  getDetailUrl(): string {
+    return '/warehouse-detail';
+  }
+
+  delete(item: Warehouse): boolean {
+    return this.warehouseService.deleteWarehouse(item.id);
+  }
 
 }

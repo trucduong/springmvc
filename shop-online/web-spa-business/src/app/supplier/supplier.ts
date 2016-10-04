@@ -1,42 +1,66 @@
 import {Component, OnInit} from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
+import {TranslateService} from 'ng2-translate/ng2-translate';
+
+import { ListController, GridHeader, SortInfo, FilterInfo } from './../shared/index';
 import { Supplier } from './shared/index';
 import { SupplierService} from './shared/index';
 
+const headers: GridHeader[] = [
+  { name: 'id', labelKey: 'supplier.list.id', sortable: true, width: 10 },
+  { name: 'name', labelKey: 'supplier.list.name', sortable: true, width: 10 },
+  { name: 'address', labelKey: 'common.list.address', sortable: true, width: 10 },
+  { name: 'contact', labelKey: 'supplier.list.contact', sortable: true, width: 10 },
+  { name: 'phone', labelKey: 'common.list.phone', sortable: true, width: 10 },
+  { name: 'email', labelKey: 'common.list.email', sortable: true, width: 10 },
+  { name: 'fax', labelKey: 'common.list.fax', sortable: true, width: 10 },
+  { name: 'birthDay', labelKey: 'common.list.birthDay', sortable: true, width: 10 },
+  { name: 'supplierGroup', labelKey: 'supplier.list.supplierGroup', sortable: true, width: 10 },
+  { name: 'fax', labelKey: 'common.list.fax', sortable: true, width: 10 }
+];
 
 @Component({
   selector: 'supplier',
   templateUrl: 'src/app/supplier/supplier.html'
 })
 
-export class SupplierCmp implements OnInit  {
-  constructor(
-    private router: Router,
-    private supplierService: SupplierService) { }
+export class SupplierCmp extends ListController<Supplier> implements OnInit  {
+    constructor(
+    route: ActivatedRoute,
+    router: Router,
+    translate: TranslateService,
+    private supplierService: SupplierService) {
 
-  suppliers: Supplier[];
+      super(route, translate, router);
+    }
 
-
-  ngOnInit() {
-    this.suppliers = this.supplierService.getSuppliers();
+  getHeaders(): GridHeader[] {
+    return headers;
   }
 
-   onEdit(item: Supplier) {
-    this.router.navigate(['/supplier-detail', item.phone]);
+  getDefaultSort(): SortInfo {
+    return new SortInfo('name', 'asc');
   }
 
-   onAdd() {
-    this.router.navigate(['/supplier-detail', -1]);
+  getDefaultFilter(): FilterInfo {
+    return new FilterInfo(['name', 'note']);
   }
 
-  onDelete(item: Supplier) {
-    let result = this.supplierService.deleteSupplier(item.phone);
-    // check result
+  load(): Supplier[] {
+    return this.supplierService.getSuppliers();
+  }
 
-    // reload
-    this.ngOnInit();
-    
-}
+  getCurrentUrl(): string {
+    return '/supplier';
+  }
+
+  getDetailUrl(): string {
+    return '/supplier-detail';
+  }
+
+  delete(item: Supplier): boolean {
+    return this.supplierService.deleteSupplier(item.id);
+  }
 
 }

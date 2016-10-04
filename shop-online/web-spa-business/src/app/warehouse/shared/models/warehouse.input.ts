@@ -1,23 +1,28 @@
-export class Input {
-  id: String;
-  name: String;
-  unit: String;
-  quantity: String;
-  input_price: String;
-  retail_price: String;
-  total: String;
-  note: String;
-  properties: String;
+export class WarehouseInput {
+  id: string;
+  name: string;
+  unit: string;
+  quantity: string;
+  inputPrice: string;
+  wholesalePrice: string;
+  retailPrice: string;
+  total: string;
+  note: string;
+  
 
-  constructor(  id: String,name: String,unit:String, quantity: String,input_price: String,retail_price: String,total: String,note: String,properties: String) {
-    this.id = id;
+  constructor(id?: string, name?: string,unit?: string,quantity?:string, inputPrice?: string, wholesalePrice?: string, retailPrice?:string, total?:string, note?: string) {
+    if (id) {
+      this.id = id;
+    } else {
+      this.id = '-1';
+    }
     this.name = name;
     this.unit = unit;
     this.quantity = quantity;
-    this.input_price = input_price;
-    this.retail_price = retail_price;
+    this.inputPrice = inputPrice;
+    this.wholesalePrice = wholesalePrice;
+    this.retailPrice = retailPrice;
     this.total = total;
     this.note = note;
-    this.properties = properties;
   }
 }

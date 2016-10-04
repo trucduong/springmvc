@@ -49,6 +49,7 @@ export class CustomerService {
                 if (element.id == item.id) {
                     element.name = item.name;
                     element.note = item.note;
+                    element.quantity = item.quantity;
                     
                     return;
                 }

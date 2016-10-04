@@ -1,21 +1,27 @@
 export class Warehouse {
-  id: String;
-  name: String;
-  address_1: String;
-  address_2: String;
-  address_3: String;
-  phone: String;
-  status: String
+  id: string;
+  name: string;
+  address: string;
+  phone: string;
+  status: string;
+  use: string;
+  branch: string;
+  note: string;
+  
 
-
-  constructor(id: String, name: String, address_1: String, address_2: String, address_3: String, phone: String,status: String) {
-    this.id = id;
+  constructor(id?: string, name?: string,address?: string,phone?:string, status?: string,use?:string, branch?:string, note?: string) {
+    if (id) {
+      this.id = id;
+    } else {
+      this.id = '-1';
+    }
     this.name = name;
-    this.address_1 = address_1;
-    this.address_2 = address_2;
-    this.address_3 = address_3;
+    this.address = address;
     this.phone = phone;
     this.status = status;
-
+    this.use = use;
+    this.note = note;
+    this.branch = branch;
+    
   }
 }
