@@ -13,9 +13,12 @@ import { FilterCmp } from '../filter/filter';
 export class GridCmp<T> implements OnChanges {
     @Input('info') info: GridInfo;
     @Input('data-source') dataSources: T[];
-    @Output('onLoad') onLoad = new EventEmitter();
-    @Output('onEdit') onEdit = new EventEmitter<T>();
-    @Output('onDelete') onDelete = new EventEmitter<T>();
+
+    @Output('onExecute') onExecute = new EventEmitter<any>();
+
+    //@Output('onLoad') onLoad = new EventEmitter();
+    //@Output('onEdit') onEdit = new EventEmitter<T>();
+    //@Output('onDelete') onDelete = new EventEmitter<T>();
 
     items: T[];
     activeItems: T[];
@@ -104,7 +107,7 @@ export class GridCmp<T> implements OnChanges {
     paging(index: number) {
         if (index == 0) {
             this.filterCmp.clear();
-            this.onLoad.emit();
+            this.onExecute.emit({action:'load'});
         }
 
         this.paginationInfo.setCurrent(index);
@@ -121,12 +124,8 @@ export class GridCmp<T> implements OnChanges {
         }
     }
 
-    edit(item: T) {
-        this.onEdit.emit(item);
-    }
-
-    delete(item: T) {
-        this.onDelete.emit(item);
+    execute(action: string, item: T) {
+        this.onExecute.emit({action: action, data: item});
     }
 
     getHeaderClass(header: GridHeader): string {

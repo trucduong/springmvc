@@ -2,7 +2,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { OnInit } from '@angular/core';
 import {TranslateService} from 'ng2-translate/ng2-translate';
 
-import { GridHeader, GridInfo, SortInfo, FilterInfo } from '../../shared/index';
+import { GridHeader, GridAction, GridInfo, SortInfo, FilterInfo } from '../../shared/index';
 import { BaseController } from './base.controller';
 import { AlertType } from '../alert/alert.type';
 
@@ -25,8 +25,15 @@ export abstract class ListController<T> extends BaseController {
 
     abstract load(): T[];
     abstract getDetailUrl(): string;
-    abstract delete(id: T): boolean;
     abstract getHeaders(): GridHeader[];
+
+    getActions(): GridAction[] {
+        let actions: GridAction[] = [
+            {name:'edit', type:'btn-warning', icon:'fa fa-pencil'},
+            {name:'delete', type:'btn-danger', icon:'fa fa-times'},
+        ];
+        return actions;
+    }
 
     getDefaultSort(): SortInfo {
         return null;
@@ -42,10 +49,29 @@ export abstract class ListController<T> extends BaseController {
 
         this.errors = {};
 
-        this.gridInfo = new GridInfo(this.getHeaders(), this.getDefaultSort(), this.getDefaultFilter())
+        this.gridInfo = new GridInfo(this.getHeaders(), this.getActions(), this.getDefaultSort(), this.getDefaultFilter())
         this.onLoad();
 
         this.hideLoading();
+    }
+
+    onExecute(param: any) {
+        if(!param.action) {
+            return;
+        }
+
+        if (param.action == 'load') {
+            this.onLoad();
+
+        } else if (param.action == 'edit') {
+            this.onEdit(param.data);
+
+        } else if (param.action == 'delete') {
+            this.onDelete(param.data);
+            
+        } else {
+            this.execute(param);
+        }
     }
 
     onLoad() {
@@ -76,5 +102,11 @@ export abstract class ListController<T> extends BaseController {
         } else {
             this.alert(AlertType.danger, 'Delete failure!');
         }
+    }
+
+    execute(param: any) { }
+
+    delete(id: T): boolean{
+        return true;
     }
 }
