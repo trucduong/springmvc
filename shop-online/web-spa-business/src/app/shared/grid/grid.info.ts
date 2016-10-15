@@ -42,6 +42,14 @@ export class FilterInfo {
     clear() {
         this.value = null;
     }
+
+    hasInfo() {
+        if (this.columns && this.columns.length > 0) {
+            return true;
+        }
+
+        return false;
+    }
 }
 
 export class GridHeader {
