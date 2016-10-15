@@ -4,4 +4,6 @@ export * from './alert/alert.type';
 export * from './pagination/pagination.info';
 export * from './grid/grid.info';
 export * from './wrapper/wraper.info';
+export * from './dialog/dialog.info';
+export * from './dialog/dialog.service';
 export * from './shared.module';

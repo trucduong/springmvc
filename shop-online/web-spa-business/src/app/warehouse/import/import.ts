@@ -3,7 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import {TranslateService} from 'ng2-translate/ng2-translate';
 
-import { ListController, GridHeader, SortInfo, FilterInfo } from '../../shared/index';
+import { ListController, GridHeader, SortInfo, FilterInfo, DialogInfo, DialogService } from '../../shared/index';
 import { Warehouse, WarehouseService } from '../shared/index';
 
 const headers: GridHeader[] = [
@@ -23,15 +23,21 @@ const headers: GridHeader[] = [
   templateUrl: 'src/app/warehouse/import/import.html'
 })
 
-export class WarehouseImportCmp extends ListController<Warehouse> implements OnInit  {
-    constructor(
+export class WarehouseImportCmp extends ListController<Warehouse> implements OnInit {
+
+  private dialogInfo: DialogInfo;
+  // TODO: private item: ImportProduct
+
+  constructor(
     route: ActivatedRoute,
     router: Router,
     translate: TranslateService,
-    private warehouseService: WarehouseService) {
+    private warehouseService: WarehouseService,
+    private dialogService: DialogService) {
 
-      super(route, translate, router);
-    }
+    super(route, translate, router);
+    this.dialogInfo = new DialogInfo();
+  }
 
   getHeaders(): GridHeader[] {
     return headers;
@@ -53,8 +59,32 @@ export class WarehouseImportCmp extends ListController<Warehouse> implements OnI
     return '/warehouse-detail';
   }
 
+  onEdit(item: Warehouse) {
+    // TODO: set data
+
+    this.dialogService.show(this.dialogInfo);
+  }
+
+  onAdd() {
+    // TODO: init data
+
+    this.dialogService.show(this.dialogInfo);
+  }
+
   delete(item: Warehouse): boolean {
     return this.warehouseService.deleteWarehouse(item.id);
   }
 
+  onSave() {
+    // TODO: Add new item
+
+    // TODO: Init data for new Product
+  }
+
+  onDialogClose() {
+    // TODO: check closeable conditions
+
+    this.dialogService.hide(this.dialogInfo);
+    this.onLoad();
+  }
 }

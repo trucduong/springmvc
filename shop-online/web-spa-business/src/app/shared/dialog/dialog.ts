@@ -1,16 +1,12 @@
-import {Component} from '@angular/core';
-import {DialogService} from './dialog.service';
+import {Component, Input} from '@angular/core';
+import { DialogInfo } from './dialog.info';
 
 @Component({
   selector:'dialog-cmp',
-  templateUrl:'src/app/shared/filter/filter.html'
+  templateUrl:'src/app/shared/dialog/dialog.html',
+  styleUrls: ['src/app/shared/dialog/dialog.css']
 })
 export class DialogCmp {
-  constructor(private dialogService: DialogService) {}
-  confirm() {
-    this.dialogService.dialogConfirmation();
-  }
-  reject() {
-    this.dialogService.dialogRejection();
-  }
+  @Input('info') info: DialogInfo;
+
 }

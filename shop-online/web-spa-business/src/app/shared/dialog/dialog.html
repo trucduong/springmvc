@@ -1,10 +1,12 @@
-<div id="confirm-dialog" class="modal">
-    <div class="modal-content">
-        <h4>{{dialogService.dialogHeader}}</h4>
-        <p>{{dialogService.dialogMessage}}</p>
-    </div>
-    <div class="modal-footer">
-        <a (click)="confirm()" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-        <a (click)="reject()" class="modal-action modal-close waves-effect waves-green btn-flat">Disagree</a>
+<div class="modal fade in" [style.display]="info.getDisplayStyle()" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <ng-content select="dialog-header-cmp"></ng-content>
+            <div class="modal-body">
+                <ng-content select="dialog-body-cmp"></ng-content>
+            </div>
+            <ng-content select="dialog-footer-cmp"></ng-content>
+        </div>
     </div>
 </div>
+<div *ngIf="info.isShow" class="modal-backdrop fade in"></div>

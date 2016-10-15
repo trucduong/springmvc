@@ -14,6 +14,12 @@ import { GridCmp } from './grid/grid';
 import { GridActionCmp } from './grid/action/action';
 import { GridContentCmp } from './grid/content/content';
 
+import { DialogCmp } from './dialog/dialog';
+import { DialogHeaderCmp } from './dialog/header/header';
+import { DialogBodyCmp } from './dialog/body/body';
+import { DialogFooterCmp } from './dialog/footer/footer';
+import { DialogService } from './dialog/dialog.service';
+
 @NgModule({
   imports:      [ 
     CommonModule,
@@ -31,9 +37,8 @@ import { GridContentCmp } from './grid/content/content';
     WrapperCmp,
     AlertCmp,
     LoadingCmp,
-    GridCmp,
-    GridActionCmp,
-    GridContentCmp
+    GridCmp, GridActionCmp, GridContentCmp,
+    DialogCmp, DialogHeaderCmp, DialogBodyCmp, DialogFooterCmp
   ],
   exports: [ 
     CommonModule,
@@ -45,9 +50,11 @@ import { GridContentCmp } from './grid/content/content';
     WrapperCmp,
     AlertCmp,
     LoadingCmp,
-    GridCmp,
-    GridActionCmp,
-    GridContentCmp
+    GridCmp, GridActionCmp, GridContentCmp,
+    DialogCmp, DialogHeaderCmp, DialogBodyCmp, DialogFooterCmp
   ],
+  providers: [
+      DialogService
+  ]
 })
 export class SharedModule { }
