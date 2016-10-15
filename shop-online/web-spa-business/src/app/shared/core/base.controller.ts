@@ -14,7 +14,7 @@ export abstract class BaseController {
 
     constructor(private router: Router, private translate: TranslateService) {
         translate.setDefaultLang('vi');
-        translate.use('en');
+        translate.use('vi');
         this.pageInfo = new WrapperInfo(false);
         this.alertInfo = [];
     }

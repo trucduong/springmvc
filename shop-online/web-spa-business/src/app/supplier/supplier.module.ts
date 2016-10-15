@@ -11,8 +11,9 @@ import { SupplierGroupDetailCmp } from './group/detail/detail';
 import { SupplierCmp } from './supplier';
 import { SupplierDetailCmp } from './detail/detail';
 
-import { SupplierService } from './shared/index';
 
+
+import {SupplierService} from './shared/index';
 
 @NgModule({
   imports: [

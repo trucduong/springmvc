@@ -1,21 +1,21 @@
 import {Component, OnInit} from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
-import { Unit } from '../shared/index';
-import { UnitService} from '../shared/index';
+import { Warehouse } from '../shared/index';
+import { WarehouseService} from '../shared/index';
 
 @Component({
-  selector: 'unit-detail',
-  templateUrl: 'src/app/unit/detail/detail.html'
+  selector: 'warehouse-detail',
+  templateUrl: 'src/app/warehouse/detail/detail.html'
 })
 
-export class UnitDetailCmp implements OnInit {
+export class WarehouseDetailCmp implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private unitService: UnitService) { }
+    private warehouseService: WarehouseService) { }
 
-  model: Unit;
+  model: Warehouse;
   isEditing: Boolean;
   error: String;
 
@@ -26,10 +26,10 @@ export class UnitDetailCmp implements OnInit {
     this.route.params.forEach((params: Params) => {
         let id = params['id'] + '';
         if (id == null || id == '' || id == '-1') {
-            this.model = new Unit('-1', '', '');
+            this.model = new Warehouse('-1', '', '','','','','');
             this.isEditing = false;
         } else {
-            this.model = this.unitService.getUnit(id);
+            this.model = this.warehouseService.getWarehouse(id);
             this.isEditing = true;
         }
     });
@@ -39,7 +39,7 @@ export class UnitDetailCmp implements OnInit {
       // validate
       
       // save
-      let result = this.unitService.saveUnit(this.model, this.isEditing);
+      let result = this.warehouseService.saveWarehouse(this.model, this.isEditing);
 
       if (result) {
           this.onBack();
@@ -49,7 +49,7 @@ export class UnitDetailCmp implements OnInit {
   }
 
   onBack() {
-      this.router.navigate(['unit']);
+      this.router.navigate(['warehouse']);
   }
 
 

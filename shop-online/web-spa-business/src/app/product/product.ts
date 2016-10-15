@@ -1,42 +1,67 @@
 import {Component, OnInit} from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
+import {TranslateService} from 'ng2-translate/ng2-translate';
+
+import { ListController, GridHeader, SortInfo, FilterInfo } from './../shared/index';
 import { Product } from './shared/index';
 import { ProductService} from './shared/index';
 
+const headers: GridHeader[] = [
+  { name: 'id', labelKey: 'product.list.id', sortable: true, width: 5 },
+  { name: 'name', labelKey: 'product.list.name', sortable: true, width: 10 },
+  { name: 'unit', labelKey: 'common.list.birthDay', sortable: true, width: 10 },
+  { name: 'inputPrice', labelKey: 'product.list.inputPrice', sortable: true, width: 10 },
+  { name: 'wholesalePrice', labelKey: 'product.list.wholesalePrice', sortable: true, width: 10 },
+  { name: 'retailPrice', labelKey: 'product.list.retailPrice', sortable: true, width: 10 },
+   { name: 'productGroup', labelKey: 'product.list.productGroup', sortable: true, width: 10 },
+  { name: 'alarmInventory', labelKey: 'product.list.alarmInventory', sortable: true, width: 10 },
+  { name: 'status', labelKey: 'common.list.status', sortable: true, width: 5 },
+    { name: 'note', labelKey: 'common.list.note', sortable: true, width: 10 }
+
+];
 
 @Component({
   selector: 'product',
   templateUrl: 'src/app/product/product.html'
 })
 
-export class ProductCmp implements OnInit  {
-  constructor(
-    private router: Router,
-    private productService: ProductService) { }
+export class ProductCmp extends ListController<Product> implements OnInit  {
+    constructor(
+    route: ActivatedRoute,
+    router: Router,
+    translate: TranslateService,
+    private productService: ProductService) {
 
-  products: Product[];
+      super(route, translate, router);
+    }
 
-
-  ngOnInit() {
-    this.products = this.productService.getProducts();
+  getHeaders(): GridHeader[] {
+    return headers;
   }
 
-   onEdit(item: Product) {
-    this.router.navigate(['/product-detail', item.code]);
+  getDefaultSort(): SortInfo {
+    return new SortInfo('name', 'asc');
   }
 
-   onAdd() {
-    this.router.navigate(['/product-detail', -1]);
+  getDefaultFilter(): FilterInfo {
+    return new FilterInfo(['name', 'note']);
   }
 
-  onDelete(item: Product) {
-    let result = this.productService.deleteProduct(item.code);
-    // check result
+  load(): Product[] {
+    return this.productService.getProducts();
+  }
 
-    // reload
-    this.ngOnInit();
-    
-}
+  getCurrentUrl(): string {
+    return '/product';
+  }
+
+  getDetailUrl(): string {
+    return '/product-detail';
+  }
+
+  delete(item: Product): boolean {
+    return this.productService.deleteProduct(item.id);
+  }
 
 }

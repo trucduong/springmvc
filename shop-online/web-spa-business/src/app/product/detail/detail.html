@@ -1,8 +1,8 @@
-<wrapper>
+<wrapper [info]="pageInfo">
     <!-- page header -->
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Product detail</h1>
+            <h1 class="page-header">{{ 'product.detail.title' | translate}}</h1>
         </div>
     </div>
 
@@ -11,68 +11,82 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Them moi
+                     {{ 'common.list.add' | translate}}
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-6">
-                            <!--<form #productGroupForm="ngForm" role="form">-->
-                                <div class="form-group">
-                                    <label>code</label>
-                                    <input class="form-control" required [(ngModel)]="model.code" name="code" >
-                                </div>
-                                <div class="form-group">
-                                    <label>name</label>
-                                    <input class="form-control" required [(ngModel)]="model.name" name="name">
-                                </div>
+                            <!--<form #productForm="ngForm" role="form">-->  
                                  <div class="form-group">
-                                    <label>image</label>
-                                    <input class="form-control" required [(ngModel)]="model.image" name="image" >
-                                </div>
+                                    <label>{{ 'product.list.id' | translate}}</label>
+                                    <input class="form-control" required [(ngModel)]="model.id" name="id" >
+                                </div>   
                                 <div class="form-group">
-                                    <label>unit</label>
-                                    <input class="form-control" required [(ngModel)]="model.unit" name="unit">
-                                </div>
-                                <div class="form-group">
-                                    <label>group</label>
-                                    <input class="form-control" required [(ngModel)]="model.group" name="group" >
-                                </div>
-                                <div class="form-group">
-                                    <label>input_price</label>
-                                    <input class="form-control" required [(ngModel)]="model.input_price" name="input_price" >
-                                </div>
-                                <div class="form-group">
-                                    <label>retail_price</label>
-                                    <input class="form-control" required [(ngModel)]="model.retail_price" name="retail_price">
-                                </div>
-                                 <div class="form-group">
-                                    <label>wholesale_price</label>
-                                    <input class="form-control" required [(ngModel)]="model.wholesale_price" name="wholesale_price" >
-                                </div>
-                                <div class="form-group">
-                                    <label>saleof_per</label>
-                                    <input class="form-control" required [(ngModel)]="model.saleof_per" name="saleof_per">
-                                </div>
-                                    <div class="form-group">
-                                    <label>saleof_price</label>
-                                    <input class="form-control" required [(ngModel)]="model.saleof_price" name="saleof_price" >
-                                </div>
-                                <div class="form-group">
-                                    <label>warning_number</label>
-                                    <input class="form-control" required [(ngModel)]="model.warning_number" name="warning_number">
-                                </div>
-                                 <div class="form-group">
-                                    <label>status</label>
-                                    <input class="form-control" required [(ngModel)]="model.status" name="status" >
-                                </div>
-                                <div class="form-group">
-                                    <label>note</label>
-                                    <input class="form-control" required [(ngModel)]="model.note" name="note">
-                                </div>
+                                    <label>{{ 'product.list.name' | translate}}</label>
+                                    <input id="name" class="form-control" required maxlength="100" [(ngModel)]="model.name" name="name" #name="ngModel">
 
+                                    <div *ngIf="name.errors && (name.dirty || name.touched)"
+                                        class="alert alert-danger">
+                                        <div [hidden]="!name.errors.required">
+                                            {{ 'common.alertDanger.name' | translate}}
+                                        </div>
+                                        <div [hidden]="!name.errors.maxlength">
+                                            {{ 'common.alertDanger.maxLength100' | translate}}
+                                        </div>
+                                    </div>
+                                </div> 
+                              <div class="form-group">
+                                    <label>{{ 'common.list.unit' | translate}}</label>
+                                    <input class="form-control" required [(ngModel)]="model.unit" name="unit" >
+                                </div>  
+                                 <div class="form-group">
+                                    <label>{{ 'product.list.productGroup' | translate}}</label>
+                                    <input class="form-control" required [(ngModel)]="model.productGroup" name="productGroup" >
+                                    <button (click)="onNavigate('\product-group-detail')" type="button" class="btn btn-default">+</button>
+                                </div>   
+                          <div class="form-group">
+                                    <label>{{ 'product.list.inputPrice' | translate}}</label>
+                                    <input id="inputPrice" class="form-control" required [(ngModel)]="model.inputPrice" name="inputPrice" #inputPrice="ngModel">
 
-                                <div *ngIf="error" class="alert alert-danger" >{{error}}</div>
+                                    <div *ngIf="inputPrice.errors && (inputPrice.dirty || inputPrice.touched)"
+                                        class="alert alert-danger">
+                                        <div [hidden]="!inputPrice.errors.required">
+                                            {{ 'common.alertDanger.inputPrice' | translate}}
+                                        </div>
+                                    </div>
+                                </div> 
+                             <div class="form-group">
+                                    <label>{{ 'product.list.wholesalePrice' | translate}}</label>
+                                    <input class="form-control" required [(ngModel)]="model.wholesalePrice" name="wholesalePrice" >
+                                </div>  
+                             <div class="form-group">
+                                    <label>{{ 'product.list.retailPrice' | translate}}</label>
+                                    <input id="retailPrice" class="form-control" required [(ngModel)]="model.retailPrice" name="retailPrice" #retailPrice="ngModel">
+
+                                    <div *ngIf="retailPrice.errors && (retailPrice.dirty || retailPrice.touched)"
+                                        class="alert alert-danger">
+                                        <div [hidden]="!retailPrice.errors.required">
+                                            {{ 'common.alertDanger.retailPrice' | translate}}
+                                        </div>
+                                    </div>
+                                </div> 
+                            
+                                <div class="form-group">
+                                    <label>{{ 'product.list.alarmInventory' | translate}}</label>
+                                    <input class="form-control" required [(ngModel)]="model.alarmInventory" name="alarmInventory" >
+                                </div>  
+                                <div class="form-group">
+                                    <label>{{ 'common.list.status' | translate}}</label>
+                                    <input class="form-control" required [(ngModel)]="model.status" name="statussex" >
+                                </div>  
+
+                                <div class="form-group">
+                                    <label>{{ 'common.list.note' | translate}}</label>
+                                    <input class="form-control" required [(ngModel)]="model.note" name="note" >
+                                </div>  
+                                 
+                                <alert-cmp [info]="alertInfo"></alert-cmp>
                                 <button (click)="onSave()" class="btn btn-primary"><i class="glyphicon glyphicon-floppy-disk"></i></button>
                             <!--</form>-->
                         </div>

@@ -1,23 +1,31 @@
 export class Supplier {
-  name: String;
-  phone: String;
-  birth_day: String;
-  sex: String;
-  address_detail: String;
-  address_1: String;
-  address_2: String;
-  address_3: String;
-  properties: String;
+  id: string;
+  name: string;
+  address: string;
+  contact: string;
+  phone: string;
+  supplierGroup: string;
+  email: string;
+  sex: string;
+  birthDay: string;
+  note: string;
+  fax: string;
 
-  constructor(name: String, phone: String, birth_day: String, sex: String, address_detail: String, address_1: String, address_2:String, address_3: String, properties: String) {
+  constructor(id?: string, name?: string,address?: string,contact?:string, phone?: string,fax?:string, supplierGroup?: string,email?: string,birthDay?: string,note?: string) {
+    if (id) {
+      this.id = id;
+    } else {
+      this.id = '-1';
+    }
     this.name = name;
+    this.address = address;
+    this.contact = contact;
     this.phone = phone;
-    this.birth_day = birth_day;
-    this.sex = sex;
-    this.address_detail = address_detail;
-    this.address_1 = address_1;
-    this.address_2 = address_2;
-    this.address_3 = address_3;
-    this.properties = properties;
+    this.supplierGroup = supplierGroup;
+    this.fax = fax;
+    this.email = email;
+    this.birthDay = birthDay;
+    this.note = note;
+    
   }
 }

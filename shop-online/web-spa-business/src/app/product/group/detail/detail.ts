@@ -1,53 +1,46 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import {TranslateService} from 'ng2-translate/ng2-translate';
 
 import { ProductService, ProductGroup } from '../../shared/index';
+import { AlertType } from '../../../shared/index';
+import { EditController } from '../../../shared/index';
 
 @Component({
-  selector: 'product-group-detail',
-  templateUrl: 'src/app/product/group/detail/detail.html'
+    selector: 'product-group-detail',
+    templateUrl: 'src/app/product/group/detail/detail.html'
 })
 
-export class ProductGroupDetailCmp implements OnInit {
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private productService: ProductService) { }
+export class ProductGroupDetailCmp extends EditController<ProductGroup> implements OnInit {
+    constructor(
+        route: ActivatedRoute,
+        router: Router,
+        translate: TranslateService,
+        private productService: ProductService) {
+        super(route, router, translate);
+    }
 
-  model: ProductGroup;
-  isEditing: Boolean;
-  error: String;
+    getCurrentUrl(): string {
+        return '/product-group-detail';
+    }
 
-  ngOnInit() {
-    // Set default variables
-    this.error = null;
+    createModel(): ProductGroup {
+        return new ProductGroup();
+    }
 
-    this.route.params.forEach((params: Params) => {
-        let id = params['id'] + '';
-        if (id == null || id == '' || id == '-1') {
-            this.model = new ProductGroup('-1', '', '','');
-            this.isEditing = false;
-        } else {
-            this.model = this.productService.getProductGroup(id);
-            this.isEditing = true;
-        }
-    });
-  }
+    load(id: any): ProductGroup {
+        return this.productService.getProductGroup(id);
+    }
 
-  onSave() {
-      // validate
-      
-      // save
-      let result = this.productService.saveProductGroup(this.model, this.isEditing);
+    validate(model: ProductGroup): boolean {
+        // TODO: validate product group here
 
-      if (result) {
-          this.onBack();
-      } else {
-          this.error = "Can not save!";
-      }
-  }
+        // call this.addError(field, message) if has any error
 
-  onBack() {
-      this.router.navigate(['product-group']);
-  }
+        return true;
+    }
+
+    save(model: ProductGroup): boolean {
+        return this.productService.saveProductGroup(model, this.isEditing);
+    }
 }

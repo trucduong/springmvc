@@ -1,54 +1,46 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import {TranslateService} from 'ng2-translate/ng2-translate';
 
-import { SupplierService, SupplierGroup} from '../../shared/index';
+import { SupplierService, SupplierGroup } from '../../shared/index';
+import { AlertType } from '../../../shared/index';
+import { EditController } from '../../../shared/index';
 
 @Component({
-  selector: 'supplier-group-detail',
-  templateUrl: 'src/app/supplier/group/detail/detail.html'
+    selector: 'supplier-group-detail',
+    templateUrl: 'src/app/supplier/group/detail/detail.html'
 })
 
-export class SupplierGroupDetailCmp  {
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private supplierService: SupplierService) { }
+export class SupplierGroupDetailCmp extends EditController<SupplierGroup> implements OnInit {
+    constructor(
+        route: ActivatedRoute,
+        router: Router,
+        translate: TranslateService,
+        private supplierService: SupplierService) {
+        super(route, router, translate);
+    }
 
-  model: SupplierGroup;
-  isEditing: Boolean;
-  error: String;
+    getCurrentUrl(): string {
+        return '/supplier-group-detail';
+    }
 
-  ngOnInit() {
-    // Set default variables
-    this.error = null;
+    createModel(): SupplierGroup {
+        return new SupplierGroup();
+    }
 
-    this.route.params.forEach((params: Params) => {
-        let id = params['id'] + '';
-        if (id == null || id == '' || id == '-1') {
-            this.model = new SupplierGroup('-1', '', '');
-            this.isEditing = false;
-        } else {
-            this.model = this.supplierService.getSupplierGroup(id);
-            this.isEditing = true;
-        }
-    });
-  }
+    load(id: any): SupplierGroup {
+        return this.supplierService.getSupplierGroup(id);
+    }
 
-  onSave() {
-      // validate
-      
-      // save
-      let result = this.supplierService.saveSupplierGroup(this.model, this.isEditing);
+    validate(model: SupplierGroup): boolean {
+        // TODO: validate supplier group here
 
-      if (result) {
-          this.onBack();
-      } else {
-          this.error = "Can not save!";
-      }
-  }
+        // call this.addError(field, message) if has any error
 
-  onBack() {
-      this.router.navigate(['supplier-group']);
-  }
+        return true;
+    }
 
+    save(model: SupplierGroup): boolean {
+        return this.supplierService.saveSupplierGroup(model, this.isEditing);
+    }
 }

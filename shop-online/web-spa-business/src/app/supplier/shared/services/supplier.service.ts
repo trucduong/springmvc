@@ -1,23 +1,38 @@
 import { Injectable } from '@angular/core';
 
-import {SupplierGroup} from '../models/supplier.group';
+import { SupplierGroup } from '../models/supplier.group'
 import {SUPPLIER_GROUPS} from './supplier.data';
 
 import {Supplier} from '../models/supplier'
-import {SUPPLIER} from  './supplier.data';
+import {SUPPLIERS} from  './supplier.data';
 
 
 @Injectable()
 export class SupplierService {
-
     constructor() { }
 
     // Group
     getSupplierGroups(): any {
-        return SUPPLIER_GROUPS;
+        let list: SupplierGroup[] = [];
+        SUPPLIER_GROUPS.forEach(element => {
+            list.push(element);
+        });
+
+        return list;
     }
 
-       getSupplierGroup(id: String): any {
+    getSupplierGroupsByName(name: string): any {
+        let list: SupplierGroup[] = [];
+        SUPPLIER_GROUPS.forEach(element => {
+            if (element.name.indexOf(name) != -1) {
+                list.push(element);
+            }
+        });
+
+        return list;
+    }
+
+    getSupplierGroup(id: string): any {
         let supplier: SupplierGroup;
         SUPPLIER_GROUPS.forEach(element => {
             if (element.id == id) {
@@ -28,25 +43,25 @@ export class SupplierService {
         return supplier;
     }
 
-
-    saveSupplierGroup(item: SupplierGroup, isEditing: Boolean): Boolean {
+    saveSupplierGroup(item: SupplierGroup, isEditing: boolean): boolean {
         if (isEditing) {
             SUPPLIER_GROUPS.forEach(element => {
                 if (element.id == item.id) {
                     element.name = item.name;
                     element.note = item.note;
+                    element.quantity = item.quantity;
                     
                     return;
                 }
             });
         } else {
-            let supplierGroup = SUPPLIER_GROUPS.push(item);
+            SUPPLIER_GROUPS.push(item);
         }
 
         return true;
     }
 
-    deleteSupplierGroup(id: String): Boolean {
+    deleteSupplierGroup(id: string): boolean {
         let supplierGroup: SupplierGroup;
         SUPPLIER_GROUPS.forEach(function(element, index) {
             if (element.id == id) {
@@ -59,15 +74,33 @@ export class SupplierService {
         return true;
     }
 
-      // supplier
+
+    // supplier
+       
     getSuppliers(): any {
-        return SUPPLIER;
+        let list: Supplier[] = [];
+        SUPPLIERS.forEach(element => {
+            list.push(element);
+        });
+
+        return list;
     }
 
-    getSupplier(phone: String): any {
+    getSuppliersByName(name: string): any {
+        let list: Supplier[] = [];
+        SUPPLIERS.forEach(element => {
+            if (element.name.indexOf(name) != -1) {
+                list.push(element);
+            }
+        });
+
+        return list;
+    }
+
+    getSupplier(id: string): any {
         let supplier: Supplier;
-        SUPPLIER.forEach(element => {
-            if (element.phone == phone) {
+        SUPPLIERS.forEach(element => {
+            if (element.id == id) {
                 supplier = element;
                 return;
             }
@@ -75,33 +108,36 @@ export class SupplierService {
         return supplier;
     }
 
-    saveSupplier(item: Supplier, isEditing: Boolean): Boolean {
+    saveSupplier(item: Supplier, isEditing: boolean): boolean {
         if (isEditing) {
-            SUPPLIER.forEach(element => {
-                if (element.phone == item.phone) {
+            SUPPLIERS.forEach(element => {
+                if (element.id == item.id) {
                     element.name = item.name;
-                    element.birth_day = item.birth_day;
-                     element.sex = item.sex;
-                    element.address_detail = item.address_detail;
-                     element.address_1 = item.address_1;
-                    element.address_2 = item.address_2;
-                     element.address_3 = item.address_3;
-                    element.properties = item.properties;
+                    element.address = item.address;
+                    element.contact = item.contact;
+                    element.phone == item.phone;
+                    element.email = item.email;
+                    element.fax = item.fax;
+                    element.birthDay = item.birthDay;
+                    element.supplierGroup = item.supplierGroup;
+                    element.note = item.note;
+           
+                    
                     return;
                 }
             });
         } else {
-            let supplier = SUPPLIER.push(item);
+            SUPPLIERS.push(item);
         }
 
         return true;
     }
 
-    deleteSupplier(phone: String): Boolean {
+    deleteSupplier(id: string): boolean {
         let supplier: Supplier;
-        SUPPLIER.forEach(function(element, index) {
-            if (element.phone == phone) {
-                SUPPLIER.splice(index, 1);
+        SUPPLIERS.forEach(function(element, index) {
+            if (element.id == id) {
+                SUPPLIERS.splice(index, 1);
                 
                 return;
             }
@@ -109,6 +145,5 @@ export class SupplierService {
 
         return true;
     }
-
 
 }

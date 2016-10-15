@@ -12,7 +12,6 @@ import { BlankModule } from './blank/index';
 import { CustomerModule } from './customer/index';
 import { SupplierModule } from './supplier/index';
 import { ProductModule } from './product/index';
-import { UnitModule } from './unit/index';
 import { WarehouseModule } from './warehouse/index';
 
 
@@ -30,7 +29,6 @@ import { WarehouseModule } from './warehouse/index';
     CustomerModule,
     SupplierModule,
     ProductModule,
-    UnitModule, 
     WarehouseModule
   ],
   declarations: [ AppComponent ],

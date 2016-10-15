@@ -42,6 +42,14 @@ export class FilterInfo {
     clear() {
         this.value = null;
     }
+
+    hasInfo() {
+        if (this.columns && this.columns.length > 0) {
+            return true;
+        }
+
+        return false;
+    }
 }
 
 export class GridHeader {
@@ -58,6 +66,17 @@ export class GridHeader {
     }
 }
 
+export class GridAction {
+    name: string;
+    icon: string;
+    type: string;
+    constructor(name: string, icon: string, type: string) {
+        this.name = name;
+        this.icon = icon;
+        this.type = type;
+    }
+}
+
 // export class GridBean<T> {
 //     id: string;
 //     bean: T;
@@ -69,14 +88,17 @@ export class GridHeader {
 
 export class GridInfo {
     headers: GridHeader[];
+    actions: GridAction[];
     filterInfo: FilterInfo;
     sortInfo: SortInfo;
 
     constructor(headers: GridHeader[],
+        actions: GridAction[],
         sortInfo?: SortInfo,
         filterInfo?: FilterInfo) {
         
         this.headers = headers;
+        this.actions = actions;
         this.filterInfo = filterInfo;
         this.sortInfo = sortInfo;
     }

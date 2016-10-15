@@ -1,39 +1,57 @@
 import {Component, OnInit} from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import {TranslateService} from 'ng2-translate/ng2-translate';
 
+import { ListController, GridHeader, SortInfo, FilterInfo } from '../../shared/index';
 import { SupplierService, SupplierGroup } from '../shared/index';
+
+const headers: GridHeader[] = [
+  { name: 'id', labelKey: 'supplier.group.list.id', sortable: true, width: 10 },
+  { name: 'name', labelKey: 'supplier.group.list.name', sortable: true, width: 30 },
+  { name: 'note', labelKey: 'common.list.note', sortable: true, width: 40 },
+    { name: 'quatity', labelKey: 'supplier.group.list.quantity', sortable: true, width: 20 }
+
+];
 
 @Component({
   selector: 'supplier-group',
   templateUrl: 'src/app/supplier/group/group.html'
 })
-
-export class SupplierGroupCmp implements OnInit  {
+export class SupplierGroupCmp extends ListController<SupplierGroup> implements OnInit {
   constructor(
-    private router: Router,
-    private supplierService: SupplierService) { }
+    route: ActivatedRoute,
+    router: Router,
+    translate: TranslateService,
+    private supplierService: SupplierService) {
 
-      supplierGroups: SupplierGroup[];
-
-  ngOnInit() {
-    this.supplierGroups = this.supplierService.getSupplierGroups();
+    super(route, translate, router);
   }
 
-  onEdit(item: SupplierGroup) {
-    this.router.navigate(['/supplier-group-detail', item.id]);
+  getHeaders(): GridHeader[] {
+    return headers;
   }
 
-  onAdd() {
-    this.router.navigate(['/supplier-group-detail', -1]);
+  getDefaultSort(): SortInfo {
+    return new SortInfo('name', 'asc');
   }
 
-    onDelete(item: SupplierGroup) {
-    let result = this.supplierService.deleteSupplierGroup(item.id);
-    // check result
-
-    // reload
-    this.ngOnInit();
+  getDefaultFilter(): FilterInfo {
+    return new FilterInfo(['name', 'note']);
   }
 
+  load(): SupplierGroup[] {
+    return this.supplierService.getSupplierGroups();
+  }
 
+  getCurrentUrl(): string {
+    return '/supplier-group';
+  }
+
+  getDetailUrl(): string {
+    return '/supplier-group-detail';
+  }
+
+  delete(item: SupplierGroup): boolean {
+    return this.supplierService.deleteSupplierGroup(item.id);
+  }
 }
