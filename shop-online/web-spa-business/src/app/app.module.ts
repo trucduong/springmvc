@@ -13,6 +13,7 @@ import { CustomerModule } from './customer/index';
 import { SupplierModule } from './supplier/index';
 import { ProductModule } from './product/index';
 import { WarehouseModule } from './warehouse/index';
+import { BranchModule } from './branch/index';
 
 
 
@@ -29,7 +30,9 @@ import { WarehouseModule } from './warehouse/index';
     CustomerModule,
     SupplierModule,
     ProductModule,
-    WarehouseModule
+    WarehouseModule,
+    BranchModule,
+    
   ],
   declarations: [ AppComponent ],
   bootstrap: [ AppComponent ]

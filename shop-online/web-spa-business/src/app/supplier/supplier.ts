@@ -44,7 +44,7 @@ export class SupplierCmp extends ListController<Supplier> implements OnInit  {
   }
 
   getDefaultFilter(): FilterInfo {
-    return new FilterInfo(['name', 'note']);
+    return new FilterInfo(['name', 'note','supplierGroup','phone','email']);
   }
 
   load(): Supplier[] {

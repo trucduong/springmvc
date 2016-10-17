@@ -8,7 +8,8 @@ const appRoutes: Routes = [
   { path: 'customer', loadChildren: 'app/customer/customer.module#CustomerModule' },
   { path: 'supplier', loadChildren: 'app/supplier/supplier.module#SupplierModule' },
   { path: 'product', loadChildren: 'app/product/product.module#ProductModule' },
-  { path: 'warehouse', loadChildren: 'app/warehouse/warehouse.module#WarehouseModule' }
+  { path: 'warehouse', loadChildren: 'app/warehouse/warehouse.module#WarehouseModule' },
+  { path: 'branch', loadChildren: 'app/branch/branch.module#BranchModule' }
 ];
 
 export const appRouting: ModuleWithProviders = RouterModule.forRoot(appRoutes);

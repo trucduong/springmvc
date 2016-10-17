@@ -1,0 +1,47 @@
+<wrapper [info]="pageInfo">
+    <!-- page header -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">{{ 'permission.list.title' | translate}}</h1>
+        </div>
+    </div>
+
+
+    <!-- page content -->
+     <div class="panel-body">
+        <div class="row">
+            <div class="form-group col-lg-12">
+                <div class="col-lg-2">Chi nhánh</div>
+                <input class="col-lg-3" required [(ngModel)]="model.branch" name="branch" >
+            </div>
+            <div class="form-group col-lg-12">
+                <div class="col-lg-2">Tên nhân viên</div>
+                <input class="col-lg-3" required [(ngModel)]="model.name" name="name" >
+            </div>
+            <div class="form-group col-lg-12">
+                <div class="col-lg-2">Tên đăng nhập</div>
+                <input class="col-lg-3" required [(ngModel)]="model.loginName" name="loginName" >
+            </div>
+        </div>
+     </div>
+     <div class="panel-body">
+        <div class="form-group">
+            <div class="col-lg-4">Quyền</div>
+            <input class="col-lg-3" required [(ngModel)]="model.nameGroup" name="nameGroup" >
+        </div>
+        <div class="col-lg-6" *ngFor="let item of accounts">
+            <div class="form-group">
+                <input class="col-lg-1" type="checkbox"/>
+                <div class="col-lg-11">Quyền </div>     
+            </div>
+        </div>
+     </div>
+    <div class="row">
+        <button>Save</button>
+        <button>Resert</button>
+    </div>
+                
+    <div class="row">
+        <a class="btn btn-default" (click)="onBack()"><i class="glyphicon glyphicon-arrow-left"></i></a>
+    </div>
+</wrapper>

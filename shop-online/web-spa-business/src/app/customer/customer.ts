@@ -41,7 +41,7 @@ export class CustomerCmp extends ListController<Customer> implements OnInit  {
   }
 
   getDefaultFilter(): FilterInfo {
-    return new FilterInfo(['name', 'note']);
+    return new FilterInfo(['name', 'note','phone','customerGroup']);
   }
 
   load(): Customer[] {

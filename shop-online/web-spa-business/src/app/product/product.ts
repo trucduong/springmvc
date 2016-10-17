@@ -45,7 +45,7 @@ export class ProductCmp extends ListController<Product> implements OnInit  {
   }
 
   getDefaultFilter(): FilterInfo {
-    return new FilterInfo(['name', 'note']);
+    return new FilterInfo(['id','name', 'productGroup','note']);
   }
 
   load(): Product[] {

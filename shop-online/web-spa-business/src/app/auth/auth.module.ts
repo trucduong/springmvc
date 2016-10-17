@@ -8,13 +8,19 @@ import { LoginCmp } from './login/login';
 import { routing } from './auth.routing';
 import { AuthService } from './shared/index';
 
+import { AccountCmp } from './account/account';
+import { PermissionCmp } from './permission/permission';
+
+
 @NgModule({
   imports: [
     SharedModule,
     routing
   ],
   declarations: [
-    LoginCmp
+    LoginCmp,
+    AccountCmp,
+    PermissionCmp
   ],
   providers: [
       AuthService
