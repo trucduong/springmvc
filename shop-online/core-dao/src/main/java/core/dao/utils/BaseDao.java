@@ -24,7 +24,7 @@ public class BaseDao<E extends BaseEntity> implements Serializable {
 	private Class<E> persistentClass;
 
 	@Transactional
-	public void delete(int id) {
+	public void delete(long id) {
 		E entity = find(id);
 		remove(entity);
 		getEm().flush();
@@ -75,11 +75,11 @@ public class BaseDao<E extends BaseEntity> implements Serializable {
 		getEm().flush();
 	}
 
-	public E find(int id) {
+	public E find(long id) {
 		return find(id, false);
 	}
 
-	public E find(Object id, boolean refresh) {
+	public E find(long id, boolean refresh) {
 		E persistent = getEm().find(getPersistentClass(), id);
 		if (persistent == null) {
 			return null;

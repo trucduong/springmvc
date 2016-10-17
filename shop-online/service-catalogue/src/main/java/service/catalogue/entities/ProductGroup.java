@@ -9,64 +9,27 @@ import core.dao.entities.BaseEntity;
 @Entity
 @Table(name="product_groups")
 public class ProductGroup extends BaseEntity {
-	private static final long serialVersionUID = 225993716844123067L;
+	private static final long serialVersionUID = -3065264917043198173L;
 
-//	@Column(name = "id", columnDefinition = INT)
-//	private Integer id;
-
-	@Column(name = "name", columnDefinition = SHORT_5)
+	@Column(name = "name", columnDefinition = MEDIUM_1)
 	private String name;
-
-	@Column(name = "code", columnDefinition = SHORT_5)
-	private String code;
-
-	@Column(name = "status", columnDefinition = MEDIUM_1)
-	private String status;
-//
-//	@Override
-//	public Object getColIdValue() {
-//		return id;
-//	}
-//
-//	@Override
-//	public String getColIdName() {
-//		return "id";
-//	}
-//	
-//	@Override
-//	public Object convertToId(String value) {
-//		return Integer.valueOf(value);
-//	}
-
-//	public Integer getId() {
-//		return id;
-//	}
-//
-//	public void setId(Integer id) {
-//		this.id = id;
-//	}
-
+	
+	@Column(name = "description", columnDefinition = MEDIUM_5)
+	private String description;
+	
 	public String getName() {
 		return name;
 	}
-
+	
 	public void setName(String name) {
 		this.name = name;
 	}
-
-	public String getCode() {
-		return code;
+	
+	public String getDescription() {
+		return description;
 	}
-
-	public void setCode(String code) {
-		this.code = code;
-	}
-
-	public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
+	
+	public void setDescription(String description) {
+		this.description = description;
 	}
 }

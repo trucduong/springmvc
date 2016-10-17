@@ -1,21 +1,14 @@
 import {Injectable} from '@angular/core';
+import { DialogInfo } from './dialog.info';
+
 
 @Injectable()
 export class DialogService {
-  public dialogHeader:string;
-  public dialogMessage:string;
-  public dialogConfirmation: () => void;
-  public dialogRejection: () => void;
+  show(dialog: DialogInfo) {
+    dialog.isShow = true;
+  }
 
-  confirm(titlebar: string, message: string) {
-    this.dialogHeader = titlebar;
-    this.dialogMessage = message;
-
-    return new Promise<boolean>((resolve, reject) =>{
-      this.dialogConfirmation = () => resolve(true);
-      this.dialogRejection = () => resolve(false);
-
-       //$('#confirm-dialog').openModal();
-    });
-  };
+  hide(dialog: DialogInfo) {
+    dialog.isShow = false;
+  }
 }

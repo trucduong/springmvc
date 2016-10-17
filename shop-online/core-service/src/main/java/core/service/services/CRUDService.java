@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import core.common.exception.CommonException;
 import core.dao.entities.BaseEntity;
 import core.dao.utils.BaseDao;
+import core.dao.utils.DaoUtils;
 import core.service.utils.CRUDServiceAction;
 import core.service.utils.ServiceErrorCode;
 import core.service.utils.ServiceResult;
@@ -57,6 +58,7 @@ public abstract class CRUDService<E extends BaseEntity> extends BaseService {
 	@RequestMapping(value = CRUDServiceAction.CREATE, method = RequestMethod.POST)
 	public ServiceResult create(@RequestBody E entity) throws CommonException {
 		init(ServiceErrorCode.CREATE_ERROR);
+		entity.setId(DaoUtils.createId());
 		getDao().create(entity);
 		return success(entity);
 	}

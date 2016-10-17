@@ -5,7 +5,7 @@ export const SIDEBARS: SidebarItem[] = [
   {href: '/blank', name:'Tong Quan', isActive: true, icon: 'fa fa-dashboard fa-fw', childs: null},
   {href: '/blank', name:'Ban Hang', isActive: false, icon: 'fa fa-dashboard fa-fw', childs: null},
   {href: '/blank', name:'Kho Hang', isActive: false, icon: 'fa fa-dashboard fa-fw', childs: [
-      {href: '/blank', name:'Nhap mua', isActive: false, icon: null, childs: null},
+      {href: '/warehouse-import', name:'Nhap mua', isActive: false, icon: null, childs: null},
       {href: '/blank', name:'Nhap tra hang', isActive: false, icon: null, childs: null},
       {href: '/blank', name:'Xuat tra hang', isActive: false, icon: null, childs: null},
       {href: '/blank', name:'Dieu chuyen', isActive: false, icon: null, childs: null},

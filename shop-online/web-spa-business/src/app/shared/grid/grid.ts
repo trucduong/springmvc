@@ -20,6 +20,7 @@ export class GridCmp<T> implements OnChanges {
     //@Output('onEdit') onEdit = new EventEmitter<T>();
     //@Output('onDelete') onDelete = new EventEmitter<T>();
 
+    selectedItem: T;
     items: T[];
     activeItems: T[];
     sortInfo: SortInfo;
@@ -125,6 +126,10 @@ export class GridCmp<T> implements OnChanges {
     }
 
     execute(action: string, item: T) {
+        if (action == 'select') {
+            this.selectedItem = item;
+        }
+
         this.onExecute.emit({action: action, data: item});
     }
 

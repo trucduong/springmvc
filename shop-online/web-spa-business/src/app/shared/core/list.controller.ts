@@ -40,7 +40,7 @@ export abstract class ListController<T> extends BaseController {
     }
     
     getDefaultFilter(): FilterInfo {
-        return null;
+        return new FilterInfo([]);
     }
 
 
@@ -69,6 +69,9 @@ export abstract class ListController<T> extends BaseController {
         } else if (param.action == 'delete') {
             this.onDelete(param.data);
             
+        } else if (param.action == 'select') {
+            this.onSelect(param.data);
+
         } else {
             this.execute(param);
         }
@@ -102,6 +105,10 @@ export abstract class ListController<T> extends BaseController {
         } else {
             this.alert(AlertType.danger, 'Delete failure!');
         }
+    }
+
+    onSelect(item: T) {
+        //alert('select: ' + item[this.idColumnName]);
     }
 
     execute(param: any) { }
