@@ -5,10 +5,10 @@ export const SIDEBARS: SidebarItem[] = [
   {href: '/blank', name:'Tong Quan', isActive: true, icon: 'fa fa-dashboard fa-fw', childs: null},
   {href: '/blank', name:'Ban Hang', isActive: false, icon: 'fa fa-dashboard fa-fw', childs: null},
   {href: '/blank', name:'Kho Hang', isActive: false, icon: 'fa fa-dashboard fa-fw', childs: [
-      {href: '/warehouse-import', name:'Nhap mua', isActive: false, icon: null, childs: null},
-      {href: '/blank', name:'Nhap tra hang', isActive: false, icon: null, childs: null},
-      {href: '/blank', name:'Xuat tra hang', isActive: false, icon: null, childs: null},
-      {href: '/blank', name:'Dieu chuyen', isActive: false, icon: null, childs: null},
+      {href: '/warehouse-input', name:'Nhap mua', isActive: false, icon: null, childs: null},
+      {href: '/warehouse-returning-from-customer', name:'Nhap tra hang', isActive: false, icon: null, childs: null},
+      {href: '/warehouse-returning-to-supplier', name:'Xuat tra hang', isActive: false, icon: null, childs: null},
+      {href: '/warehouse-transferring', name:'Dieu chuyen', isActive: false, icon: null, childs: null},
       {href: '/blank', name:'Kiem ke', isActive: false, icon: null, childs: null}
   ]},
   {href: '/blank', name:'Tien', isActive: false, icon: 'fa fa-dashboard fa-fw', childs: [

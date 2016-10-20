@@ -4,7 +4,7 @@ import { Account } from '../models/account'
 import {ACCOUNTS} from './auth.data';
 
 import { Permission } from '../models/permission'
-import {PERMISSION_LIST} from './auth.data';
+import {PERMISSION_LIST, PERMISSION_GROUPS} from './auth.data';
 
 @Injectable()
 export class AuthService {
@@ -85,6 +85,15 @@ export class AuthService {
         });
 
         return list;
+    }
+
+
+    getPermissionNew() {
+        return PERMISSION_LIST;
+    }
+
+    getPermissionGroupNew() {
+        return PERMISSION_GROUPS;
     }
 
     getPermissionsByName(name: string): any {

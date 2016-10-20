@@ -5,7 +5,9 @@ import {PermissionGroup} from '../models/permissionGroup';
 
 export const PERMISSION_LIST :Permission[] =[
     {id:'1',name:'khoa tk', note:'1'},
-    {id:'2',name:'xem kho', note:'2'}
+    {id:'2',name:'xem kho', note:'2'},
+    {id:'3',name:'doanh so', note:'3'},
+    {id:'4',name:'hang ton', note:'4'}
  
 ]
 

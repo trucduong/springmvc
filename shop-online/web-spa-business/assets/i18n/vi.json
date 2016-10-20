@@ -87,5 +87,28 @@
 "warehouse.list.name":"Tên kho",
 "warehouse.list.use":"Đang sử dụng",
 "warehouse.list.branch":"Chi nhánh",
-"warehouse.detail.title":"Chi tiết kho hàng"
+"warehouse.detail.title":"Chi tiết kho hàng",
+
+
+"branch.title.branch":"Cửa hàng",
+"branch.list.id":"Mã cửa hàng",
+"branch.list.name":"Tên cửa hàng",
+"branch.detail.title":"Chi tiết cửa hàng",
+
+"account.list.title":"Tài khoản",
+"account.list.id":"Mã tài khoản",
+"account.list.branch":"Chi nhánh",
+"account.list.name":"Tên tài khoản",
+"account.list.loginName":"Tên đăng nhập",
+"permission.list.permission":"Loại tài khoản",
+
+"warehouseInput.list.id":"Mã sản phẩm",
+"warehouseInput.list.name":"Tên sản phẩm",
+"warehouseInput.list.unit":"Đơn vị tính",
+"warehouseInput.list.quantity":"Số lượng",
+"warehouseInput.list.input_price":"Giá nhập",
+"warehouseInput.list.retail_price":"Giá lẻ",
+"warehouseInput.list.total":"Thành tiền",
+"warehouse.title.warehouseInput":"Nhập hàng",
+"warehouse.input.detail.title":"Chi tiết nhập hàng"
 }

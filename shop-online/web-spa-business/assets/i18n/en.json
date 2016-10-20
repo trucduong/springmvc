@@ -87,5 +87,28 @@
 "warehouse.list.name":"Name",
 "warehouse.list.use":"Use",
 "warehouse.list.branch":"Branch",
-"warehouse.detail.title":"Warehouse Detail"
+"warehouse.detail.title":"Warehouse Detail",
+
+
+"branch.title.branch":"Branch",
+"branch.list.id":"Id",
+"branch.list.name":"Name",
+"branch.detail.title":"Branch Detail",
+
+"account.list.title":"Account",
+"account.list.id":"Id",
+"account.list.branch":"Branch",
+"account.list.name":"Name",
+"account.list.loginName":"Login Name",
+"permission.list.permission":"Pemission Group",
+
+"warehouseInput.list.id":"Id",
+"warehouseInput.list.name":"Name",
+"warehouseInput.list.unit":"Unit",
+"warehouseInput.list.quantity":"Quantity",
+"warehouseInput.list.input_price":"Input Price",
+"warehouseInput.list.retail_price":"Retail price",
+"warehouseInput.list.total":"Total",
+"warehouse.title.warehouseInput":"Warehouse Input",
+"warehouse.input.detail.title":"Detail Warehouse Input"
 }

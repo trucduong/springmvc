@@ -5,7 +5,7 @@ import {TranslateService} from 'ng2-translate/ng2-translate';
 
 import { ListController, GridHeader, SortInfo, FilterInfo, BaseController } from '../../shared/index';
 import { Permission, Account, PermissionGroup } from '../shared/index';
-import {ACCOUNTS, PERMISSION_GROUPS} from '../shared/index';
+import {ACCOUNTS, PERMISSION_GROUPS, PERMISSION_LIST} from '../shared/index';
 
 import { AuthService} from '../shared/index';
 
@@ -26,13 +26,15 @@ export class PermissionCmp  extends BaseController implements OnInit {
     constructor(    
                 private route: ActivatedRoute, 
                 router: Router, 
-                translate: TranslateService
+                translate: TranslateService,
+                private authService: AuthService
                 ) {
         super(router, translate);
     }
 
       model: Account;
-
+      permissionNews: Permission[];
+      permissionGroupNew: PermissionGroup[]
    
    getCurrentUrl(): string {
     return '/account-grant';
@@ -46,11 +48,13 @@ export class PermissionCmp  extends BaseController implements OnInit {
             if (id) {
                 this.model = this.load(id);
             }
+        
+
         });
-
-        this.hideLoading();
-
-
+       
+        this.permissionNews = this.authService.getPermissionNew();
+        this.permissionGroupNew = this.authService.getPermissionGroupNew();
+        this.hideLoading();        
     }
 
 
@@ -64,6 +68,7 @@ export class PermissionCmp  extends BaseController implements OnInit {
         });
         return account;
     }
+
 
 
 }

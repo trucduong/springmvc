@@ -7,7 +7,10 @@ import { routing } from './warehouse.routing';
 
 import { WarehouseCmp } from './warehouse';
 import { WarehouseDetailCmp } from './detail/detail';
-import { WarehouseImportCmp } from './import/import';
+import { WarehouseInputCmp } from './input/input';
+import { ReturningFromCustomerCmp } from './returning-from-customer/returning-from-customer';
+import { ReturningToSupplierCmp } from './returning-to-supplier/returning-to-supplier';
+import { TransferringCmp } from './transferring/transferring';
 
 
 import {WarehouseService} from './shared/index';
@@ -20,7 +23,10 @@ import {WarehouseService} from './shared/index';
   declarations: [
     WarehouseCmp,
     WarehouseDetailCmp,
-    WarehouseImportCmp
+    WarehouseInputCmp,
+    ReturningFromCustomerCmp, 
+    ReturningToSupplierCmp, 
+    TransferringCmp
   ],
   providers: [
       WarehouseService

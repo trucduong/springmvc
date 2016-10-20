@@ -11,28 +11,33 @@
      <div class="panel-body">
         <div class="row">
             <div class="form-group col-lg-12">
-                <div class="col-lg-2">Chi nhánh</div>
+                <div class="col-lg-2">{{ 'account.list.branch' | translate}}</div>
                 <input class="col-lg-3" required [(ngModel)]="model.branch" name="branch" >
             </div>
             <div class="form-group col-lg-12">
-                <div class="col-lg-2">Tên nhân viên</div>
+                <div class="col-lg-2">{{ 'account.list.name' | translate}}</div>
                 <input class="col-lg-3" required [(ngModel)]="model.name" name="name" >
             </div>
             <div class="form-group col-lg-12">
-                <div class="col-lg-2">Tên đăng nhập</div>
+                <div class="col-lg-2">{{ 'account.list.loginName' | translate}}</div>
                 <input class="col-lg-3" required [(ngModel)]="model.loginName" name="loginName" >
             </div>
         </div>
+         <hr>
      </div>
+    
      <div class="panel-body">
-        <div class="form-group">
-            <div class="col-lg-4">Quyền</div>
-            <input class="col-lg-3" required [(ngModel)]="model.nameGroup" name="nameGroup" >
+        <div class="form-group col-lg-12">
+            <div class="col-lg-4">permission.list.permission</div>
+            <select class="col-lg-4" >
+                <option *ngFor="let item of permissionGroupNew">{{item.nameGroup}}</option>
+            </select>
         </div>
-        <div class="col-lg-6" *ngFor="let item of accounts">
+        <hr>
+        <div class="col-lg-6" *ngFor="let item of permissionNews">
             <div class="form-group">
                 <input class="col-lg-1" type="checkbox"/>
-                <div class="col-lg-11">Quyền </div>     
+                <div class="col-lg-11">{{item.name}} </div>     
             </div>
         </div>
      </div>

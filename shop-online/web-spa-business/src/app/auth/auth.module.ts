@@ -9,6 +9,7 @@ import { routing } from './auth.routing';
 import { AuthService } from './shared/index';
 
 import { AccountCmp } from './account/account';
+import { AccountDetailCmp } from './account/detail/detail';
 import { PermissionCmp } from './permission/permission';
 
 
@@ -20,6 +21,7 @@ import { PermissionCmp } from './permission/permission';
   declarations: [
     LoginCmp,
     AccountCmp,
+    AccountDetailCmp,
     PermissionCmp
   ],
   providers: [
