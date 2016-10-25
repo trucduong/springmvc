@@ -9,21 +9,21 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="form-group">
-                    <div class="col-lg-4">Kho nhập</div>
+                    <div class="col-lg-4">{{ 'warehouse.input.name' | translate}}</div>
                     <input type="text">
                 </div>
                 <div class="form-group">
-                    <div class="col-lg-4">Nhà cung cấp</div>
+                    <div class="col-lg-4">{{ 'warehouse.input.supplier' | translate}}</div>
                     <input type="text">
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="form-group">
-                    <div class="col-lg-4">Số phiếu</div>
+                    <div class="col-lg-4">{{ 'common.list.id' | translate}}</div>
                     <input type="text">
                 </div>
                 <div class="form-group">
-                    <div class="col-lg-4">Ngày lập phiếu</div>
+                    <div class="col-lg-4">{{ 'common.list.date' | translate}}</div>
                     <input type="text">
                 </div>
             </div> 
@@ -33,7 +33,7 @@
         <grid-cmp [info]="gridInfo" [data-source]="dataSource" (onExecute)="onExecute($event)">
             <grid-action-cmp>
                 <button (click)="onAdd()" type="button" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i></button>
-                <button>Nhập từ Excel</button>
+                <button>{{ 'common.list.importFromExcel' | translate}}</button>
             </grid-action-cmp>
         </grid-cmp>
     </div>
@@ -43,58 +43,58 @@
 
     <!-- dialog -->
     <dialog-cmp [info]="dialogInfo">
-        <dialog-header-cmp [info]="dialogInfo" (onClose)="onDialogClose()">Nhap kho</dialog-header-cmp>
+        <dialog-header-cmp [info]="dialogInfo" (onClose)="onDialogClose()">{{ 'warehouse.title.warehouseInput' | translate}}</dialog-header-cmp>
         <dialog-body-cmp [info]="dialogInfo">
             <div class="row">
                 <div class="col-md-6 form-group">
-                    <label>So phieu</label>
+                    <label>{{ 'common.list.id' | translate}}</label>
                     <input class="form-control">
                 </div>
                 <div class="col-md-6 form-group">
-                    <label>Ngay lap phieu</label>
+                    <label>{{ 'common.list.date' | translate}}</label>
                     <input class="form-control">
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6 form-group">
-                    <label>Kho hang</label>
+                    <label>{{ 'warehouse.input.name' | translate}}</label>
                     <input class="form-control">
                 </div>
                 <div class="col-md-6 form-group">
-                    <label>Nha cung cap</label>
+                    <label>{{ 'warehouse.input.supplier' | translate}}</label>
                     <input class="form-control">
                 </div>
             </div>
             <hr>
             <div class="row">
                 <div class="col-md-4 form-group">
-                    <label>Ma hang</label>
+                    <label>Ma hang{{ 'common.list.importFromExcel' | translate}}</label>
                     <input class="form-control">
                 </div>
                 <div class="col-md-8 form-group">
-                    <label>Ten hang</label>
+                    <label>Ten hang{{ 'common.list.importFromExcel' | translate}}</label>
                     <input class="form-control">
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-3 form-group">
-                    <label>So luong</label>
+                    <label>So luong{{ 'common.list.importFromExcel' | translate}}</label>
                     <input class="form-control">
                 </div>
                 <div class="col-md-3 form-group">
-                    <label>Gia nhap</label>
+                    <label>Gia nhap{{ 'common.list.importFromExcel' | translate}}</label>
                     <input class="form-control">
                 </div>
                 <div class="col-md-3 form-group">
-                    <label>Gia ban</label>
+                    <label>Gia ban{{ 'common.list.importFromExcel' | translate}}</label>
                     <input class="form-control">
                 </div>
                 <div class="col-md-3 form-group">
-                    <label>Thanh tien</label>
+                    <label>Thanh tien{{ 'common.list.importFromExcel' | translate}}</label>
                     <input class="form-control" disabled>
                 </div>
                 <div class="col-md-12 form-group">
-                    <label>Ghi chu</label>
+                    <label>Ghi chu{{ 'common.list.importFromExcel' | translate}}</label>
                     <textarea class="form-control" rows="2"></textarea>
                 </div>
             </div>
