@@ -26,8 +26,8 @@
 "common.list.importFromExcel":"Nhập từ excel",
 "common.list.exportToExcel":"Xuất ra excel",
 "common.list.unit":"Đơn vị tính",
-
-
+"common.list.id":"Số phiếu",
+"common.list.date":"Ngày lập phiếu",
 
 "customer.group.title":"Danh sách nhóm khách hàng",
 "customer.group.list.id":"Mã số",
@@ -110,5 +110,8 @@
 "warehouseInput.list.retail_price":"Giá lẻ",
 "warehouseInput.list.total":"Thành tiền",
 "warehouse.title.warehouseInput":"Nhập hàng",
-"warehouse.input.detail.title":"Chi tiết nhập hàng"
+"warehouse.input.detail.title":"Chi tiết nhập hàng",
+
+"warehouse.input.name":"Kho nhập",
+"warehouse.input.supplier":"Nhà cung cấp"
 }

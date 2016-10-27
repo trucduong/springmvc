@@ -1,0 +1,13 @@
+<div class="autocomplete">
+    <div class="row">
+        <input type="search" [(ngModel)]="searchText" (keyup)="onKey()" class="form-control input-sm" placeholder="{{info.tittle}}">
+    </div>
+    <div class="row listdata">
+        <ul>
+            <li *ngFor="let item of dataSources">
+               <div  class="col-lg-11">{{item}}</div>
+               <div class="col-lg-1 special">&rsaquo;</div>
+            </li>
+        </ul>
+    </div>
+</div>

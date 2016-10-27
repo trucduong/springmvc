@@ -3,7 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import {TranslateService} from 'ng2-translate/ng2-translate';
 
-import { ListController, GridHeader, SortInfo, FilterInfo, DialogInfo, DialogService } from '../../shared/index';
+import { ListController, GridHeader, SortInfo, FilterInfo, DialogInfo, DialogService, AutoCompleteInfo } from '../../shared/index';
 import { WarehouseInput, WarehouseService } from '../shared/index';
 
 const headers: GridHeader[] = [
@@ -20,7 +20,8 @@ const headers: GridHeader[] = [
 
 @Component({
   selector: 'warehouse-input',
-  templateUrl: 'src/app/warehouse/input/input.html'
+  templateUrl: 'src/app/warehouse/input/input.html',
+   styleUrls: ['src/app/warehouse/input/input.css']
 })
 
 export class WarehouseInputCmp extends ListController<WarehouseInput> implements OnInit {
@@ -28,7 +29,8 @@ export class WarehouseInputCmp extends ListController<WarehouseInput> implements
   private dialogInfo: DialogInfo;
   // TODO: 
   private item: WarehouseInput;
-
+  private autoComplete: AutoCompleteInfo;
+  private acData: string[];
 
   constructor(
     route: ActivatedRoute,
@@ -39,6 +41,9 @@ export class WarehouseInputCmp extends ListController<WarehouseInput> implements
 
     super(route, translate, router);
     this.dialogInfo = new DialogInfo();
+
+    this.acData = [];
+    this.autoComplete = new AutoCompleteInfo('Nhap theo ma hoac ten san pham');
   }
 
 
@@ -90,4 +95,27 @@ export class WarehouseInputCmp extends ListController<WarehouseInput> implements
     this.dialogService.hide(this.dialogInfo);
     this.onLoad();
   }
+
+  onSearch(searchText: string){
+    this.acData.push('1|ahah|huhu');
+    this.acData.push('2|ahah|huhu');
+    this.acData.push('3|ahah|huhu');
+    this.acData.push('4|ahah|huhu');
+    this.acData.push('5|ahah|huhu');
+    this.acData.push('6|ahah|huhu');
+    this.acData.push('7|ahah|huhu');
+    this.acData.push('8|ahah|huhu');
+    this.acData.push('9|ahah|huhu');
+    this.acData.push('10|ahah|huhu');
+    this.acData.push('11|ahah|huhu');
+    this.acData.push('12|ahah|huhu');
+    this.acData.push('13|ahah|huhu');
+    this.acData.push('14|ahah|huhu');
+    this.acData.push('15|ahah|huhu');
+    this.acData.push('16|ahah|huhu');
+
+    
+  }
+
+  
 }

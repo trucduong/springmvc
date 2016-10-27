@@ -12,6 +12,7 @@ import { TransferringCmp } from './transferring/transferring';
 
 
 
+
 export const routing: ModuleWithProviders = RouterModule.forChild([
   { path: 'warehouse', component: WarehouseCmp },
   {path: 'warehouse-detail/:id', component: WarehouseDetailCmp },

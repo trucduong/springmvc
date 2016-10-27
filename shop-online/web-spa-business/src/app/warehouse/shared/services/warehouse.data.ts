@@ -3,6 +3,7 @@ import {WarehouseInput} from '../models/warehouse.input';
 import {ReturningFromCustomer} from '../models/warehouse.returning-from-customer';
 import {ReturningToSupplier} from '../models/warehouse.returning-to-supplier';
 import {Transferring} from '../models/warehouse.transferring';
+import {Inventory} from '../models/warehouse.inventory';
 
 export const WAREHOUSES: Warehouse[] = [
     {id: '1', name: 'cty tnhh hoang',address: '123 LTK',phone: 'mr hoang',status: '0989',use: 'si',branch:'89998990',note: 'tot'},
@@ -36,6 +37,17 @@ export const TRANSFERRINGS: Transferring[] = [
 export const RETURNINGTOSUPPLIERS: ReturningToSupplier[] = [
     {id: '1',name: 'giay',unit:'chiec', quantity_inventories: '20',quantity_to_return : '5',input_price: '2000',total: '10000',note:'10000'},
     {id: '2',name: 'ao',unit:'chiec', quantity_inventories: '20',quantity_to_return : '5',input_price: '2000',total: '0',note: '10000'}
+]
+
+export const INVENTORYS:Inventory[] = [
+    {id: '1',name: 'giay', unit: 'chiec',input_price: '30000', inventory_quantity: '10',real_quantity: '5', disparity: '-5',note: 'mat trom'},
+    {id: '1',name: 'giay', unit: 'chiec',input_price: '30000', inventory_quantity: '10',real_quantity: '5', disparity: '-5',note: 'mat trom'},
+    {id: '1',name: 'giay', unit: 'chiec',input_price: '30000', inventory_quantity: '10',real_quantity: '5', disparity: '-5',note: 'mat trom'},
+    {id: '1',name: 'giay', unit: 'chiec',input_price: '30000', inventory_quantity: '10',real_quantity: '5', disparity: '-5',note: 'mat trom'},
+    {id: '1',name: 'giay', unit: 'chiec',input_price: '30000', inventory_quantity: '10',real_quantity: '5', disparity: '-5',note: 'mat trom'},
+    {id: '1',name: 'giay', unit: 'chiec',input_price: '30000', inventory_quantity: '10',real_quantity: '5', disparity: '-5',note: 'mat trom'},
+    {id: '1',name: 'giay', unit: 'chiec',input_price: '30000', inventory_quantity: '10',real_quantity: '5', disparity: '-5',note: 'mat trom'},
+ 
 ]
 
 

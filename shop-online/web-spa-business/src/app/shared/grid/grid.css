@@ -1,3 +1,21 @@
+.panel {
+    border: 1px solid  #2C7E95;
+}
+
+.panel-heading {
+    border-bottom: 1px solid  #2C7E95;
+}
+
+.table thead {
+        background-color: #2C7E95;
+        color: white;
+        text-align: center;      
+}
+
+.table thead tr th:hover{
+    background-color: #00688B;
+}
+
 .sort-able {
     cursor: pointer;
     position: relative;

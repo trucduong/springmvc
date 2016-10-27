@@ -7,3 +7,4 @@ export * from './wrapper/wraper.info';
 export * from './dialog/dialog.info';
 export * from './dialog/dialog.service';
 export * from './shared.module';
+export * from './autocomplete/autocomplete.info';

@@ -5,3 +5,5 @@ export * from './models/warehouse.input';
 export * from './models/warehouse.returning-from-customer';
 export * from './models/warehouse.returning-to-supplier';
 export * from './models/warehouse.transferring';
+export * from './models/warehouse.inventory';
+

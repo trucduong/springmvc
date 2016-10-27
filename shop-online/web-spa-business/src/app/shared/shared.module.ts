@@ -13,6 +13,7 @@ import { LoadingCmp } from './loading/loading';
 import { GridCmp } from './grid/grid';
 import { GridActionCmp } from './grid/action/action';
 import { GridContentCmp } from './grid/content/content';
+import { AutoCompleteCmp } from './autocomplete/autocomplete';
 
 import { DialogCmp } from './dialog/dialog';
 import { DialogHeaderCmp } from './dialog/header/header';
@@ -38,7 +39,8 @@ import { DialogService } from './dialog/dialog.service';
     AlertCmp,
     LoadingCmp,
     GridCmp, GridActionCmp, GridContentCmp,
-    DialogCmp, DialogHeaderCmp, DialogBodyCmp, DialogFooterCmp
+    DialogCmp, DialogHeaderCmp, DialogBodyCmp, DialogFooterCmp,
+    AutoCompleteCmp
   ],
   exports: [ 
     CommonModule,
@@ -51,7 +53,9 @@ import { DialogService } from './dialog/dialog.service';
     AlertCmp,
     LoadingCmp,
     GridCmp, GridActionCmp, GridContentCmp,
-    DialogCmp, DialogHeaderCmp, DialogBodyCmp, DialogFooterCmp
+    DialogCmp, DialogHeaderCmp, DialogBodyCmp, DialogFooterCmp,
+    AutoCompleteCmp
+
   ],
   providers: [
       DialogService
