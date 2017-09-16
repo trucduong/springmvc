@@ -1,4 +1,6 @@
 {
+"slidebar.menu.sale":"Bán Hàng",
+
 "common.alertDanger.name":"Yêu cầu phải có tên",
 "common.alertDanger.maxLength100":"Tên không được dài quá 100 kí tự",
 "common.alertDanger.maxLength500":"Tên không được dài quá 500 kí tự",
